@@ -440,7 +440,7 @@ const app = {
     });
   },
 
-  // 5. Contact Form Submission Logic
+  // 5. Contact Form Submission Logic (Formspree API Integration)
   initContactForm() {
     const form = document.getElementById('contact-form');
     const successBox = document.getElementById('contact-success');
@@ -451,23 +451,47 @@ const app = {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      // Show submitting state
       const submitBtn = document.getElementById('btn-submit-form');
       const origText = submitBtn.innerHTML;
+      
+      // Check if Formspree action url is placeholder
+      if (form.action.includes('YOUR_FORMSPREE_KEY_HERE')) {
+        alert('이메일 실제 전송을 위해서는 HTML 코드 내의 [YOUR_FORMSPREE_KEY_HERE] 자리에 가입하신 Formspree 폼 KEY를 입력하셔야 합니다. 임시 데모 전송으로 접수를 완료합니다.');
+      }
+
+      // Show submitting state
       submitBtn.disabled = true;
       submitBtn.innerHTML = `<span>전송 중...</span> <div class="spinner" style="width:14px; height:14px; border-width:2px; border-top-color:#000;"></div>`;
 
-      // Simulate network latency (1.2 seconds)
-      setTimeout(() => {
-        // Reset button
+      const formData = new FormData(form);
+
+      // Perform fetch submit directly to Formspree endpoint
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
         submitBtn.disabled = false;
         submitBtn.innerHTML = origText;
 
-        // Show Success Box
-        successBox.classList.add('active');
-        form.style.opacity = '0';
-        form.style.pointerEvents = 'none';
-      }, 1200);
+        if (response.ok || form.action.includes('YOUR_FORMSPREE_KEY_HERE')) {
+          // Show Success Box
+          successBox.classList.add('active');
+          form.style.opacity = '0';
+          form.style.pointerEvents = 'none';
+        } else {
+          throw new Error('Formspree dispatch error');
+        }
+      })
+      .catch(error => {
+        console.error(error);
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = origText;
+        alert('문의 사항 발송 중 에러가 발생했습니다. 네트워크 연결 상태를 확인 후 다시 시도해 주세요.');
+      });
     });
 
     if (closeBtn) {

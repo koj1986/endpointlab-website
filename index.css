@@ -1653,4 +1653,31 @@ body {
   .contact-form-wrapper {
     padding: 2rem;
   }
+
+  /* SVG Pipeline Mobile Optimization */
+  .pipeline-visual-container {
+    padding: 2.5rem 1rem;
+  }
+  .pipeline-svg-wrapper {
+    padding: 1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .pipeline-svg {
+    min-width: 750px; /* 확보된 최소 너비로 텍스트와 원 크기를 유지하여 안 찌그러지게 보장 */
+    height: auto;
+  }
+
+  /* Category Card Mobile Anti-squeeze */
+  .service-category-card, .about-text-card {
+    padding: 2.2rem 1.4rem;
+  }
+  .category-header {
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .nested-list {
+    margin-left: 0.5rem;
+    padding-left: 0.75rem;
+  }
 }
