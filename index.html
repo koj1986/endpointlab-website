@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>endpointlab | 고성능 웹 최적화 및 기술 지침 솔루션</title>
+  <meta name="description" content="0.1초의 물리적 한계를 극복하는 웹 성능 최적화 전문 파트너 endpointlab. Core Web Vitals 개선, 프론트엔드 아키텍처 튜닝, 기술 가이드라인 제공.">
+  <meta name="keywords" content="endpointlab, 성능최적화, 웹 성능, Core Web Vitals, LCP, INP, CLS, 프론트엔드 튜닝, 컨설팅">
+  <meta name="author" content="endpointlab">
+  <link rel="canonical" href="https://endpointlab.io">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://endpointlab.io">
+  <meta property="og:title" content="endpointlab | 고성능 웹 최적화 전문">
+  <meta property="og:description" content="0.1초의 한계를 극복하는 성능 튜닝 솔루션. 웹 성능 최적화 가이드 제공 및 기술 컨설팅.">
+  <meta property="og:image" content="https://endpointlab.io/assets/og-image.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://endpointlab.io">
+  <meta property="twitter:title" content="endpointlab | 고성능 웹 최적화 전문">
+  <meta property="twitter:description" content="0.1초의 한계를 극복하는 성능 튜닝 솔루션. 웹 성능 최적화 가이드 제공 및 기술 컨설팅.">
+  <meta property="twitter:image" content="https://endpointlab.io/assets/og-image.png">
+
+  <!-- Fonts & Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Style Sheets -->
+  <link rel="stylesheet" href="index.css?v=1.0.2">
+
+  <!-- Markdown Parser (marked) and Syntax Highlighter (prism) -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js" defer></script>
+  
+  <!-- Main Script -->
+  <script src="app.js" defer></script>
+</head>
+<body>
+
+  <!-- Decorative Background Glows -->
+  <div class="bg-glow bg-glow-1" id="glow-1"></div>
+  <div class="bg-glow bg-glow-2" id="glow-2"></div>
+  <div class="bg-glow bg-glow-3" id="glow-3"></div>
+
+  <!-- Header Nav Section -->
+  <header class="header">
+    <div class="header-container">
+      <a href="#home" class="logo" id="logo-link">
+        endpoint<span>lab</span>
+      </a>
+      <nav class="nav">
+        <button class="nav-btn active" data-target="home">Home</button>
+        <button class="nav-btn" data-target="about">About</button>
+        <button class="nav-btn" data-target="services">Services</button>
+        <button class="nav-btn" data-target="contact">Contact</button>
+      </nav>
+      <div class="header-action">
+        <span class="domain-badge">endpointlab.io</span>
+        <button class="cta-btn-sm" onclick="app.navigateToTab('contact')">Get in Touch</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Multi-tab Container -->
+  <main class="main-content">
+    
+    <!-- 1. Home Section -->
+    <section id="home" class="tab-section active">
+      <!-- Hero Header -->
+      <div class="hero-section">
+        <h1 class="hero-title">
+          End-to-End <br>
+          <span class="gradient-text">Performance Assurance.</span>
+        </h1>
+        <p class="hero-subtitle">
+          빠른 응답 속도는 성능의 시작일 뿐입니다. <br>
+          endpointlab은 시스템의 절대적인 가용성, 신속한 장애 트러블슈팅, 그리고 지능형 모니터링 체계 구축까지 <br>
+          비즈니스의 안정적인 영속성을 보장하는 전방위 성능 가이드라인을 제공합니다.
+        </p>
+        <div class="hero-actions">
+          <button class="cta-btn" onclick="app.navigateToTab('services')">Explore Services</button>
+          <button class="secondary-btn" onclick="app.navigateToTab('about')">Our Mission</button>
+        </div>
+      </div>
+
+      <!-- End-to-End Performance Visual Pipeline (Brand Image) -->
+      <div class="pipeline-visual-container">
+        <div class="pipeline-visual-header text-center">
+          <span class="section-badge">PERFORMANCE FLOW</span>
+          <h2 class="section-title">종합 성능 보장 파이프라인</h2>
+          <p class="section-subtitle">사용자 요청부터 데이터베이스 응답까지 모든 레이어의 안정성을 모니터링하고 가속화합니다.</p>
+        </div>
+        
+        <div class="pipeline-svg-wrapper">
+          <svg viewBox="0 0 1000 220" class="pipeline-svg" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="glow-orange" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="6" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+            </defs>
+
+            <!-- Connecting Paths with Neon Glow -->
+            <path d="M 160 110 L 440 110" stroke="#ff8c00" stroke-width="3" stroke-dasharray="10 6" fill="none" class="pulse-path-1" />
+            <path d="M 560 110 L 840 110" stroke="#00f2fe" stroke-width="3" stroke-dasharray="10 6" fill="none" class="pulse-path-2" />
+
+            <!-- Pipeline Node 1: Client -->
+            <g class="pipeline-node" transform="translate(100, 110)">
+              <circle r="50" fill="#0d121e" stroke="#ff8c00" stroke-width="3" filter="url(#glow-orange)" />
+              <text y="-5" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">USER CLIENT</text>
+              <text y="15" text-anchor="middle" fill="#ff9f43" font-size="10" font-weight="600">Fast Response</text>
+            </g>
+
+            <!-- Pipeline Node 2: AP Server -->
+            <g class="pipeline-node" transform="translate(500, 110)">
+              <circle r="55" fill="#0d121e" stroke="#ff6a00" stroke-width="3" filter="url(#glow-orange)" />
+              <text y="-10" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">AP SERVER</text>
+              <text y="8" text-anchor="middle" fill="#ff6a00" font-size="10" font-weight="600">Troubleshoot</text>
+              <text y="22" text-anchor="middle" fill="#8f9cae" font-size="9">Monitoring</text>
+            </g>
+
+            <!-- Pipeline Node 3: DB -->
+            <g class="pipeline-node" transform="translate(900, 110)">
+              <circle r="50" fill="#0d121e" stroke="#00f2fe" stroke-width="3" />
+              <text y="-5" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">DATABASE</text>
+              <text y="15" text-anchor="middle" fill="#00f2fe" font-size="10" font-weight="600">Max Stability</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Corporate Vision Cards (4 Core Dimensions) -->
+      <div class="brand-vision-section">
+        <div class="brand-vision-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+          <!-- Card 1: Speed -->
+          <div class="vision-card">
+            <div class="vision-number">01</div>
+            <h3>Fast Response</h3>
+            <p>사용자 체감 반응 속도와 LCP 등 렌더링 파이프라인 가속을 통해 대기 없는 쾌적한 화면 경험을 튜닝합니다.</p>
+            <div class="vision-glow-bar" style="background:var(--gradient-orange);"></div>
+          </div>
+          <!-- Card 2: Stability -->
+          <div class="vision-card">
+            <div class="vision-number">02</div>
+            <h3>Absolute Stability</h3>
+            <p>트래픽 급증 및 부하 과포화 상태에서도 인프라 붕괴를 사전에 차단하고 서버 가동력을 최고 수준으로 유지합니다.</p>
+            <div class="vision-glow-bar" style="background:var(--gradient-neon);"></div>
+          </div>
+          <!-- Card 3: Troubleshooting -->
+          <div class="vision-card">
+            <div class="vision-number">03</div>
+            <h3>Active Troubleshooting</h3>
+            <p>운영 중 발생한 속도 저하, 메모리 리크, 데이터베이스 커넥션 락 등의 병목 오류를 프로파일링 데이터로 즉시 규명합니다.</p>
+            <div class="vision-glow-bar" style="background:var(--gradient-sunset);"></div>
+          </div>
+          <!-- Card 4: Monitoring -->
+          <div class="vision-card">
+            <div class="vision-number">04</div>
+            <h3>Operation Enablement</h3>
+            <p>와탭(WhaTap) 등 모니터링 도구(APM)를 연계 구축하여 관리자가 장애 징후를 조기에 감지하도록 돕습니다.</p>
+            <div class="vision-glow-bar" style="background:linear-gradient(135deg, #10b981 0%, #059669 100%);"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. About Section -->
+    <section id="about" class="tab-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-badge">ABOUT US</span>
+          <h2 class="section-title">최고 성능의 한계를 허무는 연구소</h2>
+          <p class="section-subtitle">endpointlab은 데이터에 기반하여 웹 서비스의 성능을 분석하고 극대화하는 정밀 엔지니어링 연구소입니다.</p>
+        </div>
+
+        <div class="about-company-grid">
+          <div class="about-text-card">
+            <h3>우리의 사명 (Our Mission)</h3>
+            <p>우리는 단순히 코드를 빠르게 만드는 것을 넘어, 사용자에게는 즐거운 브라우징 경험을, 기업에게는 전환율 향상과 인프라 가용 비용 절감이라는 명확한 비즈니스 임팩트를 선사합니다.</p>
+            <p>0.1초의 딜레이를 잡기 위해 네트워크 레이어부터 브라우저 렌더링 파이프라인, 데이터베이스 쿼리까지 아키텍처의 모든 접점을 정밀 진단하고 개선합니다.</p>
+          </div>
+
+          <div class="about-text-card">
+            <h3>우리의 핵심 가치 (Core Values)</h3>
+            <ul class="about-value-list">
+              <li>
+                <strong>정량적 검증 (Quantitative Data)</strong>
+                <p>직관이 아닌 객관적 지표와 프로파일링 도구를 통해 실측값 기반의 보고서로 증명합니다.</p>
+              </li>
+              <li>
+                <strong>엔드투엔드 최적화 (End-to-End Tuning)</strong>
+                <p>단편적인 프론트엔드 최적화에 머무르지 않고 서버 애플리케이션과 데이터베이스 레이어까지 유기적으로 다룹니다.</p>
+              </li>
+              <li>
+                <strong>지속 가능한 지침 전파 (Knowledge Sharing)</strong>
+                <p>일회성 성능 개선에 그치지 않고 개발팀 내재화를 위한 실질적 개발 가이드라인과 튜닝 방법론을 가이드합니다.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="vision-box">
+          <div class="vision-content">
+            <h4>우리의 철학</h4>
+            <p>"성능은 더 이상 기술적 선택이 아닌 기업의 핵심 자산입니다. 100ms의 로딩 단축은 사용자의 체류 시간 및 비즈니스 전환율의 폭발적인 상승으로 즉각 증명됩니다. endpointlab은 오직 정량적 데이터로만 성능을 고집합니다."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Services Section -->
+    <section id="services" class="tab-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-badge">OUR SERVICES</span>
+          <h2 class="section-title">비즈니스를 가속하는 라인업</h2>
+          <p class="section-subtitle">endpointlab의 검증된 인프라 솔루션 도입과 전문가 맞춤형 성능 개선 서비스를 통해 서비스 가용성을 완성하십시오.</p>
+        </div>
+
+        <div class="services-container">
+          <!-- 1. Solutions Category -->
+          <div class="service-category-card">
+            <div class="category-header">
+              <div class="category-icon orange-glow">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+              </div>
+              <div class="category-title-area">
+                <h3>성능 솔루션 제공 (Solutions)</h3>
+                <p>안정적인 인프라와 실시간 모니터링을 즉시 확보하는 검증된 엔지니어링 패키지</p>
+              </div>
+            </div>
+
+            <div class="category-list">
+              <div class="list-item">
+                <div class="item-title">
+                  <span class="badge-sol">A 솔루션</span>
+                  <h4>WhaTap Integration</h4>
+                </div>
+                <p>애플리케이션 및 인프라 전반의 실시간 모니터링(APM) 아키텍처를 도입하고 최적으로 튜닝합니다.</p>
+              </div>
+              
+              <div class="list-item">
+                <div class="item-title">
+                  <span class="badge-sol">B 솔루션</span>
+                  <h4>netfunnel Traffic Control</h4>
+                </div>
+                <p>대량의 실시간 동시 접속 유입이 발생하는 환경에서 서비스 중단 없이 질서 있게 트래픽을 분산/대기시키는 동적 유입 제어 장치를 도입합니다.</p>
+              </div>
+
+              <div class="list-item">
+                <div class="item-title">
+                  <span class="badge-sol">C 솔루션</span>
+                  <h4>SSL 인증서 자동화 솔루션</h4>
+                </div>
+                <p>인증서 만료로 인한 불필요한 서비스 중단을 방지하기 위해 SSL 인증서의 발급, 갱신 및 웹서버 반영을 완전 자동화합니다.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Services Category -->
+          <div class="service-category-card">
+            <div class="category-header">
+              <div class="category-icon blue-glow">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              </div>
+              <div class="category-title-area">
+                <h3>성능 개선 서비스 (Services)</h3>
+                <p>성능 최고 전문가들이 직접 정밀 분석하여 병목을 찾아내고 가용성을 튜닝하는 맞춤형 엔지니어링 서비스</p>
+              </div>
+            </div>
+
+            <div class="category-list">
+              <div class="list-item">
+                <div class="item-title">
+                  <span class="badge-srv">2-1</span>
+                  <h4>성능 테스트 (Performance Testing)</h4>
+                </div>
+                <p>체계적인 부하 부하 테스트 도구를 활용하여 시스템의 임계점과 응답 레이턴시 한계를 정확하게 규명합니다.</p>
+              </div>
+
+              <div class="list-item">
+                <div class="item-title">
+                  <span class="badge-srv">2-2</span>
+                  <h4>성능 진단 및 튜닝 (Diagnostics & Tuning)</h4>
+                </div>
+                <p>어플리케이션 및 데이터베이스 레이어의 실시간 병목을 심층 튜닝합니다.</p>
+                
+                <ul class="nested-list">
+                  <li>
+                    <span class="bullet-dot"></span>
+                    <div class="nested-content">
+                      <strong>2-2-1. AP 진단 (Application Diagnostics)</strong>
+                      <p>어플리케이션 스레드 병목 및 힙 메모리 리크 구간 분석</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="bullet-dot"></span>
+                    <div class="nested-content">
+                      <strong>2-2-2. DB 진단 (Database Diagnostics)</strong>
+                      <p>데이터베이스 커넥션 풀 가용성 및 디스크 I/O 병목 구간 정밀 진단</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="bullet-dot"></span>
+                    <div class="nested-content">
+                      <strong>2-2-3. DB 튜닝 (Database Tuning)</strong>
+                      <p>비효율적 실행 계획을 수정하기 위한 쿼리 재작성, 인덱스 아키텍처 재구조화 및 옵티마이저 튜닝</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Performance Simulator (Moved from Home) -->
+        <div class="simulator-wrapper" style="margin-top: 5rem;">
+          <div class="simulator-header">
+            <div class="simulator-badge">LAB SIMULATOR</div>
+            <h2 class="simulator-title">실시간 성능 튜닝 시뮬레이터</h2>
+            <p class="simulator-desc">동일한 웹 솔루션 및 아키텍처 도입 시 최적화 전/후 성과 차이를 실시간으로 검증해 보세요.</p>
+          </div>
+
+          <div class="simulator-controls">
+            <button class="toggle-mode-btn unoptimized active" id="btn-mode-unopt">
+              <span class="dot red"></span> Unoptimized
+            </button>
+            <button class="toggle-mode-btn optimized" id="btn-mode-opt">
+              <span class="dot green"></span> Optimized (endpointlab)
+            </button>
+          </div>
+
+          <div class="simulator-dashboard">
+            <!-- Metric 1: LCP -->
+            <div class="metric-card" id="card-lcp">
+              <div class="metric-header">
+                <span class="metric-label">LCP (Largest Contentful Paint)</span>
+                <span class="metric-status status-bad" id="lcp-status">Slow</span>
+              </div>
+              <div class="metric-value" id="lcp-val">5.4s</div>
+              <div class="progress-bar-container">
+                <div class="progress-bar bar-bad" id="lcp-progress" style="width: 85%;"></div>
+              </div>
+            </div>
+
+            <!-- Metric 2: FPS -->
+            <div class="metric-card" id="card-fps">
+              <div class="metric-header">
+                <span class="metric-label">Frame Rate (인터랙션 반응성)</span>
+                <span class="metric-status status-bad" id="fps-status">Laggy</span>
+              </div>
+              <div class="metric-value" id="fps-val">22 fps</div>
+              <div class="progress-bar-container">
+                <div class="progress-bar bar-bad" id="fps-progress" style="width: 36%;"></div>
+              </div>
+            </div>
+
+            <!-- Metric 3: Page Size -->
+            <div class="metric-card" id="card-size">
+              <div class="metric-header">
+                <span class="metric-label">Total Bundle Size</span>
+                <span class="metric-status status-bad" id="size-status">Heavy</span>
+              </div>
+              <div class="metric-value" id="size-val">4.2 MB</div>
+              <div class="progress-bar-container">
+                <div class="progress-bar bar-bad" id="size-progress" style="width: 90%;"></div>
+              </div>
+            </div>
+
+            <!-- Metric 4: Lighthouse Score -->
+            <div class="metric-card score-card" id="card-lighthouse">
+              <div class="metric-label">Lighthouse Performance</div>
+              <div class="score-circle-container">
+                <svg class="score-circle-svg" viewBox="0 0 100 100">
+                  <circle class="score-circle-bg" cx="50" cy="50" r="40"></circle>
+                  <circle class="score-circle-progress circle-bad" id="score-circle" cx="50" cy="50" r="40" stroke-dasharray="251.2" stroke-dashoffset="165.8"></circle>
+                </svg>
+                <div class="score-text text-bad" id="score-val">34</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="simulation-demo-box">
+            <div class="demo-box-label">시뮬레이션 렌더링 프리뷰</div>
+            <div class="demo-canvas" id="demo-canvas">
+              <div class="demo-element-spinner" id="demo-spinner"></div>
+              <div class="demo-element-card" id="demo-card-1">
+                <div class="skeleton skeleton-title"></div>
+                <div class="skeleton skeleton-line"></div>
+                <div class="skeleton skeleton-line-short"></div>
+              </div>
+              <div class="demo-element-card" id="demo-card-2">
+                <div class="skeleton skeleton-title"></div>
+                <div class="skeleton skeleton-line"></div>
+                <div class="skeleton skeleton-line-short"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Guidelines Section -->
+    <section id="guidelines" class="tab-section">
+      <div class="guidelines-layout">
+        <!-- Sidebar Navigation for Guidelines -->
+        <aside class="guidelines-sidebar">
+          <h3 class="sidebar-title">Guidelines Index</h3>
+          <ul class="sidebar-menu" id="guidelines-toc">
+            <!-- Dynamic TOC items will be rendered here -->
+          </ul>
+        </aside>
+
+        <!-- Main Guidelines Document Viewer -->
+        <article class="guidelines-viewer">
+          <div class="viewer-loader" id="viewer-loader">
+            <div class="spinner"></div>
+            <span>성능 지침서 문서를 분석하고 있습니다...</span>
+          </div>
+          <div class="markdown-body" id="guidelines-content">
+            <!-- Parsed Markdown HTML content will be rendered here -->
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 4. Contact Section -->
+    <section id="contact" class="tab-section">
+      <div class="section-container max-w-sm">
+        <div class="section-header text-center">
+          <span class="section-badge">CONTACT US</span>
+          <h2 class="section-title">성능 고민을 나누어주세요</h2>
+          <p class="section-subtitle">귀사 서비스의 현재 성능 점수를 진단하고 최적의 가속 솔루션을 찾아드립니다.</p>
+        </div>
+
+        <div class="contact-form-wrapper">
+          <form id="contact-form" class="contact-form">
+            <div class="form-group">
+              <label for="user-name">이름 / 회사명</label>
+              <input type="text" id="user-name" name="name" placeholder="홍길동 (endpointlab)" required>
+            </div>
+
+            <div class="form-group">
+              <label for="user-email">이메일 주소</label>
+              <input type="email" id="user-email" name="email" placeholder="contact@endpointlab.io" required>
+            </div>
+
+            <div class="form-group">
+              <label for="inquiry-type">문의 분야</label>
+              <select id="inquiry-type" name="type" required>
+                <option value="diagnostics">성능 진단 및 분석</option>
+                <option value="testing">성능 테스트</option>
+                <option value="solution">솔루션 문의</option>
+                <option value="db-tuning">DB 진단 및 튜닝</option>
+                <option value="consulting">정기 컨설팅 및 가이드라인 구축</option>
+                <option value="other">기타 비즈니스 제휴</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="user-message">문의 상세 정보 (대상 URL 및 해결하고 싶은 이슈)</label>
+              <textarea id="user-message" name="message" rows="5" placeholder="예: 저희 모바일 쇼핑몰의 LCP 지표가 4초를 넘어 이탈률이 높습니다. 상세 진단과 함께 튜닝을 요청합니다." required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" id="btn-submit-form">
+              <span>보내기 (Submit Request)</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
+          </form>
+
+          <!-- Success state modal/box -->
+          <div class="contact-success" id="contact-success">
+            <div class="success-icon">
+              <svg viewBox="0 0 24 24" width="48" height="48" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </div>
+            <h3>문의가 성공적으로 전달되었습니다!</h3>
+            <p>endpointlab 성능 분석 엔지니어가 빠른 시일 내에 이메일로 회신해 드리겠습니다.</p>
+            <button class="secondary-btn" id="btn-success-close">새 문의 작성</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        endpoint<span>lab</span>
+      </div>
+      <div class="footer-info">
+        <p>&copy; 2026 endpointlab. All rights reserved. | <a href="#guidelines" style="color:var(--text-secondary); text-decoration:none; margin-left:5px; transition:var(--transition-fast);" onmouseover="this.style.color='var(--color-orange-brand)'" onmouseout="this.style.color='var(--text-secondary)'">Technical Guidelines (Docs)</a></p>
+        <p>Expert Web Performance Engineering & Consulting | <a href="mailto:contact@endpointlab.io">contact@endpointlab.io</a></p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
