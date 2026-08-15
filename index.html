@@ -1,508 +1,1647 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- SEO Meta Tags -->
-  <title>endpointlab | 고성능 웹 최적화 및 기술 지침 솔루션</title>
-  <meta name="description" content="0.1초의 물리적 한계를 극복하는 웹 성능 최적화 전문 파트너 endpointlab. Core Web Vitals 개선, 프론트엔드 아키텍처 튜닝, 기술 가이드라인 제공.">
-  <meta name="keywords" content="endpointlab, 성능최적화, 웹 성능, Core Web Vitals, LCP, INP, CLS, 프론트엔드 튜닝, 컨설팅">
-  <meta name="author" content="endpointlab">
-  <link rel="canonical" href="https://endpointlab.io">
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://endpointlab.io">
-  <meta property="og:title" content="endpointlab | 고성능 웹 최적화 전문">
-  <meta property="og:description" content="0.1초의 한계를 극복하는 성능 튜닝 솔루션. 웹 성능 최적화 가이드 제공 및 기술 컨설팅.">
-  <meta property="og:image" content="https://endpointlab.io/assets/og-image.png">
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://endpointlab.io">
-  <meta property="twitter:title" content="endpointlab | 고성능 웹 최적화 전문">
-  <meta property="twitter:description" content="0.1초의 한계를 극복하는 성능 튜닝 솔루션. 웹 성능 최적화 가이드 제공 및 기술 컨설팅.">
-  <meta property="twitter:image" content="https://endpointlab.io/assets/og-image.png">
-
-  <!-- Fonts & Preconnect -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
-
-  <!-- Style Sheets -->
-  <link rel="stylesheet" href="index.css?v=1.0.2">
-
-  <!-- Markdown Parser (marked) and Syntax Highlighter (prism) -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js" defer></script>
-  
-  <!-- Main Script -->
-  <script src="app.js" defer></script>
-</head>
-<body>
-
-  <!-- Decorative Background Glows -->
-  <div class="bg-glow bg-glow-1" id="glow-1"></div>
-  <div class="bg-glow bg-glow-2" id="glow-2"></div>
-  <div class="bg-glow bg-glow-3" id="glow-3"></div>
-
-  <!-- Header Nav Section -->
-  <header class="header">
-    <div class="header-container">
-      <a href="#home" class="logo" id="logo-link">
-        endpoint<span>lab</span>
-      </a>
-      <nav class="nav">
-        <button class="nav-btn active" data-target="home">Home</button>
-        <button class="nav-btn" data-target="about">About</button>
-        <button class="nav-btn" data-target="services">Services</button>
-        <button class="nav-btn" data-target="contact">Contact</button>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Endpoint Labs — Performance Engineering</title>
+    <meta
+      name="description"
+      content="IT 시스템 성능 진단, 트러블슈팅, 성능 테스트, AP·DB 튜닝 및 성능 솔루션 구축"
+    />
+    </head>
+    <body>
+      <details style="display:none;">
+        <summary>CSS</summary>
+        <style>
+          /*! tailwindcss v4.2.1 | MIT License | https://tailwindcss.com */
+        @layer theme {
+          :root,
+          :host {
+            --font-sans:
+              ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+              "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            --font-mono:
+              ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+              "Liberation Mono", "Courier New", monospace;
+            --spacing: 0.25rem;
+            --default-font-family: var(--font-sans);
+            --default-mono-font-family: var(--font-mono);
+          }
+        }
+        @layer base {
+          *,
+          :after,
+          :before,
+          ::backdrop {
+            box-sizing: border-box;
+            border: 0 solid;
+            margin: 0;
+            padding: 0;
+          }
+          ::file-selector-button {
+            box-sizing: border-box;
+            border: 0 solid;
+            margin: 0;
+            padding: 0;
+          }
+          html,
+          :host {
+            -webkit-text-size-adjust: 100%;
+            tab-size: 4;
+            line-height: 1.5;
+            font-family: var(
+              --default-font-family,
+              ui-sans-serif,
+              system-ui,
+              sans-serif,
+              "Apple Color Emoji",
+              "Segoe UI Emoji",
+              "Segoe UI Symbol",
+              "Noto Color Emoji"
+            );
+            font-feature-settings: var(--default-font-feature-settings, normal);
+            font-variation-settings: var(
+              --default-font-variation-settings,
+              normal
+            );
+            -webkit-tap-highlight-color: transparent;
+          }
+          hr {
+            height: 0;
+            color: inherit;
+            border-top-width: 1px;
+          }
+          abbr:where([title]) {
+            -webkit-text-decoration: underline dotted;
+            text-decoration: underline dotted;
+          }
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          h6 {
+            font-size: inherit;
+            font-weight: inherit;
+          }
+          a {
+            color: inherit;
+            -webkit-text-decoration: inherit;
+            -webkit-text-decoration: inherit;
+            -webkit-text-decoration: inherit;
+            -webkit-text-decoration: inherit;
+            text-decoration: inherit;
+          }
+          b,
+          strong {
+            font-weight: bolder;
+          }
+          code,
+          kbd,
+          samp,
+          pre {
+            font-family: var(
+              --default-mono-font-family,
+              ui-monospace,
+              SFMono-Regular,
+              Menlo,
+              Monaco,
+              Consolas,
+              "Liberation Mono",
+              "Courier New",
+              monospace
+            );
+            font-feature-settings: var(
+              --default-mono-font-feature-settings,
+              normal
+            );
+            font-variation-settings: var(
+              --default-mono-font-variation-settings,
+              normal
+            );
+            font-size: 1em;
+          }
+          small {
+            font-size: 80%;
+          }
+          sub,
+          sup {
+            vertical-align: baseline;
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+          }
+          sub {
+            bottom: -0.25em;
+          }
+          sup {
+            top: -0.5em;
+          }
+          table {
+            text-indent: 0;
+            border-color: inherit;
+            border-collapse: collapse;
+          }
+          :-moz-focusring {
+            outline: auto;
+          }
+          progress {
+            vertical-align: baseline;
+          }
+          summary {
+            display: list-item;
+          }
+          ol,
+          ul,
+          menu {
+            list-style: none;
+          }
+          img,
+          svg,
+          video,
+          canvas,
+          audio,
+          iframe,
+          embed,
+          object {
+            vertical-align: middle;
+            display: block;
+          }
+          img,
+          video {
+            max-width: 100%;
+            height: auto;
+          }
+          button,
+          input,
+          select,
+          optgroup,
+          textarea {
+            font: inherit;
+            font-feature-settings: inherit;
+            font-variation-settings: inherit;
+            letter-spacing: inherit;
+            color: inherit;
+            opacity: 1;
+            background-color: #0000;
+            border-radius: 0;
+          }
+          ::file-selector-button {
+            font: inherit;
+            font-feature-settings: inherit;
+            font-variation-settings: inherit;
+            letter-spacing: inherit;
+            color: inherit;
+            opacity: 1;
+            background-color: #0000;
+            border-radius: 0;
+          }
+          :where(select:is([multiple], [size])) optgroup {
+            font-weight: bolder;
+          }
+          :where(select:is([multiple], [size])) optgroup option {
+            padding-inline-start: 20px;
+          }
+          ::file-selector-button {
+            margin-inline-end: 4px;
+          }
+          ::placeholder {
+            opacity: 1;
+          }
+          @supports (not ((-webkit-appearance: -apple-pay-button))) or
+            (contain-intrinsic-size: 1px) {
+            ::placeholder {
+              color: currentColor;
+            }
+            @supports (color: color-mix(in lab, red, red)) {
+              ::placeholder {
+                color: color-mix(in oklab, currentcolor 50%, transparent);
+              }
+            }
+          }
+          textarea {
+            resize: vertical;
+          }
+          ::-webkit-search-decoration {
+            -webkit-appearance: none;
+          }
+          ::-webkit-date-and-time-value {
+            min-height: 1lh;
+            text-align: inherit;
+          }
+          ::-webkit-datetime-edit {
+            display: inline-flex;
+          }
+          ::-webkit-datetime-edit-fields-wrapper {
+            padding: 0;
+          }
+          ::-webkit-datetime-edit {
+            padding-block: 0;
+          }
+          ::-webkit-datetime-edit-year-field {
+            padding-block: 0;
+          }
+          ::-webkit-datetime-edit-month-field {
+            padding-block: 0;
+          }
+          ::-webkit-datetime-edit-day-field {
+            padding-block: 0;
+          }
+          ::-webkit-datetime-edit-hour-field {
+            padding-block: 0;
+          }
+          ::-webkit-datetime-edit-minute-field {
+            padding-block: 0;
+          }
+          ::-webkit-datetime-edit-second-field {
+            padding-block: 0;
+          }
+          ::-webkit-datetime-edit-millisecond-field {
+            padding-block: 0;
+          }
+          ::-webkit-datetime-edit-meridiem-field {
+            padding-block: 0;
+          }
+          ::-webkit-calendar-picker-indicator {
+            line-height: 1;
+          }
+          :-moz-ui-invalid {
+            box-shadow: none;
+          }
+          button,
+          input:where([type="button"], [type="reset"], [type="submit"]) {
+            appearance: button;
+          }
+          ::file-selector-button {
+            appearance: button;
+          }
+          ::-webkit-inner-spin-button {
+            height: auto;
+          }
+          ::-webkit-outer-spin-button {
+            height: auto;
+          }
+          [hidden]:where(:not([hidden="until-found"])) {
+            display: none !important;
+          }
+        }
+        @layer components;
+        @layer utilities {
+          .visible {
+            visibility: visible;
+          }
+          .relative {
+            position: relative;
+          }
+          .start {
+            inset-inline-start: var(--spacing);
+          }
+          .table {
+            display: table;
+          }
+        }
+        :root {
+          --bg: #f3f1ec;
+          --surface: #fbfaf7;
+          --ink: #20251f;
+          --muted: #657067;
+          --soft: #929b92;
+          --line: #20251f29;
+          --accent: #c8d9c7;
+          --accent2: #839f89;
+          --accent-blue: #b9ccd8;
+          --band: #202720;
+          --band-ink: #f6f5f0;
+          --band-muted: #c6cec5;
+          --shadow: 0 20px 60px #2d3a2f12;
+          --lightningcss-light: initial;
+          --lightningcss-dark: ;
+          color-scheme: light;
+        }
+        :root[data-theme="dark"] {
+          --bg: #111512;
+          --surface: #191f1a;
+          --ink: #f1f3ed;
+          --muted: #c2c9c1;
+          --soft: #98a298;
+          --line: #f1f5eb33;
+          --accent: #a9c2ac;
+          --accent2: #88a58e;
+          --accent-blue: #91aebb;
+          --band: #090c0a;
+          --band-ink: #f5f7f1;
+          --band-muted: #c4cbc1;
+          --shadow: 0 24px 70px #0000004d;
+          --lightningcss-light: ;
+          --lightningcss-dark: initial;
+          color-scheme: dark;
+        }
+        * {
+          box-sizing: border-box;
+        }
+        html {
+          scroll-behavior: smooth;
+          scroll-padding-top: 90px;
+        }
+        body {
+          background: var(--bg);
+          color: var(--ink);
+          word-break: keep-all;
+          margin: 0;
+          font-family:
+            Pretendard,
+            Noto Sans KR,
+            -apple-system,
+            BlinkMacSystemFont,
+            Segoe UI,
+            sans-serif;
+          line-height: 1.6;
+        }
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+        button,
+        input,
+        select,
+        textarea {
+          font: inherit;
+        }
+        .shell {
+          width: min(100%, 1440px);
+          margin: auto;
+          padding-left: clamp(22px, 5vw, 72px);
+          padding-right: clamp(22px, 5vw, 72px);
+        }
+        .header {
+          z-index: 30;
+          border-bottom: 1px solid var(--line);
+          background: var(--bg);
+          grid-template-columns: 1fr auto 1fr;
+          align-items: center;
+          height: 76px;
+          padding: 0 clamp(22px, 5vw, 72px);
+          display: grid;
+          position: sticky;
+          top: 0;
+        }
+        @supports (color: color-mix(in lab, red, red)) {
+          .header {
+            background: color-mix(in srgb, var(--bg) 87%, transparent);
+          }
+        }
+        .header {
+          -webkit-backdrop-filter: blur(18px);
+          backdrop-filter: blur(18px);
+        }
+        .brand {
+          letter-spacing: -0.04em;
+          align-items: center;
+          width: max-content;
+          font-weight: 850;
+          display: flex;
+        }
+        .brand span {
+          font-weight: 480;
+        }
+        .brand i {
+          border: 1.5px solid;
+          border-radius: 50%;
+          width: 20px;
+          height: 20px;
+          margin-right: 10px;
+          position: relative;
+        }
+        .brand i:after {
+          content: "";
+          border-top: 1.5px solid;
+          position: absolute;
+          top: 8px;
+          left: -5px;
+          right: -5px;
+        }
+        .nav {
+          gap: 32px;
+          font-size: 13px;
+          font-weight: 650;
+          display: flex;
+        }
+        .nav a {
+          opacity: 0.78;
+        }
+        .nav a:hover {
+          opacity: 1;
+        }
+        .header-actions {
+          justify-self: end;
+          align-items: center;
+          gap: 10px;
+          display: flex;
+        }
+        .theme {
+          color: var(--muted);
+          letter-spacing: 0.12em;
+          cursor: pointer;
+          background: 0 0;
+          border: 0;
+          font: 700 10px/1 monospace;
+        }
+        .mini-cta,
+        .cta {
+          border: 1px solid var(--ink);
+          justify-content: space-between;
+          align-items: center;
+          padding: 13px 16px;
+          font-size: 13px;
+          font-weight: 750;
+          display: flex;
+        }
+        .mini-cta:hover,
+        .cta:hover {
+          background: var(--ink);
+          color: var(--bg);
+        }
+        .menu {
+          color: var(--ink);
+          background: 0 0;
+          border: 0;
+          font-size: 22px;
+          display: none;
+        }
+        .hero {
+          grid-template-rows: auto auto auto;
+          grid-template-columns: 2fr 1fr;
+          column-gap: 9vw;
+          min-height: calc(100vh - 76px);
+          padding-top: clamp(75px, 10vw, 150px);
+          display: grid;
+        }
+        .kicker {
+          color: var(--muted);
+          letter-spacing: 0.12em;
+          align-items: center;
+          gap: 10px;
+          margin: 0 0 24px;
+          font: 700 11px/1.2 monospace;
+          display: flex;
+        }
+        .kicker b,
+        .hero-aside small b,
+        .chart-head small b {
+          background: var(--accent2);
+          border-radius: 50%;
+          width: 7px;
+          height: 7px;
+          display: inline-block;
+        }
+        .hero h1 {
+          letter-spacing: -0.075em;
+          margin: 0;
+          font-size: clamp(60px, 9.4vw, 145px);
+          font-weight: 670;
+          line-height: 0.82;
+        }
+        .hero h1 em {
+          color: #0000;
+          -webkit-text-stroke: 1.5px var(--ink);
+          font-style: normal;
+        }
+        .hero-aside {
+          align-self: end;
+          padding-bottom: 8px;
+        }
+        .hero-aside > p {
+          color: var(--muted);
+          margin: 0 0 28px;
+          font-size: clamp(16px, 1.2vw, 19px);
+        }
+        .cta {
+          background: var(--accent);
+          color: #111;
+          border-color: #111;
+          max-width: 230px;
+        }
+        .hero-aside small {
+        color: var(--muted);
+        align-items: center;
+        gap: 8px;
+        margin-top: 22px;
+        font: 650 10px monospace;
+        display: flex;
+      }
+      .signal {
+        grid-column: 1/-1;
+        height: 85px;
+        margin-top: 55px;
+        overflow: hidden;
+      }
+      .signal svg {
+        width: 100%;
+        height: 100%;
+      }
+      .signal path {
+        fill: none;
+        stroke: var(--accent2);
+        stroke-width: 2px;
+        vector-effect: non-scaling-stroke;
+      }
+      .focus {
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        grid-column: 1/-1;
+        grid-template-columns: repeat(4, 1fr);
+        display: grid;
+      }
+      .focus div {
+        border-right: 1px solid var(--line);
+        padding: 20px 0;
+      }
+      .focus div + div {
+        padding-left: 20px;
+      }
+      .focus div:last-child {
+        border: 0;
+      }
+      .focus span {
+        color: var(--soft);
+        font: 650 10px monospace;
+        display: block;
+      }
+      .focus strong {
+        font-size: clamp(14px, 1.25vw, 19px);
+      }
+      .section {
+        padding-top: clamp(100px, 12vw, 180px);
+        padding-bottom: clamp(100px, 12vw, 180px);
+      }
+      .section h2 {
+        letter-spacing: -0.065em;
+        margin: 0;
+        font-size: clamp(46px, 6.5vw, 98px);
+        font-weight: 650;
+        line-height: 1;
+      }
+      .section h2 > span {
+        color: var(--soft);
+      }
+      .lead {
+        grid-template-columns: 1fr 1.1fr;
+        gap: 8vw;
+        margin-top: 70px;
+        display: grid;
+      }
+      .lead > p {
+        color: var(--muted);
+      }
+      .lead > p:first-child {
+        font-size: clamp(17px, 1.4vw, 22px);
+      }
+      .principle {
+        letter-spacing: -0.035em;
+        font-size: clamp(20px, 2vw, 30px);
+      }
+      .principle small {
+        color: var(--soft);
+        margin-bottom: 20px;
+        font: 650 10px monospace;
+        display: block;
+      }
+      .service-list {
+        margin-top: 80px;
+      }
+      .service {
+        border-top: 1px solid var(--line);
+        grid-template-columns: 70px 1fr 1.15fr 30px;
+        gap: 30px;
+        padding: 40px 0;
+        transition: padding 0.3s;
+        display: grid;
+      }
+      .service:hover {
+        padding-left: 14px;
+      }
+      .service .num {
+        color: var(--soft);
+        font: 600 11px monospace;
+      }
+      .service h3 {
+        letter-spacing: -0.04em;
+        margin: 0;
+        font-size: clamp(24px, 2.5vw, 38px);
+        line-height: 1.15;
+      }
+      .service p {
+        color: var(--muted);
+        margin: 0;
+      }
+      .service ul {
+        flex-wrap: wrap;
+        gap: 7px;
+        margin: 0;
+        padding: 18px 0 0;
+        list-style: none;
+        display: flex;
+      }
+      .service li {
+        border: 1px solid var(--line);
+        color: var(--muted);
+        padding: 5px 9px;
+        font: 600 10px monospace;
+      }
+      .service > i {
+        font-size: 20px;
+        font-style: normal;
+      }
+      .service:last-child {
+        border-bottom: 1px solid var(--line);
+      }
+      .dark-band {
+        background: var(--band);
+        color: var(--band-ink);
+      }
+      .dark-band .kicker,
+      .dark-band p {
+        color: var(--band-muted);
+      }
+      .dark-band h2 span {
+        color: #798075;
+      }
+      .framework {
+        grid-template-columns: 1fr 1.3fr;
+        gap: 9vw;
+        margin-top: 80px;
+        display: grid;
+      }
+      .framework aside {
+        align-self: start;
+        position: sticky;
+        top: 130px;
+      }
+      .framework aside strong {
+        font: 700 12px monospace;
+      }
+      .framework aside p {
+        max-width: 430px;
+      }
+      .pulse {
+        background: linear-gradient(
+          90deg,
+          transparent 0 8%,
+          var(--accent) 8% 9%,
+          transparent 9% 18%,
+          var(--accent) 18% 19%,
+          transparent 19% 37%,
+          var(--accent) 37% 38%,
+          transparent 38%
+        );
+        clip-path: polygon(
+          0 48%,
+          8% 48%,
+          12% 8%,
+          17% 90%,
+          22% 35%,
+          28% 55%,
+          40% 55%,
+          45% 20%,
+          50% 82%,
+          56% 45%,
+          64% 50%,
+          75% 50%,
+          80% 15%,
+          85% 85%,
+          90% 45%,
+          100% 45%,
+          100% 52%,
+          90% 52%,
+          85% 92%,
+          80% 22%,
+          75% 57%,
+          64% 57%,
+          56% 52%,
+          50% 90%,
+          45% 27%,
+          40% 62%,
+          28% 62%,
+          22% 42%,
+          17% 97%,
+          12% 15%,
+          8% 55%,
+          0 55%
+        );
+        height: 70px;
+        margin-top: 40px;
+      }
+      .step {
+        border-top: 1px solid #ffffff2e;
+        grid-template-columns: 55px 1fr;
+        gap: 20px;
+        padding: 30px 0;
+        display: grid;
+      }
+      .step > span {
+        color: #1d2a1f;
+        font: 650 11px monospace;
+      }
+      .step h3 {
+        margin: 0 0 8px;
+        font-size: 23px;
+      }
+      .step p {
+        margin: 0;
+      }
+      .section-copy {
+        max-width: 760px;
+        color: var(--muted);
+        margin: 24px 0 40px;
+        font-size: clamp(18px, 1.6vw, 24px);
+        line-height: 1.6;
+        text-align: left;
+      }
+      .dashboard {
+        border: 1px solid var(--line);
+        background: var(--surface);
+        box-shadow: var(--shadow);
+        grid-template-columns: 1.6fr 1fr;
+        display: grid;
+      }
+      .chart {
+        border-right: 1px solid var(--line);
+        padding: 28px;
+      }
+      .chart-head,
+      .axis {
+        color: var(--soft);
+        justify-content: space-between;
+        font: 650 10px monospace;
+        display: flex;
+      }
+      .chart-head small {
+        align-items: center;
+        gap: 7px;
+        display: flex;
+      }
+      .bars {
+        border-bottom: 1px solid var(--line);
+        background: repeating-linear-gradient(
+          to bottom,
+          transparent 0 74px,
+          var(--line) 75px
+        );
+        align-items: end;
+        gap: clamp(5px, 1vw, 14px);
+        height: 300px;
+        padding: 30px 0;
+        display: flex;
+      }
+      .bars i {
+        background: linear-gradient(var(--accent2), var(--accent));
+        flex: 1;
+        min-width: 4px;
+      }
+      .axis {
+        padding-top: 12px;
+      }
+      .metrics > div {
+        border-bottom: 1px solid var(--line);
+        justify-content: space-between;
+        align-items: center;
+        min-height: 100px;
+        padding: 20px 24px;
+        display: flex;
+      }
+      .metrics > div:last-child {
+        border: 0;
+      }
+      .metrics > div > span {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .metrics strong {
+        font-size: 35px;
+      }
+      .metrics strong small {
+        color: var(--soft);
+        text-align: right;
+        font: 500 9px monospace;
+        display: block;
+      }
+      .solutions-copy {
+        color: var(--muted);
+        width: 100%;
+        max-width: 100%;
+        margin: 24px 0 0;
+        font-size: clamp(18px, 1.6vw, 24px);
+        line-height: 1.6;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .solution-grid {
+        border: 1px solid var(--line);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        margin-top: 24px;
+        display: grid;
+      }
+      .solution-grid article {
+        border-right: 1px solid var(--line);
+        background: var(--surface);
+        flex-direction: column;
+        min-height: 430px;
+        padding: 28px;
+        display: flex;
+      }
+      .solution-grid article:last-child {
+        border: 0;
+      }
+      .solution-grid article > small {
+        color: var(--soft);
+        font: 650 10px monospace;
+      }
+      .solution-grid article > i {
+        background: var(--accent);
+        border-radius: 50%;
+        width: 34px;
+        height: 34px;
+        margin: 45px 0;
+      }
+      .solution-grid article > img {
+        display: block;
+        width: auto;
+        max-width: 100%;
+        height: 110px;
+        margin: 38px auto 34px;
+        object-fit: contain;
+      }
+      .solution-grid h3 {
+        letter-spacing: -0.04em;
+        margin: 0 0 28px;
+        text-align: center;
+        font-size: clamp(26px, 3vw, 42px);
+        line-height: 1.04;
+      }
+      .solution-grid p {
+        color: var(--muted);
+        margin: 0;
+        text-align: left;
+        line-height: 1.8;
+        padding-top: 6px;
+      }
+      .solution-grid footer {
+        border-top: 1px solid var(--line);
+        margin-top: auto;
+        padding-top: 18px;
+        font: 650 11px monospace;
+      }
+      .solution-grid footer span {
+        float: right;
+      }
+      .deliver-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 9vw;
+        margin-top: 80px;
+        display: grid;
+      }
+      .deliver blockquote {
+        letter-spacing: -0.035em;
+        margin: 0;
+        font-size: clamp(23px, 2.3vw, 34px);
+      }
+      .deliver ol {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .deliver li {
+        border-top: 1px solid var(--line);
+        grid-template-columns: 60px 1fr;
+        padding: 20px 0;
+        display: grid;
+      }
+      .deliver li:last-child {
+        border-bottom: 1px solid var(--line);
+      }
+      .deliver li span {
+        color: var(--soft);
+        font: 600 10px monospace;
+      }
+      .contact {
+        background: var(--accent);
+        color: #111;
+      }
+      .contact .kicker {
+        color: #4f621d;
+      }
+      .contact h2 span {
+        color: #566d16;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr 1.25fr;
+        gap: 9vw;
+        margin-top: 70px;
+        display: grid;
+      }
+      .contact-grid > div p {
+        max-width: 440px;
+        font-size: 20px;
+      }
+      .contact-grid > div a {
+        border-bottom: 2px solid;
+        margin-top: 30px;
+        font-size: clamp(18px, 2vw, 28px);
+        font-weight: 750;
+        display: inline-block;
+      }
+      .contact form {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        display: grid;
+      }
+      .contact label {
+        font-size: 11px;
+        font-weight: 750;
+      }
+      .contact input,
+      .contact select,
+      .contact textarea {
+        color: #111;
+        background: 0 0;
+        border: 0;
+        border-bottom: 1px solid #00000073;
+        border-radius: 0;
+        outline: none;
+        width: 100%;
+        margin-top: 7px;
+        padding: 13px 0;
+        display: block;
+      }
+      .contact textarea {
+        resize: vertical;
+        height: 100px;
+      }
+      .contact label:nth-child(n + 3),
+      .contact form button {
+        grid-column: 1/-1;
+      }
+      .contact form button {
+        color: #fff;
+        cursor: pointer;
+        background: #111;
+        border: 1px solid #111;
+        justify-content: space-between;
+        padding: 18px;
+        display: flex;
+      }
+      .footer {
+        grid-template-columns: 1fr 1fr;
+        align-content: center;
+        gap: 22px;
+        min-height: 210px;
+        display: grid;
+      }
+      .footer p {
+        color: var(--muted);
+        margin: 0;
+      }
+      .footer > div {
+        border-top: 1px solid var(--line);
+        color: var(--soft);
+        grid-column: 1/-1;
+        padding-top: 22px;
+        font: 600 10px monospace;
+      }
+      @media (width<=900px) {
+        .header {
+          grid-template-columns: 1fr auto;
+        }
+        .nav {
+          background: var(--bg);
+          border-bottom: 1px solid var(--line);
+          flex-direction: column;
+          padding: 28px;
+          display: none;
+          position: absolute;
+          top: 76px;
+          left: 0;
+          right: 0;
+        }
+        .nav.open {
+          display: flex;
+        }
+        .mini-cta {
+          display: none;
+        }
+        .menu {
+          display: block;
+        }
+        .hero {
+          grid-template-columns: 1fr;
+          min-height: auto;
+        }
+        .hero-aside {
+          max-width: 550px;
+          margin-top: 55px;
+        }
+        .focus {
+          grid-template-columns: 1fr 1fr;
+        }
+        .focus div:nth-child(2) {
+          border-right: 0;
+        }
+        .focus div:nth-child(n + 3) {
+          border-top: 1px solid var(--line);
+        }
+        .lead,
+        .framework,
+        .deliver-grid,
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+        .service {
+          grid-template-columns: 45px 1fr 25px;
+        }
+        .service > div {
+          grid-column: 2/4;
+        }
+        .framework aside {
+          position: static;
+        }
+        .dashboard {
+          grid-template-columns: 1fr;
+        }
+        .chart {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+        .solution-grid {
+          grid-template-columns: 1fr;
+        }
+        .solution-grid article {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+          min-height: 360px;
+        }
+        .contact form {
+          margin-top: 30px;
+        }
+      }
+      @media (width<=560px) {
+        .hero h1 {
+          font-size: 17vw;
+        }
+        .focus {
+          grid-template-columns: 1fr;
+        }
+        .focus div,
+        .focus div + div {
+          border-right: 0;
+          border-top: 1px solid var(--line);
+          padding-left: 0;
+        }
+        .section h2 {
+          font-size: 12vw;
+        }
+        .service {
+          gap: 16px;
+        }
+        .service h3 {
+          font-size: 25px;
+        }
+        .bars {
+          height: 220px;
+        }
+        .contact form {
+          grid-template-columns: 1fr;
+        }
+        .contact label {
+          grid-column: 1;
+        }
+        .footer {
+          grid-template-columns: 1fr;
+        }
+        .footer > div {
+          grid-column: 1;
+        }
+      }
+      body {
+        background:
+          radial-gradient(
+            circle at 84% 9%,
+            var(--accent-blue),
+            transparent 24rem
+          ),
+          var(--bg);
+      }
+      @supports (color: color-mix(in lab, red, red)) {
+        body {
+          background:
+            radial-gradient(
+              circle at 84% 9%,
+              color-mix(in srgb, var(--accent-blue) 22%, transparent),
+              transparent 24rem
+            ),
+            var(--bg);
+        }
+      }
+      .bars i {
+        background: linear-gradient(var(--accent2), var(--accent-blue));
+      }
+      .solution-grid article:nth-child(2) > i {
+        background: var(--accent-blue);
+      }
+      .solution-grid article:nth-child(3) > i {
+        background: #d9c7c2;
+      }
+      .testing-visual {
+        background: var(--bg);
+        border: 0;
+        overflow: hidden;
+      }
+      .testing-visual img {
+        display: block;
+        width: 100%;
+        height: auto;
+        background: var(--bg);
+        filter: saturate(0.7) brightness(1.04) contrast(0.96) sepia(0.08);
+        opacity: 1;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        * {
+          transition: none !important;
+        }
+      }
+      .contact form button:disabled {
+        cursor: wait;
+        opacity: 0.62;
+      }
+      .contact-trap {
+        opacity: 0 !important;
+        width: 1px !important;
+        height: 1px !important;
+        position: absolute !important;
+        left: -9999px !important;
+      }
+      .form-status {
+        border: 1px solid #0000003d;
+        grid-column: 1/-1;
+        margin: 0;
+        padding: 13px 15px;
+        font-size: 13px;
+      }
+      .form-status.success {
+        background: #ffffff5c;
+      }
+      .form-status.error {
+        color: #5a2118;
+        background: #ead1ca;
+      }
+        </style>
+      </details>
+      <header class="header">
+      <a class="brand" href="#home" aria-label="Endpoint Labs 홈"
+        ><i></i>endpoint<span>lab</span></a
+      >
+      <nav class="nav" aria-label="주요 메뉴">
+        <a href="#about">회사소개</a>
+        <a href="#services">서비스</a>
+        <a href="#solutions">제품</a>
+        <a href="#contact">문의하기</a>
       </nav>
-      <div class="header-action">
-        <span class="domain-badge">endpointlab.io</span>
-        <button class="cta-btn-sm" onclick="app.navigateToTab('contact')">Get in Touch</button>
+      <div class="header-actions">
+        <button class="theme" aria-label="다크 모드">DARK</button
+        ><a class="mini-cta" href="#contact">프로젝트 문의 ↗</a
+        ><button class="menu" aria-label="메뉴 열기">☰</button>
       </div>
-    </div>
-  </header>
-
-  <!-- Main Multi-tab Container -->
-  <main class="main-content">
-    
-    <!-- 1. Home Section -->
-    <section id="home" class="tab-section active">
-      <!-- Hero Header -->
-      <div class="hero-section">
-        <h1 class="hero-title">
-          End-to-End <br>
-          <span class="gradient-text">Performance Assurance.</span>
-        </h1>
-        <p class="hero-subtitle">
-          빠른 응답 속도는 성능의 시작일 뿐입니다. <br>
-          endpointlab은 시스템의 절대적인 가용성, 신속한 장애 트러블슈팅, 그리고 지능형 모니터링 체계 구축까지 <br>
-          비즈니스의 안정적인 영속성을 보장하는 전방위 성능 가이드라인을 제공합니다.
-        </p>
-        <div class="hero-actions">
-          <button class="cta-btn" onclick="app.navigateToTab('services')">Explore Services</button>
-          <button class="secondary-btn" onclick="app.navigateToTab('about')">Our Mission</button>
+    </header>
+    <main id="home">
+      <section class="hero shell">
+        <div class="hero-copy">
+          <!-- <p class="kicker"><b></b> INDEPENDENT PERFORMANCE ENGINEERING LAB</p> -->
+          <h1>Performance<br /><em>without guesswork.</em></h1>
         </div>
-      </div>
-
-      <!-- End-to-End Performance Visual Pipeline (Brand Image) -->
-      <div class="pipeline-visual-container">
-        <div class="pipeline-visual-header text-center">
-          <span class="section-badge">PERFORMANCE FLOW</span>
-          <h2 class="section-title">종합 성능 보장 파이프라인</h2>
-          <p class="section-subtitle">사용자 요청부터 데이터베이스 응답까지 모든 레이어의 안정성을 모니터링하고 가속화합니다.</p>
+        <div class="hero-aside">
+          <p>엔포랩스는 안정적인 시스템을 위한 성능 검증 전문 크루로 구성되어, 최적의 해안을 제공합니다.</p>
+          <a class="cta" href="#services">서비스 살펴보기 <span>↓</span></a
+          >
+          <!-- <small><b></b> PERFORMANCE CONSULTING AVAILABLE</small> -->
         </div>
-        
-        <div class="pipeline-svg-wrapper">
-          <svg viewBox="0 0 1000 240" class="pipeline-svg" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <filter id="glow-orange" x="-30%" y="-30%" width="160%" height="160%">
-                <feGaussianBlur stdDeviation="8" result="blur" />
-                <feComposite in="SourceGraphic" in2="blur" operator="over" />
-              </filter>
-            </defs>
-
-            <!-- Connecting Paths with Neon Glow -->
-            <path d="M 180 120 L 420 120" stroke="#ff8c00" stroke-width="4.5" stroke-dasharray="12 8" fill="none" class="pulse-path-1" />
-            <path d="M 580 120 L 820 120" stroke="#00f2fe" stroke-width="4.5" stroke-dasharray="12 8" fill="none" class="pulse-path-2" />
-
-            <!-- Pipeline Node 1: Client -->
-            <g class="pipeline-node" transform="translate(110, 120)">
-              <circle r="60" fill="#0d121e" stroke="#ff8c00" stroke-width="4" filter="url(#glow-orange)" />
-              <text y="-5" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="800" letter-spacing="0.5">USER CLIENT</text>
-              <text y="18" text-anchor="middle" fill="#ff9f43" font-size="12" font-weight="700">Fast Response</text>
-            </g>
-
-            <!-- Pipeline Node 2: AP Server -->
-            <g class="pipeline-node" transform="translate(500, 120)">
-              <circle r="66" fill="#0d121e" stroke="#ff6a00" stroke-width="4" filter="url(#glow-orange)" />
-              <text y="-12" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="800" letter-spacing="0.5">AP SERVER</text>
-              <text y="8" text-anchor="middle" fill="#ff6a00" font-size="12" font-weight="700">Troubleshoot</text>
-              <text y="24" text-anchor="middle" fill="#8f9cae" font-size="11" font-weight="500">Monitoring</text>
-            </g>
-
-            <!-- Pipeline Node 3: DB -->
-            <g class="pipeline-node" transform="translate(890, 120)">
-              <circle r="60" fill="#0d121e" stroke="#00f2fe" stroke-width="4" />
-              <text y="-5" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="800" letter-spacing="0.5">DATABASE</text>
-              <text y="18" text-anchor="middle" fill="#00f2fe" font-size="12" font-weight="700">Max Stability</text>
-            </g>
+        <div class="signal" aria-hidden="true">
+          <svg viewBox="0 0 1000 100" preserveAspectRatio="none">
+            <path
+              d="M0 55h90l22-35 28 65 30-42 45 12h110l28-25 27 47 35-22h90l22-40 32 70 35-37 45 7h90l25-28 28 50 34-22h120"
+            ></path>
           </svg>
         </div>
-      </div>
-
-      <!-- Corporate Vision Cards (4 Core Dimensions) -->
-      <div class="brand-vision-section">
-        <div class="brand-vision-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
-          <!-- Card 1: Speed -->
-          <div class="vision-card">
-            <div class="vision-number">01</div>
-            <h3>Fast Response</h3>
-            <p>사용자 체감 반응 속도와 LCP 등 렌더링 파이프라인 가속을 통해 대기 없는 쾌적한 화면 경험을 튜닝합니다.</p>
-            <div class="vision-glow-bar" style="background:var(--gradient-orange);"></div>
+        <div class="focus">
+          <div>
+            <span>FOCUS 0<!-- -->1</span><strong>시스템 성능 관리를 통한 안정적인 시스템 점검</strong>
           </div>
-          <!-- Card 2: Stability -->
-          <div class="vision-card">
-            <div class="vision-number">02</div>
-            <h3>Absolute Stability</h3>
-            <p>트래픽 급증 및 부하 과포화 상태에서도 인프라 붕괴를 사전에 차단하고 서버 가동력을 최고 수준으로 유지합니다.</p>
-            <div class="vision-glow-bar" style="background:var(--gradient-neon);"></div>
+          <div>
+            <span>FOCUS 0<!-- -->2</span><strong>신규 시스템 구축 시 성능 검증을 통한 안정적인 시스템 오픈 지원</strong>
           </div>
-          <!-- Card 3: Troubleshooting -->
-          <div class="vision-card">
-            <div class="vision-number">03</div>
-            <h3>Active Troubleshooting</h3>
-            <p>운영 중 발생한 속도 저하, 메모리 리크, 데이터베이스 커넥션 락 등의 병목 오류를 프로파일링 데이터로 즉시 규명합니다.</p>
-            <div class="vision-glow-bar" style="background:var(--gradient-sunset);"></div>
+          <div>
+            <span>FOCUS 0<!-- -->3</span><strong>목표 시스템의 성능 테스트를 통한 이슈 도출 및 개선 방안 안내</strong>
           </div>
-          <!-- Card 4: Monitoring -->
-          <div class="vision-card">
-            <div class="vision-number">04</div>
-            <h3>Operation Enablement</h3>
-            <p>와탭(WhaTap) 등 모니터링 도구(APM)를 연계 구축하여 관리자가 장애 징후를 조기에 감지하도록 돕습니다.</p>
-            <div class="vision-glow-bar" style="background:linear-gradient(135deg, #10b981 0%, #059669 100%);"></div>
+          <div>
+            <span>FOCUS 0<!-- -->4</span><strong>안정적인 시스템 운영을 위한 성능 검증 ITO 지원</strong>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- 2. About Section -->
-    <section id="about" class="tab-section">
-      <div class="section-container">
-        <div class="section-header">
-          <span class="section-badge">ABOUT US</span>
-          <h2 class="section-title">최고 성능의 한계를 허무는 연구소</h2>
-          <p class="section-subtitle">endpointlab은 데이터에 기반하여 웹 서비스의 성능을 분석하고 극대화하는 정밀 엔지니어링 연구소입니다.</p>
+      </section>
+      <section id="about" class="section shell intro">
+        <!-- <p class="kicker"><b></b> WHY ENDPOINTLAB</p> -->
+        <h2>
+          느린 시스템에는<br />반드시 <span>측정 가능한 이유가</span
+          ><br />있습니다.
+        </h2>
+        <div class="lead">
+          <p>
+            엔포랩스는 시스템 개발 이후 최종 검증하는 마지막 단계(ENDPOINT)와 시스템 성능에 대해 끝없이 연구하는 LABS의 합성어로, 안정적인 시스템을 위해 시스템 테스트와 진단을 통한 최적화를 목적으로 하는 사람들의 모임입니다.
+          </p>
+          <p>
+            그렇기 때문에 엔포랩스를 찾아 주시는 모든 고객님들께 약속 드리겠습니다.<br>
+            <strong>엔포랩스는 시스템 최적화에 사활을 걸겠습니다.</strong><br>
+            <strong>엔포랩스는 적당히 하지 않겠습니다.</strong><br>
+            <strong>앤포랩스는 포기하지 않겠습니다.</strong><br>
+          </p>
         </div>
-
-        <div class="about-company-grid">
-          <div class="about-text-card">
-            <h3>우리의 사명 (Our Mission)</h3>
-            <p>우리는 단순히 코드를 빠르게 만드는 것을 넘어, 사용자에게는 즐거운 브라우징 경험을, 기업에게는 전환율 향상과 인프라 가용 비용 절감이라는 명확한 비즈니스 임팩트를 선사합니다.</p>
-            <p>0.1초의 딜레이를 잡기 위해 네트워크 레이어부터 브라우저 렌더링 파이프라인, 데이터베이스 쿼리까지 아키텍처의 모든 접점을 정밀 진단하고 개선합니다.</p>
-          </div>
-
-          <div class="about-text-card">
-            <h3>우리의 핵심 가치 (Core Values)</h3>
-            <ul class="about-value-list">
-              <li>
-                <strong>정량적 검증 (Quantitative Data)</strong>
-                <p>직관이 아닌 객관적 지표와 프로파일링 도구를 통해 실측값 기반의 보고서로 증명합니다.</p>
-              </li>
-              <li>
-                <strong>엔드투엔드 최적화 (End-to-End Tuning)</strong>
-                <p>단편적인 프론트엔드 최적화에 머무르지 않고 서버 애플리케이션과 데이터베이스 레이어까지 유기적으로 다룹니다.</p>
-              </li>
-              <li>
-                <strong>지속 가능한 지침 전파 (Knowledge Sharing)</strong>
-                <p>일회성 성능 개선에 그치지 않고 개발팀 내재화를 위한 실질적 개발 가이드라인과 튜닝 방법론을 가이드합니다.</p>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="vision-box">
-          <div class="vision-content">
-            <h4>우리의 철학</h4>
-            <p>"성능은 더 이상 기술적 선택이 아닌 기업의 핵심 자산입니다. 100ms의 로딩 단축은 사용자의 체류 시간 및 비즈니스 전환율의 폭발적인 상승으로 즉각 증명됩니다. endpointlab은 오직 정량적 데이터로만 성능을 고집합니다."</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. Services Section -->
-    <section id="services" class="tab-section">
-      <div class="section-container">
-        <div class="section-header">
-          <span class="section-badge">OUR SERVICES</span>
-          <h2 class="section-title">비즈니스를 가속하는 라인업</h2>
-          <p class="section-subtitle">endpointlab의 검증된 인프라 솔루션 도입과 전문가 맞춤형 성능 개선 서비스를 통해 서비스 가용성을 완성하십시오.</p>
-        </div>
-
-        <div class="services-container">
-          <!-- 1. Solutions Category -->
-          <div class="service-category-card">
-            <div class="category-header">
-              <div class="category-icon orange-glow">
-                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-              </div>
-              <div class="category-title-area">
-                <h3>성능 솔루션 제공 (Solutions)</h3>
-                <p>안정적인 인프라와 실시간 모니터링을 즉시 확보하는 검증된 엔지니어링 패키지</p>
-              </div>
+      </section>
+      <section id="services" class="section shell">
+        <!-- <p class="kicker"><b></b> CORE CAPABILITIES</p> -->
+        <h2>
+          문제를 발견하고,<br /><span>한계를 검증하고,</span><br />운영 가능하게
+          만듭니다.
+        </h2>
+        <div class="service-list">
+          <article class="service">
+            <span class="num">01</span>
+            <h3>
+              <span>시스템 성능 점검<br /></span><span></span>
+            </h3>
+            <div>
+              <p>
+                운영중인 시스템의 장애를 미연에 방지하기 위한 주기적인 성능 점검
+              </p>
+              <!-- <ul>
+                <li>Thread Analysis</li>
+                <li>Heap Analysis</li>
+                <li>APM</li>
+                <li>SQL Trace</li>
+              </ul> -->
             </div>
-
-            <div class="category-list">
-              <div class="list-item">
-                <div class="item-title">
-                  <span class="badge-sol">A 솔루션</span>
-                  <h4>WhaTap Integration</h4>
+            <!-- <i>↗</i> -->
+          </article>
+          <article class="service">
+            <span class="num">02</span>
+            <h3>
+              <span>시스템 성능 테스트<br /></span><span></span>
+            </h3>
+            <div>
+              <p>
+                신규 시스템의 성능 검증 및 AS-IS와 TO-BE 시스템에 대한 성능 검증
+              </p>
+              <!-- <ul>
+                <li>Load Test</li>
+                <li>Stress Test</li>
+                <li>TPS</li>
+                <li>Capacity Planning</li>
+              /ul> -->
+            </div>
+            <!-- <i>↗</i> -->
+          </article>
+          <article class="service">
+            <span class="num">03</span>
+            <h3>
+              <span>시스템 성능 진단<br /></span><span></span>
+            </h3>
+            <div>
+              <p>
+                운영중인 시스템의 이슈 사항을 확인하고 개선 방안을 도출하여 시스템 운영 최적화
+              </p>
+              <!-- <ul> 
+                <li>Java</li>
+                <li>Query Tuning</li>
+                <li>Index Design</li>
+                <li>Execution Plan</li>
+              </ul> -->
+            </div>
+            <!-- <i>↗</i> -->
+          </article>
+          <article class="service">
+            <span class="num">04</span>
+            <h3>
+              <span>시스템 성능 ITO 서비스<br /></span><span></span>
+            </h3>
+            <div>
+              <p>
+                성능 전문가 ITO 서비스 지원을 통해 인력에 대한 비용 절감 효과와 더불어 안정적인 시스템 운영 지원
+              </p>
+              <!-- <ul>
+                <li>WhaTap</li>
+                <li>NetFUNNEL</li>
+                <li>SSL Automation</li>
+                <li>Observability</li>
+              </ul> -->
+            </div>
+            <!-- <i>↗</i> -->
+          </article>
+          <article class="service">
+            <span class="num">05</span>
+            <h3>
+              <span>시스템 DB 튜닝<br /></span><span></span>
+            </h3>
+            <div>
+              <p>
+                Slow SQL 및 비효율적인 SQL Plan을 분석하여 쿼리, 인덱스 및 운영 DB 파라미터 개선
+              </p>
+              <!-- <ul>
+                <li>WhaTap</li>
+                <li>NetFUNNEL</li>
+                <li>SSL Automation</li>
+                <li>Observability</li>
+              </ul> -->
+            </div>
+            <!-- <i>↗</i> -->
+          </article>
+          </article>
+          <article class="service">
+            <span class="num">06</span>
+            <h3>
+              <span>시스템 AA ITO 서비스<br /></span><span></span>
+            </h3>
+            <div>
+              <p>
+                시스템 표준화와 성능 최적화를 견인하는 전문 AA 중심의 IT 운영 관리 서비스 
+              </p>
+              <!-- <ul>
+                <li>WhaTap</li>
+                <li>NetFUNNEL</li>
+                <li>SSL Automation</li>
+                <li>Observability</li>
+              </ul> -->
+            </div>
+            <!-- <i>↗</i> -->
+          </article>
+        </div>
+      </section>
+      <section class="section shell">
+        <div class="shell">
+          <!-- <p class="kicker"><b></b> DIAGNOSTIC FRAMEWORK</p> -->
+          <h2>현상이 아닌<br /><span>원인을 추적합니다.</span></h2>
+          <div class="framework">
+            <aside>
+              <strong>END-TO-END ANALYSIS</strong>
+              <p>
+                성능 문제는 하나의 레이어에서 끝나지 않습니다. 사용자 요청이
+                데이터베이스 응답으로 돌아오기까지 전체 흐름을 연결해
+                분석합니다.
+              </p>
+              <!-- <div class="pulse"></div> -->
+            </aside>
+            <div>
+              <article class="step">
+                <span class="num">01</span>
+                <div>
+                  <h3>현상과 영향 범위 정의</h3>
+                  <p>
+                    장애 발생 조건, 사용자 영향, 시간대와 변경 이력을 확인해
+                    분석 범위를 구체화합니다.
+                  </p>
                 </div>
-                <p>애플리케이션 및 인프라 전반의 실시간 모니터링(APM) 아키텍처를 도입하고 최적으로 튜닝합니다.</p>
-              </div>
-              
-              <div class="list-item">
-                <div class="item-title">
-                  <span class="badge-sol">B 솔루션</span>
-                  <h4>netfunnel Traffic Control</h4>
+              </article>
+              <article class="step">
+                <span>0<!-- -->2</span>
+                <div>
+                  <h3>데이터 수집과 상관관계 분석</h3>
+                  <p>
+                    애플리케이션, 시스템 및 DB 정보 등 다양한 성능 정보를 동일한
+                    타임라인 위에서 다각도로 분석합니다.
+                  </p>
                 </div>
-                <p>대량의 실시간 동시 접속 유입이 발생하는 환경에서 서비스 중단 없이 질서 있게 트래픽을 분산/대기시키는 동적 유입 제어 장치를 도입합니다.</p>
-              </div>
-
-              <div class="list-item">
-                <div class="item-title">
-                  <span class="badge-sol">C 솔루션</span>
-                  <h4>SSL 인증서 자동화 솔루션</h4>
+              </article>
+              <article class="step">
+                <span>0<!-- -->3</span>
+                <div>
+                  <h3>병목 개선과 재검증</h3>
+                  <p>
+                    원인별 개선안을 적용하고 동일 조건에서 전후 성능을 비교해
+                    개선 효과와 잔여 위험을 확인합니다.
+                  </p>
                 </div>
-                <p>인증서 만료로 인한 불필요한 서비스 중단을 방지하기 위해 SSL 인증서의 발급, 갱신 및 웹서버 반영을 완전 자동화합니다.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- 2. Services Category -->
-          <div class="service-category-card">
-            <div class="category-header">
-              <div class="category-icon blue-glow">
-                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-              </div>
-              <div class="category-title-area">
-                <h3>성능 개선 서비스 (Services)</h3>
-                <p>성능 최고 전문가들이 직접 정밀 분석하여 병목을 찾아내고 가용성을 튜닝하는 맞춤형 엔지니어링 서비스</p>
-              </div>
-            </div>
-
-            <div class="category-list">
-              <div class="list-item">
-                <div class="item-title">
-                  <span class="badge-srv">2-1</span>
-                  <h4>성능 테스트 (Performance Testing)</h4>
+              </article>
+              <article class="step">
+                <span>0<!-- -->4</span>
+                <div>
+                  <h3>운영 기준과 가이드 제공</h3>
+                  <p>
+                    일회성 조치로 끝나지 않도록 임계치, 모니터링 항목과
+                    개발·운영 가이드를 문서화합니다.
+                  </p>
                 </div>
-                <p>체계적인 부하 부하 테스트 도구를 활용하여 시스템의 임계점과 응답 레이턴시 한계를 정확하게 규명합니다.</p>
-              </div>
-
-              <div class="list-item">
-                <div class="item-title">
-                  <span class="badge-srv">2-2</span>
-                  <h4>성능 진단 및 튜닝 (Diagnostics & Tuning)</h4>
-                </div>
-                <p>어플리케이션 및 데이터베이스 레이어의 실시간 병목을 심층 튜닝합니다.</p>
-                
-                <ul class="nested-list">
-                  <li>
-                    <span class="bullet-dot"></span>
-                    <div class="nested-content">
-                      <strong>2-2-1. AP 진단 (Application Diagnostics)</strong>
-                      <p>어플리케이션 스레드 병목 및 힙 메모리 리크 구간 분석</p>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="bullet-dot"></span>
-                    <div class="nested-content">
-                      <strong>2-2-2. DB 진단 (Database Diagnostics)</strong>
-                      <p>데이터베이스 커넥션 풀 가용성 및 디스크 I/O 병목 구간 정밀 진단</p>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="bullet-dot"></span>
-                    <div class="nested-content">
-                      <strong>2-2-3. DB 튜닝 (Database Tuning)</strong>
-                      <p>비효율적 실행 계획을 수정하기 위한 쿼리 재작성, 인덱스 아키텍처 재구조화 및 옵티마이저 튜닝</p>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+              </article>
             </div>
           </div>
         </div>
-
-        <!-- Live Performance Simulator (Moved from Home) -->
-        <div class="simulator-wrapper" style="margin-top: 5rem;">
-          <div class="simulator-header">
-            <div class="simulator-badge">LAB SIMULATOR</div>
-            <h2 class="simulator-title">실시간 성능 튜닝 시뮬레이터</h2>
-            <p class="simulator-desc">동일한 웹 솔루션 및 아키텍처 도입 시 최적화 전/후 성과 차이를 실시간으로 검증해 보세요.</p>
-          </div>
-
-          <div class="simulator-controls">
-            <button class="toggle-mode-btn unoptimized active" id="btn-mode-unopt">
-              <span class="dot red"></span> Unoptimized
-            </button>
-            <button class="toggle-mode-btn optimized" id="btn-mode-opt">
-              <span class="dot green"></span> Optimized (endpointlab)
-            </button>
-          </div>
-
-          <div class="simulator-dashboard">
-            <!-- Metric 1: LCP -->
-            <div class="metric-card" id="card-lcp">
-              <div class="metric-header">
-                <span class="metric-label">LCP (Largest Contentful Paint)</span>
-                <span class="metric-status status-bad" id="lcp-status">Slow</span>
-              </div>
-              <div class="metric-value" id="lcp-val">5.4s</div>
-              <div class="progress-bar-container">
-                <div class="progress-bar bar-bad" id="lcp-progress" style="width: 85%;"></div>
-              </div>
+      </section>
+      <section id="testing" class="section shell">
+        <!-- <p class="kicker"><b></b> PERFORMANCE TESTING</p> -->
+        <h2>오픈 이후가 아니라,<br /><span>오픈 전에 확인합니다.</span></h2>
+        <p class="section-copy">
+          단순히 많은 요청을 발생시키는 테스트가 아닙니다. 업무 흐름과 사용자
+          행동을 반영한 시나리오를 설계하고, 시스템이 안정적으로 감당할 수 있는
+          기준을 제시합니다.
+        </p>
+        
+        <div class="testing-visual" aria-label="다양한 테스트 유형 이미지">
+          <img
+            src="./이미지/test.png"
+          />
+          <img
+            src="./이미지/테스트 구조 도식화.png"
+          />
+        </div>
+      </section>
+      <!-- <section class="section shell deliver">
+        <p class="kicker"><b></b> WHAT YOU RECEIVE</p>
+        <h2>결과는 의견이 아니라<br /><span>실행 가능한 기준입니다.</span></h2>
+        <div class="deliver-grid">
+          <blockquote>
+            모든 결론은 측정 데이터와 함께 제공되며, 개선 항목은
+            <strong>우선순위와 기대 효과</strong>를 기준으로 정리합니다.
+          </blockquote>
+          <ol>
+            <li>
+              <span>0 1</span><strong>성능 진단 보고서</strong>
+            </li>
+            <li>
+              <span>02</span><strong>병목 개선 권고안</strong>
+            </li>
+            <li>
+              <span>03</span><strong>성능 테스트 결과서</strong>
+            </li>
+            <li>
+              <span>04</span><strong>운영 모니터링 기준</strong>
+            </li>
+            <li>
+              <span>05</span><strong>기술 워크숍 및 가이드</strong>
+            </li>
+          </ol>
+        </div>
+      </section> -->
+      <section id="solutions" class="section shell">
+        <!-- <p class="kicker"><b></b> PERFORMANCE SOLUTIONS</p> -->
+        <h2>검증된 도구를<br /><span>실제 운영 체계로.</span></h2>
+        <p class="solutions-copy">
+          엔포랩스에서는 대상 시스템 별 커스텀을 통해 운영 환경 별 최적화된 솔루션으로 제공합니다.
+        </p>
+        <div class="solution-grid">
+          <article>
+            <!-- <small
+              >SOLUTION /
+              A</small
+            > -->
+          <img src="./이미지/JMeter Icon.png">
+            <h3>APACHE JMeter</h3>
+            <p>
+              목적에 맞는 유연한 설계와 수행이 가능한 오픈소스 테스트 소프트웨어
+            </p>
+            <footer>
+              Load Test<!-- -->
+              <!-- <span>↗</span> -->
+            </footer>
+          </article>
+          <article>
+            <!-- <small
+              >SOLUTION /
+              B</small> -->
+              <img src="./이미지/scouter-logo-w200.png">
+            <h3>SCOUTER APM</h3>
+            <p>
+              JAVA 기반의 오픈소스 웹 애플리케이션 성능 관리 시스템
+            </p>
+            <footer>
+              APM / Observability<!-- -->
+              <!-- <span>↗</span> -->
+            </footer>
+          </article>
+        </div>
+      </section>
+      <section id="contact" class="contact section">
+        <div class="shell">
+          <!-- <p class="kicker"><b></b> START A CONVERSATION</p> -->
+          <h2>성능 문제를<br /><span>측정 가능한 과제로.</span></h2>
+          <div class="contact-grid">
+            <div>
+              <p>
+                현재 겪고 있는 현상과 서비스 환경을 알려주세요. 진단 범위와
+                적합한 진행 방식을 검토해 안내드립니다.
+              </p>
+              <a href="mailto:contact@endpointlab.io"
+                >contact@endpointlab.io ↗</a
+              >
             </div>
-
-            <!-- Metric 2: FPS -->
-            <div class="metric-card" id="card-fps">
-              <div class="metric-header">
-                <span class="metric-label">Frame Rate (인터랙션 반응성)</span>
-                <span class="metric-status status-bad" id="fps-status">Laggy</span>
-              </div>
-              <div class="metric-value" id="fps-val">22 fps</div>
-              <div class="progress-bar-container">
-                <div class="progress-bar bar-bad" id="fps-progress" style="width: 36%;"></div>
-              </div>
-            </div>
-
-            <!-- Metric 3: Page Size -->
-            <div class="metric-card" id="card-size">
-              <div class="metric-header">
-                <span class="metric-label">Total Bundle Size</span>
-                <span class="metric-status status-bad" id="size-status">Heavy</span>
-              </div>
-              <div class="metric-value" id="size-val">4.2 MB</div>
-              <div class="progress-bar-container">
-                <div class="progress-bar bar-bad" id="size-progress" style="width: 90%;"></div>
-              </div>
-            </div>
-
-            <!-- Metric 4: Lighthouse Score -->
-            <div class="metric-card score-card" id="card-lighthouse">
-              <div class="metric-label">Lighthouse Performance</div>
-              <div class="score-circle-container">
-                <svg class="score-circle-svg" viewBox="0 0 100 100">
-                  <circle class="score-circle-bg" cx="50" cy="50" r="40"></circle>
-                  <circle class="score-circle-progress circle-bad" id="score-circle" cx="50" cy="50" r="40" stroke-dasharray="251.2" stroke-dashoffset="165.8"></circle>
-                </svg>
-                <div class="score-text text-bad" id="score-val">34</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="simulation-demo-box">
-            <div class="demo-box-label">시뮬레이션 렌더링 프리뷰</div>
-            <div class="demo-canvas" id="demo-canvas">
-              <div class="demo-element-spinner" id="demo-spinner"></div>
-              <div class="demo-element-card" id="demo-card-1">
-                <div class="skeleton skeleton-title"></div>
-                <div class="skeleton skeleton-line"></div>
-                <div class="skeleton skeleton-line-short"></div>
-              </div>
-              <div class="demo-element-card" id="demo-card-2">
-                <div class="skeleton skeleton-title"></div>
-                <div class="skeleton skeleton-line"></div>
-                <div class="skeleton skeleton-line-short"></div>
-              </div>
-            </div>
+            <form>
+              <label
+                >이름 / 회사명<input
+                  required=""
+                  maxlength="100"
+                  placeholder="회사명 또는 담당자명"
+                  name="name" /></label
+              ><label
+                >이메일<input
+                  required=""
+                  type="email"
+                  maxlength="200"
+                  placeholder="name@company.com"
+                  name="email" /></label
+              ><label
+                >문의 분야<select name="category" required="">
+                  <option value="" disabled="" selected="">
+                    문의 분야를 선택해 주세요
+                  </option>
+                  <option>성능 진단 및 트러블슈팅</option>
+                  <option>성능 테스트</option>
+                  <option>AP / DB 튜닝</option>
+                  <option>성능 솔루션 구축</option>
+                </select></label
+              ><label
+                >프로젝트 및 문제 상황<textarea
+                  name="message"
+                  required=""
+                  minlength="10"
+                  maxlength="5000"
+                  placeholder="대상 시스템, 현재 문제, 예상 일정 등을 작성해 주세요."
+                ></textarea></label
+              ><input
+                class="contact-trap"
+                tabindex="-1"
+                autocomplete="off"
+                aria-hidden="true"
+                name="website"
+              /><button>
+                프로젝트 문의 보내기<!-- -->
+                <span>↗</span>
+              </button>
+            </form>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- 3. Guidelines Section -->
-    <section id="guidelines" class="tab-section">
-      <div class="guidelines-layout">
-        <!-- Sidebar Navigation for Guidelines -->
-        <aside class="guidelines-sidebar">
-          <h3 class="sidebar-title">Guidelines Index</h3>
-          <ul class="sidebar-menu" id="guidelines-toc">
-            <!-- Dynamic TOC items will be rendered here -->
-          </ul>
-        </aside>
-
-        <!-- Main Guidelines Document Viewer -->
-        <article class="guidelines-viewer">
-          <div class="viewer-loader" id="viewer-loader">
-            <div class="spinner"></div>
-            <span>성능 지침서 문서를 분석하고 있습니다...</span>
-          </div>
-          <div class="markdown-body" id="guidelines-content">
-            <!-- Parsed Markdown HTML content will be rendered here -->
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- 4. Contact Section -->
-    <section id="contact" class="tab-section">
-      <div class="section-container max-w-sm">
-        <div class="section-header text-center">
-          <span class="section-badge">CONTACT US</span>
-          <h2 class="section-title">성능 고민을 나누어주세요</h2>
-          <p class="section-subtitle">귀사 서비스의 현재 성능 점수를 진단하고 최적의 가속 솔루션을 찾아드립니다.</p>
-        </div>
-
-        <div class="contact-form-wrapper">
-          <form id="contact-form" class="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_KEY_HERE" method="POST">
-            <div class="form-group">
-              <label for="user-name">이름 / 회사명</label>
-              <input type="text" id="user-name" name="name" placeholder="홍길동 (endpointlab)" required>
-            </div>
-
-            <div class="form-group">
-              <label for="user-email">이메일 주소</label>
-              <input type="email" id="user-email" name="email" placeholder="contact@endpointlab.io" required>
-            </div>
-
-            <div class="form-group">
-              <label for="inquiry-type">문의 분야</label>
-              <select id="inquiry-type" name="type" required>
-                <option value="diagnostics">성능 진단 및 분석</option>
-                <option value="testing">성능 테스트</option>
-                <option value="solution">솔루션 문의</option>
-                <option value="db-tuning">DB 진단 및 튜닝</option>
-                <option value="consulting">정기 컨설팅 및 가이드라인 구축</option>
-                <option value="other">기타 비즈니스 제휴</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="user-message">문의 상세 정보 (대상 URL 및 해결하고 싶은 이슈)</label>
-              <textarea id="user-message" name="message" rows="5" placeholder="예: 저희 모바일 쇼핑몰의 LCP 지표가 4초를 넘어 이탈률이 높습니다. 상세 진단과 함께 튜닝을 요청합니다." required></textarea>
-            </div>
-
-            <button type="submit" class="submit-btn" id="btn-submit-form">
-              <span>보내기 (Submit Request)</span>
-              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-            </button>
-          </form>
-
-          <!-- Success state modal/box -->
-          <div class="contact-success" id="contact-success">
-            <div class="success-icon">
-              <svg viewBox="0 0 24 24" width="48" height="48" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-            </div>
-            <h3>문의가 성공적으로 전달되었습니다!</h3>
-            <p>endpointlab 성능 분석 엔지니어가 빠른 시일 내에 이메일로 회신해 드리겠습니다.</p>
-            <button class="secondary-btn" id="btn-success-close">새 문의 작성</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-logo">
-        endpoint<span>lab</span>
-      </div>
-      <div class="footer-info">
-        <p>&copy; 2026 endpointlab. All rights reserved. | <a href="#guidelines" style="color:var(--text-secondary); text-decoration:none; margin-left:5px; transition:var(--transition-fast);" onmouseover="this.style.color='var(--color-orange-brand)'" onmouseout="this.style.color='var(--text-secondary)'">Technical Guidelines (Docs)</a></p>
-        <p>Expert Web Performance Engineering & Consulting | <a href="mailto:contact@endpointlab.io">contact@endpointlab.io</a></p>
-      </div>
-    </div>
-  </footer>
-
-</body>
+      </section>
+    </main>
+    <footer class="footer shell">
+      <a class="brand" href="#home"><i></i>endpoint<span>lab</span></a>
+      <p>End-to-End Performance Assurance</p>
+      <div>© 2026 ENDPOINT LABS. ALL RIGHTS RESERVED.</div>
+    </footer>
+    <script>
+      (() => {
+        const root = document.documentElement;
+        const themeButton = document.querySelector(".theme");
+        const menuButton = document.querySelector(".menu");
+        const nav = document.querySelector(".nav");
+        const savedTheme = localStorage.getItem("endpointlab-theme");
+        const isDark = savedTheme
+          ? savedTheme === "dark"
+          : matchMedia("(prefers-color-scheme: dark)").matches;
+        root.dataset.theme = isDark ? "dark" : "light";
+        if (themeButton) {
+          themeButton.textContent = isDark ? "LIGHT" : "DARK";
+          themeButton.onclick = () => {
+            const nextDark = root.dataset.theme !== "dark";
+            root.dataset.theme = nextDark ? "dark" : "light";
+            themeButton.textContent = nextDark ? "LIGHT" : "DARK";
+            localStorage.setItem(
+              "endpointlab-theme",
+              nextDark ? "dark" : "light",
+            );
+          };
+        }
+        if (menuButton && nav)
+          menuButton.onclick = () => nav.classList.toggle("open");
+        const form = document.querySelector("#contact form");
+        if (form)
+          form.onsubmit = (event) => {
+            event.preventDefault();
+            const data = new FormData(form);
+            const subject =
+              "[홈페이지 문의] " +
+              (data.get("category") || "") +
+              " · " +
+              (data.get("name") || "");
+            const body = [
+              "이름 / 회사명: " + (data.get("name") || ""),
+              "고객 이메일: " + (data.get("email") || ""),
+              "문의 분야: " + (data.get("category") || ""),
+              "",
+              String(data.get("message") || ""),
+            ].join("\n");
+            location.href =
+              "mailto:ojkwon@endpointlab.io?subject=" +
+              encodeURIComponent(subject) +
+              "&body=" +
+              encodeURIComponent(body);
+          };
+      })();
+    </script>
+  </body>
 </html>
