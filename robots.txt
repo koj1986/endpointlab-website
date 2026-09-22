@@ -1,0 +1,2 @@
+User-agent: Daumoa
+Allow: /
