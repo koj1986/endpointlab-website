@@ -1325,6 +1325,67 @@
           text-align: left;
         }
       }
+
+      /* ==========================================================================
+         Hero Full-Bleed Background & Text Visibility Fix
+         ========================================================================== */
+      /* ==========================================================================
+         Hero Full-Bleed Background & Smooth Fade Effect
+         ========================================================================== */
+      .hero-bg-wrap {
+        position: relative;
+        width: 100%;
+        background-color: #0f1319; /* 페이드 전환 시 비치는 베이스 다크 컬러 */
+        background-image:
+          linear-gradient(90deg, rgba(15, 19, 25, 0.78) 0%, rgba(15, 19, 25, 0.45) 55%, rgba(15, 19, 25, 0.25) 100%),
+          url('./이미지/focus01.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        overflow: hidden;
+      }
+
+      /* 페이드 효과를 담당할 오버레이 레이어 */
+      .hero-bg-wrap::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: #0f1319;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.35s ease-in-out;
+        z-index: 1;
+      }
+
+      /* 클래스가 붙으면 순간적으로 암전되면서 부드럽게 전환 */
+      .hero-bg-wrap.is-fading::before {
+        opacity: 0.85;
+      }
+
+      /* 내부 글씨와 버튼들은 배경 레이어(z-index: 1)보다 항상 위에 오도록 설정 */
+      .hero-bg-wrap > .hero {
+        position: relative;
+        z-index: 2;
+      }
+
+      /* 어두운 배경 이미지 위에서 글씨가 선명하게 보이도록 흰색 계열로 고정 */
+      .hero-bg-wrap .hero h1 {
+        color: #f6f5f0;
+      }
+      .hero-bg-wrap .hero h1 em {
+        -webkit-text-stroke: 1.5px #f6f5f0;
+      }
+      .hero-bg-wrap .hero-aside p {
+        color: rgba(246, 245, 240, 0.88);
+      }
+      .hero-bg-wrap .btn-outline {
+        border-color: rgba(246, 245, 240, 0.75);
+        color: #f6f5f0;
+      }
+      .hero-bg-wrap .btn-outline:hover {
+        background: #f6f5f0;
+        color: #181e27;
+      }
     </style>
   </head>
   <body>
@@ -1396,49 +1457,49 @@
     <main id="home">
       <!-- 1. HERO SECTION -->
 <!-- 변경 후: id와 인라인 style, 그리고 FOCUS 01~04 버튼(div)에 onclick 이벤트와 style을 더해줍니다. -->
-<section id="hero-banner" class="hero shell" style="
-  background: linear-gradient(rgba(30, 37, 48, 0.88), rgba(24, 30, 39, 0.94)), url('./이미지/focus01.png') no-repeat center center;
-  background-size: cover;
-  transition: background 0.6s ease-in-out; /* 배경이 스르륵 바뀌는 효과 */
-">
-  <div>
-    <!-- <p class="kicker"><b></b> END-TO-END PERFORMANCE ASSURANCE</p> -->
-    <h1>Performance<br /><em>without guesswork.</em></h1>
-  </div>
-  <div class="hero-aside">
-    <p>
-      엔포랩스는 안정적인 시스템을 위한 성능 검증 전문 크루로 구성되어,
-      단순 현상 확인을 넘어 데이터에 기반한 최적의 해안을 제공합니다.
-    </p>
-    <div class="hero-btns">
-      <a class="btn-primary" href="#services">핵심 서비스 보기 <span>↓</span></a>
-      <a class="btn-outline" href="#about">COMPANY STORY</a>
+<!-- 1. HERO SECTION -->
+<section id="hero-banner" class="hero-bg-wrap">
+  <!-- 내부 컨텐츠는 기존 .hero .shell 규격(1380px 중앙 정렬)을 그대로 유지 -->
+  <div class="hero shell">
+    <div>
+      <!-- <p class="kicker"><b></b> END-TO-END PERFORMANCE ASSURANCE</p> -->
+      <h1>Performance<br /><em>without guesswork.</em></h1>
     </div>
-  </div>
+    <div class="hero-aside">
+      <p>
+        엔포랩스는 안정적인 시스템을 위한 성능 검증 전문 크루로 구성되어,
+        단순 현상 확인을 넘어 데이터에 기반한 최적의 해안을 제공합니다.
+      </p>
+      <div class="hero-btns">
+        <a class="btn-primary" href="#services">핵심 서비스 보기 <span>↓</span></a>
+        <a class="btn-outline" href="#about">COMPANY STORY</a>
+      </div>
+    </div>
 
-  <div class="signal" aria-hidden="true">
-    <svg viewBox="0 0 1000 100" preserveAspectRatio="none">
-      <path d="M0 55h90l22-35 28 65 30-42 45 12h110l28-25 27 47 35-22h90l22-40 32 70 35-37 45 7h90l25-28 28 50 34-22h120"></path>
-    </svg>
-  </div>
+    <div class="signal" aria-hidden="true">
+      <svg viewBox="0 0 1000 100" preserveAspectRatio="none">
+        <path d="M0 55h90l22-35 28 65 30-42 45 12h110l28-25 27 47 35-22h90l22-40 32 70 35-37 45 7h90l25-28 28 50 34-22h120"></path>
+      </svg>
+    </div>
 
-  <!-- FOCUS 01 ~ 04 버튼들: 클릭 시 배경 변경 함수 연결 및 포인터 스타일 제공 -->
-  <div class="focus-bar">
-    <div class="focus-item" style="cursor: pointer;" onclick="changeHeroBg(1, this)">
-      <span>FOCUS 01</span>
-      <strong>시스템 성능 관리를 통한 안정적인 시스템 점검</strong>
-    </div>
-    <div class="focus-item" style="cursor: pointer;" onclick="changeHeroBg(2, this)">
-      <span>FOCUS 02</span>
-      <strong>신규 시스템 구축 시 성능 검증을 통한 안정적인 시스템 오픈 지원</strong>
-    </div>
-    <div class="focus-item" style="cursor: pointer;" onclick="changeHeroBg(3, this)">
-      <span>FOCUS 03</span>
-      <strong>목표 시스템의 성능 테스트를 통한 이슈 도출 및 개선 방안 안내</strong>
-    </div>
-    <div class="focus-item" style="cursor: pointer;" onclick="changeHeroBg(4, this)">
-      <span>FOCUS 04</span>
-      <strong>안정적인 시스템 운영을 위한 성능 검증 및 AA ITO 지원</strong>
+    <!-- FOCUS 01 ~ 04 버튼들 -->
+    <div class="focus-bar">
+      <div class="focus-item" style="cursor: pointer;" onclick="changeHeroBg(1, this)">
+        <span>FOCUS 01</span>
+        <strong>시스템 성능 관리를 통한 안정적인 시스템 점검</strong>
+      </div>
+      <div class="focus-item" style="cursor: pointer;" onclick="changeHeroBg(2, this)">
+        <span>FOCUS 02</span>
+        <strong>신규 시스템 구축 시 성능 검증을 통한 안정적인 시스템 오픈 지원</strong>
+      </div>
+      <div class="focus-item" style="cursor: pointer;" onclick="changeHeroBg(3, this)">
+        <span>FOCUS 03</span>
+        <strong>목표 시스템의 성능 테스트를 통한 이슈 도출 및 개선 방안 안내</strong>
+      </div>
+      <div class="focus-item" style="cursor: pointer;" onclick="changeHeroBg(4, this)">
+        <span>FOCUS 04</span>
+        <strong>안정적인 시스템 운영을 위한 성능 검증 및 AA ITO 지원</strong>
+      </div>
     </div>
   </div>
 </section>
@@ -1564,7 +1625,7 @@
             <div class="biz-domain-card">
               <div>
                 <span class="biz-domain-badge">DOMAIN 01 · Consulting</span>
-                <h4>시스템 성능 엔지니어링 &amp; 진단</h4>
+                <h4>시스템 성능 테스트 · 진단</h4>
                 <p>신규 오픈 전 대규모 부하 검증부터 운영 중 발생하는 복합 장애·지연 구간의 정밀 트러블슈팅을 수행합니다.</p>
               </div>
               <ul class="biz-sublist">
@@ -1578,7 +1639,7 @@
             <div class="biz-domain-card">
               <div>
                 <span class="biz-domain-badge">DOMAIN 02 · AA &amp; ITO</span>
-                <h4>전문 성능 · AA ITO 아웃소싱</h4>
+                <h4>전문 AA · ITO 아웃소싱</h4>
                 <p>검증된 성능 엔지니어와 애플리케이션 아키텍트(AA)가 상주·반상주 형태로 시스템 표준화와 안정적 운영을 견인합니다.</p>
               </div>
               <ul class="biz-sublist">
@@ -1592,7 +1653,7 @@
             <div class="biz-domain-card">
               <div>
                 <span class="biz-domain-badge">DOMAIN 03 · SOLUTIONS</span>
-                <h4>커스텀 성능 솔루션 &amp; 자동화</h4>
+                <h4>커스텀 성능 점검 · 관제 솔루션</h4>
                 <p>검증된 오픈소스 도구를 고객사 운영 환경에 맞게 커스터마이징하고 사내 기술 지원 도구를 개발·공급합니다.</p>
               </div>
               <ul class="biz-sublist">
@@ -1767,7 +1828,7 @@
             <h2>오픈 이후가 아니라,<br /><span>오픈 전에 완벽히 확인합니다.</span></h2>
           </div>
           <p>
-            단순히 많은 요청을 발생시키는 테스트가 아닙니다. 실제 업무 흐름과 사용자 행동 패턴(Think Time, Pacing, 집중 트랜잭션)을 반영한 시나리오를 설계하고 시스템의 임계 용량을 제시합니다.
+            단순히 많은 요청을 발생시키는 테스트가 아닙니다. 실제 업무 흐름과 사용자 행동 패턴(Think Time, Pacing 및 집중 트랜잭션)을 반영한 시나리오를 설계하고 시스템의 임계 용량을 제시합니다.
           </p>
         </div>
 
@@ -2225,21 +2286,37 @@
         }
       })();
 
-      // 4. FOCUS 버튼 클릭 시 히어로 배경 전환 (추가)
+      // 4. FOCUS 배경 이미지 프리로드 (클릭 시 깜빡임 방지)
+      [1, 2, 3, 4].forEach((num) => {
+        const img = new Image();
+        img.src = `./이미지/focus0${num}.png`;
+      });
+
+      let currentFocusIndex = 1;
+      let fadeTimer = null;
+
+      // FOCUS 버튼 클릭 시 히어로 배경 부드럽게 페이드 전환
       function changeHeroBg(index, element) {
         const heroBanner = document.getElementById("hero-banner");
-        if (!heroBanner) return;
-        
-        // 배경 이미지 교체
-        heroBanner.style.backgroundImage = `linear-gradient(rgba(30, 37, 48, 0.88), rgba(24, 30, 39, 0.94)), url('./이미지/focus0${index}.png')`;
+        if (!heroBanner || currentFocusIndex === index) return;
+        currentFocusIndex = index;
 
-        // 클릭된 느낌을 주도록 FOCUS 아이템 활성화 효과 (선택사항)
-        document.querySelectorAll(".focus-item").forEach(item => {
+        // 1) FOCUS 탭 활성화 스타일 즉시 반영
+        document.querySelectorAll(".focus-item").forEach((item) => {
           item.style.borderTop = "none";
           item.style.background = "var(--surface)";
         });
         element.style.borderTop = "3px solid var(--brand-orange)";
         element.style.background = "var(--surface-alt)";
+
+        // 2) 페이드 아웃 시작 -> 이미지 교체 -> 페이드 인
+        heroBanner.classList.add("is-fading");
+        clearTimeout(fadeTimer);
+
+        fadeTimer = setTimeout(() => {
+          heroBanner.style.backgroundImage = `linear-gradient(90deg, rgba(15, 19, 25, 0.78) 0%, rgba(15, 19, 25, 0.45) 55%, rgba(15, 19, 25, 0.25) 100%), url('./이미지/focus0${index}.png')`;
+          heroBanner.classList.remove("is-fading");
+        }, 280);
       }
     </script>
   </body>
