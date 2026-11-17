@@ -21,7 +21,7 @@
     }
   ]
 }
-</script>
+    </script>
     <title>엔포랩스 — Performance Engineering</title>
     <meta
       name="description"
@@ -29,531 +29,314 @@
     />
     <meta name="google-site-verification" content="m4ZYXX8_CQC8H6stPD1sj_vM2Bz1mo3miKQ_Fr0zfig" />
     <meta name="naver-site-verification" content="03e5c1462c42b44d5627d24e4413b7587882a68d" />
-    </head>
-    <body>
-      <details style="display:none;">
-        <summary>CSS</summary>
-        <style>
-          /*! tailwindcss v4.2.1 | MIT License | https://tailwindcss.com */
-        @layer theme {
-          :root,
-          :host {
-            --font-sans:
-              ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-              "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-            --font-mono:
-              ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-              "Liberation Mono", "Courier New", monospace;
-            --spacing: 0.25rem;
-            --default-font-family: var(--font-sans);
-            --default-mono-font-family: var(--font-mono);
-          }
-        }
-        @layer base {
-          *,
-          :after,
-          :before,
-          ::backdrop {
-            box-sizing: border-box;
-            border: 0 solid;
-            margin: 0;
-            padding: 0;
-          }
-          ::file-selector-button {
-            box-sizing: border-box;
-            border: 0 solid;
-            margin: 0;
-            padding: 0;
-          }
-          html,
-          :host {
-            -webkit-text-size-adjust: 100%;
-            tab-size: 4;
-            line-height: 1.5;
-            font-family: var(
-              --default-font-family,
-              ui-sans-serif,
-              system-ui,
-              sans-serif,
-              "Apple Color Emoji",
-              "Segoe UI Emoji",
-              "Segoe UI Symbol",
-              "Noto Color Emoji"
-            );
-            font-feature-settings: var(--default-font-feature-settings, normal);
-            font-variation-settings: var(
-              --default-font-variation-settings,
-              normal
-            );
-            -webkit-tap-highlight-color: transparent;
-          }
-          hr {
-            height: 0;
-            color: inherit;
-            border-top-width: 1px;
-          }
-          abbr:where([title]) {
-            -webkit-text-decoration: underline dotted;
-            text-decoration: underline dotted;
-          }
-          h1,
-          h2,
-          h3,
-          h4,
-          h5,
-          h6 {
-            font-size: inherit;
-            font-weight: inherit;
-          }
-          a {
-            color: inherit;
-            -webkit-text-decoration: inherit;
-            -webkit-text-decoration: inherit;
-            -webkit-text-decoration: inherit;
-            -webkit-text-decoration: inherit;
-            text-decoration: inherit;
-          }
-          b,
-          strong {
-            font-weight: bolder;
-          }
-          code,
-          kbd,
-          samp,
-          pre {
-            font-family: var(
-              --default-mono-font-family,
-              ui-monospace,
-              SFMono-Regular,
-              Menlo,
-              Monaco,
-              Consolas,
-              "Liberation Mono",
-              "Courier New",
-              monospace
-            );
-            font-feature-settings: var(
-              --default-mono-font-feature-settings,
-              normal
-            );
-            font-variation-settings: var(
-              --default-mono-font-variation-settings,
-              normal
-            );
-            font-size: 1em;
-          }
-          small {
-            font-size: 80%;
-          }
-          sub,
-          sup {
-            vertical-align: baseline;
-            font-size: 75%;
-            line-height: 0;
-            position: relative;
-          }
-          sub {
-            bottom: -0.25em;
-          }
-          sup {
-            top: -0.5em;
-          }
-          table {
-            text-indent: 0;
-            border-color: inherit;
-            border-collapse: collapse;
-          }
-          :-moz-focusring {
-            outline: auto;
-          }
-          progress {
-            vertical-align: baseline;
-          }
-          summary {
-            display: list-item;
-          }
-          ol,
-          ul,
-          menu {
-            list-style: none;
-          }
-          img,
-          svg,
-          video,
-          canvas,
-          audio,
-          iframe,
-          embed,
-          object {
-            vertical-align: middle;
-            display: block;
-          }
-          img,
-          video {
-            max-width: 100%;
-            height: auto;
-          }
-          button,
-          input,
-          select,
-          optgroup,
-          textarea {
-            font: inherit;
-            font-feature-settings: inherit;
-            font-variation-settings: inherit;
-            letter-spacing: inherit;
-            color: inherit;
-            opacity: 1;
-            background-color: #0000;
-            border-radius: 0;
-          }
-          ::file-selector-button {
-            font: inherit;
-            font-feature-settings: inherit;
-            font-variation-settings: inherit;
-            letter-spacing: inherit;
-            color: inherit;
-            opacity: 1;
-            background-color: #0000;
-            border-radius: 0;
-          }
-          :where(select:is([multiple], [size])) optgroup {
-            font-weight: bolder;
-          }
-          :where(select:is([multiple], [size])) optgroup option {
-            padding-inline-start: 20px;
-          }
-          ::file-selector-button {
-            margin-inline-end: 4px;
-          }
-          ::placeholder {
-            opacity: 1;
-          }
-          @supports (not ((-webkit-appearance: -apple-pay-button))) or
-            (contain-intrinsic-size: 1px) {
-            ::placeholder {
-              color: currentColor;
-            }
-            @supports (color: color-mix(in lab, red, red)) {
-              ::placeholder {
-                color: color-mix(in oklab, currentcolor 50%, transparent);
-              }
-            }
-          }
-          textarea {
-            resize: vertical;
-          }
-          ::-webkit-search-decoration {
-            -webkit-appearance: none;
-          }
-          ::-webkit-date-and-time-value {
-            min-height: 1lh;
-            text-align: inherit;
-          }
-          ::-webkit-datetime-edit {
-            display: inline-flex;
-          }
-          ::-webkit-datetime-edit-fields-wrapper {
-            padding: 0;
-          }
-          ::-webkit-datetime-edit {
-            padding-block: 0;
-          }
-          ::-webkit-datetime-edit-year-field {
-            padding-block: 0;
-          }
-          ::-webkit-datetime-edit-month-field {
-            padding-block: 0;
-          }
-          ::-webkit-datetime-edit-day-field {
-            padding-block: 0;
-          }
-          ::-webkit-datetime-edit-hour-field {
-            padding-block: 0;
-          }
-          ::-webkit-datetime-edit-minute-field {
-            padding-block: 0;
-          }
-          ::-webkit-datetime-edit-second-field {
-            padding-block: 0;
-          }
-          ::-webkit-datetime-edit-millisecond-field {
-            padding-block: 0;
-          }
-          ::-webkit-datetime-edit-meridiem-field {
-            padding-block: 0;
-          }
-          ::-webkit-calendar-picker-indicator {
-            line-height: 1;
-          }
-          :-moz-ui-invalid {
-            box-shadow: none;
-          }
-          button,
-          input:where([type="button"], [type="reset"], [type="submit"]) {
-            appearance: button;
-          }
-          ::file-selector-button {
-            appearance: button;
-          }
-          ::-webkit-inner-spin-button {
-            height: auto;
-          }
-          ::-webkit-outer-spin-button {
-            height: auto;
-          }
-          [hidden]:where(:not([hidden="until-found"])) {
-            display: none !important;
-          }
-        }
-        @layer components;
-        @layer utilities {
-          .visible {
-            visibility: visible;
-          }
-          .relative {
-            position: relative;
-          }
-          .start {
-            inset-inline-start: var(--spacing);
-          }
-          .table {
-            display: table;
-          }
-        }
-        :root {
-          --bg: #f3f1ec;
-          --surface: #fbfaf7;
-          --ink: #20251f;
-          --muted: #657067;
-          --soft: #929b92;
-          --line: #20251f29;
-          --accent: #c8d9c7;
-          --accent2: #839f89;
-          --accent-blue: #b9ccd8;
-          --band: #202720;
-          --band-ink: #f6f5f0;
-          --band-muted: #c6cec5;
-          --shadow: 0 20px 60px #2d3a2f12;
-          --lightningcss-light: initial;
-          --lightningcss-dark: ;
-          color-scheme: light;
-        }
-        :root[data-theme="dark"] {
-          --bg: #111512;
-          --surface: #191f1a;
-          --ink: #f1f3ed;
-          --muted: #c2c9c1;
-          --soft: #98a298;
-          --line: #f1f5eb33;
-          --accent: #a9c2ac;
-          --accent2: #88a58e;
-          --accent-blue: #91aebb;
-          --band: #090c0a;
-          --band-ink: #f5f7f1;
-          --band-muted: #c4cbc1;
-          --shadow: 0 24px 70px #0000004d;
-          --lightningcss-light: ;
-          --lightningcss-dark: initial;
-          color-scheme: dark;
-        }
-        * {
-          box-sizing: border-box;
-        }
-        html {
-          scroll-behavior: smooth;
-          scroll-padding-top: 90px;
-        }
-        body {
-          background: var(--bg);
-          color: var(--ink);
-          word-break: keep-all;
-          margin: 0;
-          font-family:
-            Pretendard,
-            Noto Sans KR,
-            -apple-system,
-            BlinkMacSystemFont,
-            Segoe UI,
-            sans-serif;
-          line-height: 1.6;
-        }
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-        button,
-        input,
-        select,
-        textarea {
-          font: inherit;
-        }
-        .shell {
-          width: min(100%, 1440px);
-          margin: auto;
-          padding-left: clamp(22px, 5vw, 72px);
-          padding-right: clamp(22px, 5vw, 72px);
-        }
-        .header {
-          z-index: 30;
-          border-bottom: 1px solid var(--line);
-          background: var(--bg);
-          grid-template-columns: 1fr auto 1fr;
-          align-items: center;
-          height: 76px;
-          padding: 0 clamp(22px, 5vw, 72px);
-          display: grid;
-          position: sticky;
-          top: 0;
-        }
-        @supports (color: color-mix(in lab, red, red)) {
-          .header {
-            background: color-mix(in srgb, var(--bg) 87%, transparent);
-          }
-        }
-        .header {
-          -webkit-backdrop-filter: blur(18px);
-          backdrop-filter: blur(18px);
-        }
-        .brand {
-          letter-spacing: -0.04em;
-          align-items: center;
-          width: max-content;
-          font-weight: 850;
-          display: flex;
-        }
-        .brand span {
-          font-weight: 480;
-        }
-        .brand i {
-          border: 1.5px solid;
-          border-radius: 50%;
-          width: 20px;
-          height: 20px;
-          margin-right: 10px;
-          position: relative;
-        }
-        .brand i:after {
-          content: "";
-          border-top: 1.5px solid;
-          position: absolute;
-          top: 8px;
-          left: -5px;
-          right: -5px;
-        }
-        .nav {
-          gap: 32px;
-          font-size: 13px;
-          font-weight: 650;
-          display: flex;
-        }
-        .nav a {
-          opacity: 0.78;
-        }
-        .nav a:hover {
-          opacity: 1;
-        }
-        .header-actions {
-          justify-self: end;
-          align-items: center;
-          gap: 10px;
-          display: flex;
-        }
-        .theme {
-          color: var(--muted);
-          letter-spacing: 0.12em;
-          cursor: pointer;
-          background: 0 0;
-          border: 0;
-          font: 700 10px/1 monospace;
-        }
-        .mini-cta,
-        .cta {
-          border: 1px solid var(--ink);
-          justify-content: space-between;
-          align-items: center;
-          padding: 13px 16px;
-          font-size: 13px;
-          font-weight: 750;
-          display: flex;
-        }
-        .mini-cta:hover,
-        .cta:hover {
-          background: var(--ink);
-          color: var(--bg);
-        }
-        .menu {
-          color: var(--ink);
-          background: 0 0;
-          border: 0;
-          font-size: 22px;
-          display: none;
-        }
-        .hero {
-          grid-template-rows: auto auto auto;
-          grid-template-columns: 2fr 1fr;
-          column-gap: 9vw;
-          min-height: calc(100vh - 76px);
-          padding-top: clamp(75px, 10vw, 150px);
-          display: grid;
-        }
-        .kicker {
-          color: var(--muted);
-          letter-spacing: 0.12em;
-          align-items: center;
-          gap: 10px;
-          margin: 0 0 24px;
-          font: 700 11px/1.2 monospace;
-          display: flex;
-        }
-        .kicker b,
-        .hero-aside small b,
-        .chart-head small b {
-          background: var(--accent2);
-          border-radius: 50%;
-          width: 7px;
-          height: 7px;
-          display: inline-block;
-        }
-        .hero h1 {
-          letter-spacing: -0.075em;
-          margin: 0;
-          font-size: clamp(60px, 9.4vw, 145px);
-          font-weight: 670;
-          line-height: 0.82;
-        }
-        .hero h1 em {
-          color: #0000;
-          -webkit-text-stroke: 1.5px var(--ink);
-          font-style: normal;
-        }
-        .hero-aside {
-          align-self: end;
-          padding-bottom: 8px;
-        }
-        .hero-aside > p {
-          color: var(--muted);
-          margin: 0 0 28px;
-          font-size: clamp(16px, 1.2vw, 19px);
-        }
-        .cta {
-          background: var(--accent);
-          color: #111;
-          border-color: #111;
-          max-width: 230px;
-        }
-        .hero-aside small {
-        color: var(--muted);
+    <!-- Markdown Parser for Guidelines -->
+    <script defer src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+      /* ==========================================================================
+         1. Brand Color Tokens (Logo & Existing Index Theme Preserved)
+         ========================================================================== */
+      :root {
+        /* Logo Cream / Navy / Orange + Existing Sage Accent */
+        --bg: #f5f2eb;
+        --surface: #fbfaf7;
+        --surface-alt: #ede9df;
+        --ink: #1e2530;
+        --muted: #5a626e;
+        --soft: #8a929e;
+        --line: rgba(30, 37, 48, 0.14);
+        
+        /* Brand Primary Orange (from Endpoint Lab Logo) & Sage/Blue Accents */
+        --brand-orange: #ec5a0c;
+        --brand-orange-soft: rgba(236, 90, 12, 0.1);
+        --accent: #c8d9c7;
+        --accent2: #839f89;
+        --accent-blue: #b9ccd8;
+        
+        /* Dark Band & Status Colors */
+        --band: #181e27;
+        --band-ink: #f6f5f0;
+        --band-muted: #b6c0ce;
+        --good: #10b981;
+        --bad: #ef4444;
+        --shadow: 0 20px 50px rgba(30, 37, 48, 0.07);
+        color-scheme: light;
+      }
+
+      :root[data-theme="dark"] {
+        --bg: #0f1319;
+        --surface: #171d26;
+        --surface-alt: #1f2733;
+        --ink: #f1f3f5;
+        --muted: #b0b8c4;
+        --soft: #7d8796;
+        --line: rgba(241, 243, 245, 0.14);
+        --brand-orange: #ff6a00;
+        --brand-orange-soft: rgba(255, 106, 0, 0.15);
+        --accent: #a9c2ac;
+        --accent2: #88a58e;
+        --accent-blue: #91aebb;
+        --band: #090c10;
+        --band-ink: #f5f7f1;
+        --band-muted: #9aa5b4;
+        --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+        color-scheme: dark;
+      }
+
+      /* ==========================================================================
+         2. Base & Layout Shell
+         ========================================================================== */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 84px;
+      }
+      body {
+        background:
+          radial-gradient(circle at 86% 8%, rgba(185, 204, 216, 0.25), transparent 28rem),
+          radial-gradient(circle at 12% 35%, var(--brand-orange-soft), transparent 32rem),
+          var(--bg);
+        color: var(--ink);
+        word-break: keep-all;
+        font-family: Pretendard, "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.65;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button, input, select, textarea {
+        font: inherit;
+        color: inherit;
+        background: transparent;
+        border: 0;
+      }
+      ul, ol {
+        list-style: none;
+      }
+      .shell {
+        width: min(100%, 1380px);
+        margin: 0 auto;
+        padding-left: clamp(20px, 4.5vw, 64px);
+        padding-right: clamp(20px, 4.5vw, 64px);
+      }
+
+      /* ==========================================================================
+         3. Header & Widenet-Style Dropdown GNB + Exact Brand Logo
+         ========================================================================== */
+      .header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        height: 80px;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 32px;
+        padding: 0 clamp(20px, 4.5vw, 64px);
+        background: color-mix(in srgb, var(--bg) 88%, transparent);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--line);
+      }
+
+      /* Logo SVG + Image Support matching logo_-----.png */
+      .brand-logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        user-select: none;
+      }
+      .brand-logo-svg {
+        height: 46px;
+        width: auto;
+        display: block;
+      }
+
+      .nav {
+        display: flex;
+        justify-content: center;
         align-items: center;
         gap: 8px;
-        margin-top: 22px;
-        font: 650 10px monospace;
-        display: flex;
       }
+      .nav-item {
+        position: relative;
+      }
+      .nav-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 10px 18px;
+        font-size: 14.5px;
+        font-weight: 700;
+        color: var(--ink);
+        opacity: 0.85;
+        transition: opacity 0.2s, color 0.2s;
+      }
+      .nav-link:hover {
+        opacity: 1;
+        color: var(--brand-orange);
+      }
+      /* Widenet-style Submenu Dropdown */
+      .dropdown {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(8px);
+        min-width: 190px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        padding: 8px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s ease;
+      }
+      .nav-item:hover .dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+      }
+      .dropdown a {
+        display: block;
+        padding: 9px 14px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--muted);
+        transition: background 0.15s, color 0.15s;
+      }
+      .dropdown a:hover {
+        background: var(--brand-orange-soft);
+        color: var(--brand-orange);
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .theme-btn {
+        cursor: pointer;
+        padding: 7px 11px;
+        border: 1px solid var(--line);
+        font: 700 10px/1 monospace;
+        letter-spacing: 0.1em;
+        color: var(--muted);
+      }
+      .theme-btn:hover {
+        border-color: var(--ink);
+        color: var(--ink);
+      }
+      .mini-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 11px 18px;
+        font-size: 13px;
+        font-weight: 750;
+        background: var(--ink);
+        color: var(--bg);
+        border: 1px solid var(--ink);
+        transition: background 0.2s, border-color 0.2s;
+      }
+      .mini-cta:hover {
+        background: var(--brand-orange);
+        border-color: var(--brand-orange);
+        color: #fff;
+      }
+      .menu-toggle {
+        display: none;
+        font-size: 22px;
+        cursor: pointer;
+      }
+
+      /* ==========================================================================
+         4. Hero Banner & Quick Business Pillars (Widenet Main Visual Style)
+         ========================================================================== */
+      .hero {
+        padding-top: clamp(56px, 8vw, 110px);
+        padding-bottom: clamp(48px, 6vw, 80px);
+        display: grid;
+        grid-template-columns: 1.55fr 1fr;
+        gap: 5vw;
+        align-items: end;
+      }
+      .kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin-bottom: 20px;
+        font: 700 11px/1.2 monospace;
+        letter-spacing: 0.14em;
+        color: var(--brand-orange);
+        text-transform: uppercase;
+      }
+      .kicker b {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--brand-orange);
+        display: inline-block;
+      }
+      .hero h1 {
+        font-size: clamp(48px, 7.6vw, 118px);
+        font-weight: 750;
+        letter-spacing: -0.06em;
+        line-height: 0.92;
+      }
+      .hero h1 em {
+        font-style: normal;
+        color: transparent;
+        -webkit-text-stroke: 1.5px var(--ink);
+      }
+      .hero-aside p {
+        font-size: clamp(16px, 1.25vw, 19px);
+        color: var(--muted);
+        margin-bottom: 28px;
+      }
+      .hero-btns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 15px 24px;
+        font-size: 14px;
+        font-weight: 750;
+        background: var(--brand-orange);
+        color: #fff;
+        transition: transform 0.2s, opacity 0.2s;
+      }
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        opacity: 0.94;
+      }
+      .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 15px 22px;
+        font-size: 14px;
+        font-weight: 700;
+        border: 1px solid var(--ink);
+        transition: background 0.2s, color 0.2s;
+      }
+      .btn-outline:hover {
+        background: var(--ink);
+        color: var(--bg);
+      }
+
+      /* Signal Pulse Line */
       .signal {
-        grid-column: 1/-1;
-        height: 85px;
-        margin-top: 55px;
+        grid-column: 1 / -1;
+        height: 68px;
+        margin-top: 24px;
         overflow: hidden;
       }
       .signal svg {
@@ -562,657 +345,835 @@
       }
       .signal path {
         fill: none;
-        stroke: var(--accent2);
+        stroke: var(--brand-orange);
         stroke-width: 2px;
         vector-effect: non-scaling-stroke;
       }
-      .focus {
-        border-top: 1px solid var(--line);
-        border-bottom: 1px solid var(--line);
-        grid-column: 1/-1;
+
+      /* 4 Quick Focus Pillars */
+      .focus-bar {
+        grid-column: 1 / -1;
+        display: grid;
         grid-template-columns: repeat(4, 1fr);
-        display: grid;
+        border-top: 2px solid var(--ink);
+        border-bottom: 1px solid var(--line);
+        background: var(--surface);
       }
-      .focus div {
+      .focus-item {
+        padding: 26px 24px;
         border-right: 1px solid var(--line);
-        padding: 20px 0;
+        transition: background 0.2s;
       }
-      .focus div + div {
-        padding-left: 20px;
+      .focus-item:last-child {
+        border-right: 0;
       }
-      .focus div:last-child {
-        border: 0;
+      .focus-item:hover {
+        background: var(--surface-alt);
       }
-      .focus span {
-        color: var(--soft);
-        font: 650 10px monospace;
+      .focus-item span {
         display: block;
+        font: 700 10px monospace;
+        color: var(--brand-orange);
+        margin-bottom: 8px;
       }
-      .focus strong {
-        font-size: clamp(14px, 1.25vw, 19px);
+      .focus-item strong {
+        display: block;
+        font-size: 16px;
+        line-height: 1.45;
       }
+
+      /* ==========================================================================
+         5. Common Section Typography & Headers
+         ========================================================================== */
       .section {
-        padding-top: clamp(100px, 12vw, 180px);
-        padding-bottom: clamp(100px, 12vw, 180px);
-      }
-      .section h2 {
-        letter-spacing: -0.065em;
-        margin: 0;
-        font-size: clamp(46px, 6.5vw, 98px);
-        font-weight: 650;
-        line-height: 1;
-      }
-      .section h2 > span {
-        color: var(--soft);
-      }
-      .lead {
-        grid-template-columns: 1fr 1.1fr;
-        gap: 8vw;
-        margin-top: 70px;
-        display: grid;
-      }
-      .lead > p {
-        color: var(--muted);
-      }
-      .lead > p:first-child {
-        font-size: clamp(17px, 1.4vw, 22px);
-      }
-      .principle {
-        letter-spacing: -0.035em;
-        font-size: clamp(20px, 2vw, 30px);
-      }
-      .principle small {
-        color: var(--soft);
-        margin-bottom: 20px;
-        font: 650 10px monospace;
-        display: block;
-      }
-      .service-list {
-        margin-top: 80px;
-      }
-      .service {
-        border-top: 1px solid var(--line);
-        grid-template-columns: 70px 1fr 1.15fr 30px;
-        gap: 30px;
-        padding: 40px 0;
-        transition: padding 0.3s;
-        display: grid;
-      }
-      .service:hover {
-        padding-left: 14px;
-      }
-      .service .num {
-        color: var(--soft);
-        font: 600 11px monospace;
-      }
-      .service h3 {
-        letter-spacing: -0.04em;
-        margin: 0;
-        font-size: clamp(24px, 2.5vw, 38px);
-        line-height: 1.15;
-      }
-      .service p {
-        color: var(--muted);
-        margin: 0;
-      }
-      .service ul {
-        flex-wrap: wrap;
-        gap: 7px;
-        margin: 0;
-        padding: 18px 0 0;
-        list-style: none;
-        display: flex;
-      }
-      .service li {
-        border: 1px solid var(--line);
-        color: var(--muted);
-        padding: 5px 9px;
-        font: 600 10px monospace;
-      }
-      .service > i {
-        font-size: 20px;
-        font-style: normal;
-      }
-      .service:last-child {
+        padding-top: clamp(80px, 10vw, 140px);
+        padding-bottom: clamp(80px, 10vw, 140px);
         border-bottom: 1px solid var(--line);
       }
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 32px;
+        margin-bottom: 56px;
+        flex-wrap: wrap;
+      }
+      .section-head h2 {
+        font-size: clamp(34px, 4.8vw, 68px);
+        font-weight: 750;
+        letter-spacing: -0.055em;
+        line-height: 1.08;
+      }
+      .section-head h2 span {
+        color: var(--soft);
+      }
+      .section-head p {
+        max-width: 520px;
+        color: var(--muted);
+        font-size: 16.5px;
+      }
+
+      /* ==========================================================================
+         6. COMPANY STORY (Widenet Benchmark: 회사 개요 / 비전 / 사업 영역)
+         ========================================================================== */
+      .about-tabs {
+        display: flex;
+        gap: 8px;
+        border-bottom: 1px solid var(--line);
+        margin-bottom: 40px;
+      }
+      .about-tab-btn {
+        cursor: pointer;
+        padding: 14px 28px;
+        font-size: 15px;
+        font-weight: 750;
+        color: var(--muted);
+        border-bottom: 3px solid transparent;
+        transition: all 0.2s;
+      }
+      .about-tab-btn:hover {
+        color: var(--ink);
+      }
+      .about-tab-btn.active {
+        color: var(--brand-orange);
+        border-bottom-color: var(--brand-orange);
+        background: var(--surface);
+      }
+      .about-panel {
+        display: none;
+        animation: fadeIn 0.3s ease;
+      }
+      .about-panel.active {
+        display: block;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(8px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* 6-1. 회사 개요 (Company Overview) */
+      .overview-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 1fr;
+        gap: 40px;
+        align-items: stretch;
+      }
+      .overview-story {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .overview-story h3 {
+        font-size: 26px;
+        letter-spacing: -0.03em;
+        margin-bottom: 18px;
+      }
+      .overview-story p {
+        color: var(--muted);
+        margin-bottom: 18px;
+        font-size: 16px;
+      }
+      .promise-box {
+        margin-top: 16px;
+        padding: 22px 24px;
+        background: var(--surface-alt);
+        border-left: 4px solid var(--brand-orange);
+      }
+      .promise-box strong {
+        display: block;
+        font-size: 15.5px;
+        margin-bottom: 6px;
+      }
+      .promise-box strong:last-child {
+        margin-bottom: 0;
+      }
+
+      .overview-table-wrap {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        padding: 40px;
+      }
+      .overview-table-wrap h4 {
+        font-size: 18px;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 2px solid var(--ink);
+      }
+      .corp-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .corp-table th,
+      .corp-table td {
+        padding: 14px 12px;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+        font-size: 14.5px;
+      }
+      .corp-table th {
+        width: 32%;
+        color: var(--muted);
+        font-weight: 700;
+      }
+      .corp-table td {
+        font-weight: 600;
+      }
+
+      /* 6-2. 비전 & 경영이념 (Vision & Core Values - Widenet 3 Pillars Style) */
+      .vision-banner {
+        background: var(--band);
+        color: var(--band-ink);
+        padding: 48px 40px;
+        margin-bottom: 32px;
+        text-align: center;
+      }
+      .vision-banner small {
+        font: 700 11px monospace;
+        letter-spacing: 0.2em;
+        color: var(--brand-orange);
+        display: block;
+        margin-bottom: 12px;
+      }
+      .vision-banner h3 {
+        font-size: clamp(22px, 2.6vw, 34px);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        margin-bottom: 12px;
+      }
+      .vision-banner p {
+        color: var(--band-muted);
+        max-width: 740px;
+        margin: 0 auto;
+      }
+      .vision-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      .vision-card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        padding: 36px 30px;
+        position: relative;
+        border-top: 4px solid var(--brand-orange);
+      }
+      .vision-card:nth-child(2) {
+        border-top-color: var(--accent2);
+      }
+      .vision-card:nth-child(3) {
+        border-top-color: var(--ink);
+      }
+      .vision-card .v-num {
+        font: 800 34px/1 monospace;
+        color: var(--line);
+        position: absolute;
+        top: 24px;
+        right: 24px;
+      }
+      .vision-card small {
+        display: block;
+        font: 700 11px monospace;
+        color: var(--brand-orange);
+        margin-bottom: 8px;
+      }
+      .vision-card h4 {
+        font-size: 21px;
+        margin-bottom: 12px;
+      }
+      .vision-card p {
+        color: var(--muted);
+        font-size: 14.5px;
+      }
+
+      /* 6-3. 사업 영역 (Business Domains Summary) */
+      .biz-domain-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      .biz-domain-card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        padding: 34px 28px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: transform 0.2s, border-color 0.2s;
+      }
+      .biz-domain-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--brand-orange);
+      }
+      .biz-domain-badge {
+        display: inline-block;
+        padding: 4px 10px;
+        font: 700 10px monospace;
+        background: var(--brand-orange-soft);
+        color: var(--brand-orange);
+        margin-bottom: 16px;
+        width: max-content;
+      }
+      .biz-domain-card h4 {
+        font-size: 22px;
+        margin-bottom: 12px;
+      }
+      .biz-domain-card p {
+        color: var(--muted);
+        font-size: 14.5px;
+        margin-bottom: 20px;
+      }
+      .biz-sublist {
+        border-top: 1px solid var(--line);
+        padding-top: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .biz-sublist li {
+        font-size: 13.5px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .biz-sublist li::before {
+        content: "";
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--brand-orange);
+      }
+
+      /* ==========================================================================
+         7. CORE SERVICES (6 Capabilities + Solution/Service Matrix)
+         ========================================================================== */
+      .service-list {
+        border-top: 2px solid var(--ink);
+      }
+      .service-row {
+        display: grid;
+        grid-template-columns: 70px 1.1fr 1.6fr auto;
+        gap: 28px;
+        align-items: center;
+        padding: 32px 16px;
+        border-bottom: 1px solid var(--line);
+        transition: background 0.2s, padding-left 0.25s;
+      }
+      .service-row:hover {
+        background: var(--surface);
+        padding-left: 26px;
+      }
+      .service-row .num {
+        font: 700 13px monospace;
+        color: var(--brand-orange);
+      }
+      .service-row h3 {
+        font-size: clamp(20px, 2vw, 28px);
+        letter-spacing: -0.03em;
+      }
+      .service-row p {
+        color: var(--muted);
+        font-size: 15.5px;
+      }
+      .tag-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        justify-content: flex-end;
+      }
+      .tag-group span {
+        border: 1px solid var(--line);
+        background: var(--surface);
+        padding: 4px 10px;
+        font: 600 11px monospace;
+        color: var(--muted);
+      }
+
+      /* ==========================================================================
+         8. DIAGNOSTIC PROCESS & TESTING (Dark Band + Visual Architecture)
+         ========================================================================== */
       .dark-band {
         background: var(--band);
         color: var(--band-ink);
       }
-      .dark-band .kicker,
-      .dark-band p {
+      .dark-band .section-head p {
         color: var(--band-muted);
       }
-      .dark-band h2 span {
-        color: #798075;
-      }
-      .framework {
-        grid-template-columns: 1fr 1.3fr;
-        gap: 9vw;
-        margin-top: 80px;
+      .framework-grid {
         display: grid;
+        grid-template-columns: 1fr 1.35fr;
+        gap: 6vw;
+        margin-bottom: 72px;
       }
-      .framework aside {
+      .framework-aside {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 36px;
         align-self: start;
-        position: sticky;
-        top: 130px;
       }
-      .framework aside strong {
+      .framework-aside strong {
+        display: block;
         font: 700 12px monospace;
+        color: var(--brand-orange);
+        margin-bottom: 12px;
       }
-      .framework aside p {
-        max-width: 430px;
+      .framework-aside h3 {
+        font-size: 26px;
+        margin-bottom: 14px;
       }
-      .pulse {
-        background: linear-gradient(
-          90deg,
-          transparent 0 8%,
-          var(--accent) 8% 9%,
-          transparent 9% 18%,
-          var(--accent) 18% 19%,
-          transparent 19% 37%,
-          var(--accent) 37% 38%,
-          transparent 38%
-        );
-        clip-path: polygon(
-          0 48%,
-          8% 48%,
-          12% 8%,
-          17% 90%,
-          22% 35%,
-          28% 55%,
-          40% 55%,
-          45% 20%,
-          50% 82%,
-          56% 45%,
-          64% 50%,
-          75% 50%,
-          80% 15%,
-          85% 85%,
-          90% 45%,
-          100% 45%,
-          100% 52%,
-          90% 52%,
-          85% 92%,
-          80% 22%,
-          75% 57%,
-          64% 57%,
-          56% 52%,
-          50% 90%,
-          45% 27%,
-          40% 62%,
-          28% 62%,
-          22% 42%,
-          17% 97%,
-          12% 15%,
-          8% 55%,
-          0 55%
-        );
-        height: 70px;
-        margin-top: 40px;
+      .framework-aside p {
+        color: var(--band-muted);
+        font-size: 15px;
       }
-      .step {
-        border-top: 1px solid #ffffff2e;
-        grid-template-columns: 55px 1fr;
+      .step-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         gap: 20px;
-        padding: 30px 0;
-        display: grid;
       }
-      .step > span {
-        color: #1d2a1f;
-        font: 650 11px monospace;
-      }
-      .step h3 {
-        margin: 0 0 8px;
-        font-size: 23px;
-      }
-      .step p {
-        margin: 0;
-      }
-      .section-copy {
-        max-width: 760px;
-        color: var(--muted);
-        margin: 24px 0 40px;
-        font-size: clamp(18px, 1.6vw, 24px);
-        line-height: 1.6;
-        text-align: left;
-      }
-      .dashboard {
-        border: 1px solid var(--line);
-        background: var(--surface);
-        box-shadow: var(--shadow);
-        grid-template-columns: 1.6fr 1fr;
-        display: grid;
-      }
-      .chart {
-        border-right: 1px solid var(--line);
+      .step-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         padding: 28px;
       }
-      .chart-head,
-      .axis {
-        color: var(--soft);
-        justify-content: space-between;
-        font: 650 10px monospace;
-        display: flex;
+      .step-card .s-num {
+        display: inline-block;
+        font: 700 11px monospace;
+        color: var(--brand-orange);
+        margin-bottom: 10px;
       }
-      .chart-head small {
-        align-items: center;
-        gap: 7px;
-        display: flex;
+      .step-card h4 {
+        font-size: 19px;
+        margin-bottom: 8px;
       }
-      .bars {
-        border-bottom: 1px solid var(--line);
-        background: repeating-linear-gradient(
-          to bottom,
-          transparent 0 74px,
-          var(--line) 75px
-        );
-        align-items: end;
-        gap: clamp(5px, 1vw, 14px);
-        height: 300px;
-        padding: 30px 0;
-        display: flex;
+      .step-card p {
+        color: var(--band-muted);
+        font-size: 14px;
       }
-      .bars i {
-        background: linear-gradient(var(--accent2), var(--accent));
-        flex: 1;
-        min-width: 4px;
+
+      /* SVG Pipeline Diagram (from index.css / app.js) */
+      .pipeline-box {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 36px;
+        text-align: center;
       }
-      .axis {
-        padding-top: 12px;
+      .pipeline-box h4 {
+        font-size: 16px;
+        letter-spacing: 0.08em;
+        color: var(--band-muted);
+        margin-bottom: 24px;
       }
-      .metrics > div {
-        border-bottom: 1px solid var(--line);
-        justify-content: space-between;
-        align-items: center;
-        min-height: 100px;
-        padding: 20px 24px;
-        display: flex;
+      .pipeline-svg-wrap {
+        overflow-x: auto;
       }
-      .metrics > div:last-child {
-        border: 0;
-      }
-      .metrics > div > span {
-        color: var(--muted);
-        font-size: 13px;
-      }
-      .metrics strong {
-        font-size: 35px;
-      }
-      .metrics strong small {
-        color: var(--soft);
-        text-align: right;
-        font: 500 9px monospace;
-        display: block;
-      }
-      .solutions-copy {
-        color: var(--muted);
+      .pipeline-svg {
         width: 100%;
-        max-width: 100%;
-        margin: 24px 0 0;
-        font-size: clamp(18px, 1.6vw, 24px);
-        line-height: 1.6;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        min-width: 680px;
+        height: auto;
       }
-      .solution-grid {
-        border: 1px solid var(--line);
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        margin-top: 24px;
+
+      /* Testing Visual Section */
+      .testing-grid {
         display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+        margin-top: 36px;
       }
-      .solution-grid article {
-        border-right: 1px solid var(--line);
+      .testing-card {
         background: var(--surface);
-        flex-direction: column;
-        min-height: 430px;
-        padding: 28px;
-        display: flex;
+        border: 1px solid var(--line);
+        padding: 24px;
       }
-      .solution-grid article:last-child {
-        border: 0;
+      .testing-card h4 {
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 14px;
+        color: var(--muted);
       }
-      .solution-grid article > small {
-        color: var(--soft);
-        font: 650 10px monospace;
-      }
-      .solution-grid article > i {
-        background: var(--accent);
-        border-radius: 50%;
-        width: 34px;
-        height: 34px;
-        margin: 45px 0;
-      }
-      .solution-grid article > img {
+      .testing-card img {
+        width: 100%;
+        height: auto;
         display: block;
+        filter: saturate(0.85) contrast(0.98);
+      }
+
+      /* Deliverables Bar */
+      .deliverables-bar {
+        margin-top: 48px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        padding: 32px;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 32px;
+        align-items: center;
+      }
+      .deliverables-bar h3 {
+        font-size: 22px;
+        letter-spacing: -0.03em;
+      }
+      .deliverables-bar p {
+        color: var(--muted);
+        font-size: 14px;
+        margin-top: 6px;
+      }
+      .deliver-items {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 12px;
+      }
+      .deliver-items li {
+        border: 1px solid var(--line);
+        background: var(--bg);
+        padding: 16px 12px;
+        text-align: center;
+      }
+      .deliver-items li span {
+        display: block;
+        font: 700 10px monospace;
+        color: var(--brand-orange);
+        margin-bottom: 6px;
+      }
+      .deliver-items li strong {
+        font-size: 13.5px;
+      }
+
+      /* ==========================================================================
+         9. SOLUTIONS (JMeter, Scouter APM + Custom Plug-in & Automation)
+         ========================================================================== */
+      .solution-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border: 1px solid var(--line);
+        background: var(--surface);
+      }
+      .solution-card {
+        padding: 38px 32px;
+        border-right: 1px solid var(--line);
+        display: flex;
+        flex-direction: column;
+        min-height: 410px;
+      }
+      .solution-card:last-child {
+        border-right: 0;
+      }
+      .solution-card small {
+        font: 700 11px monospace;
+        color: var(--brand-orange);
+      }
+      .solution-logo-box {
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 28px 0;
+      }
+      .solution-logo-box img {
+        max-height: 88px;
         width: auto;
-        max-width: 100%;
-        height: 110px;
-        margin: 38px auto 34px;
         object-fit: contain;
       }
-      .solution-grid h3 {
-        letter-spacing: -0.04em;
-        margin: 0 0 28px;
-        text-align: center;
-        font-size: clamp(26px, 3vw, 42px);
-        line-height: 1.04;
+      .solution-card h3 {
+        font-size: 26px;
+        margin-bottom: 14px;
+        letter-spacing: -0.03em;
       }
-      .solution-grid p {
+      .solution-card p {
         color: var(--muted);
-        margin: 0;
-        text-align: left;
-        line-height: 1.8;
-        padding-top: 6px;
+        font-size: 15px;
+        margin-bottom: 24px;
       }
-      .solution-grid footer {
-        border-top: 1px solid var(--line);
+      .solution-card footer {
         margin-top: auto;
-        padding-top: 18px;
-        font: 650 11px monospace;
-      }
-      .solution-grid footer span {
-        float: right;
-      }
-      .deliver-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 9vw;
-        margin-top: 80px;
-        display: grid;
-      }
-      .deliver blockquote {
-        letter-spacing: -0.035em;
-        margin: 0;
-        font-size: clamp(23px, 2.3vw, 34px);
-      }
-      .deliver ol {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-      }
-      .deliver li {
+        padding-top: 16px;
         border-top: 1px solid var(--line);
-        grid-template-columns: 60px 1fr;
-        padding: 20px 0;
-        display: grid;
+        font: 700 11px monospace;
+        color: var(--soft);
+        display: flex;
+        justify-content: space-between;
       }
-      .deliver li:last-child {
+
+      /* ==========================================================================
+         10. PERFORMANCE LAB (Simulator + Web Performance Guidelines from app.js)
+         ========================================================================== */
+      .sim-box {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        padding: 36px;
+        box-shadow: var(--shadow);
+        margin-bottom: 40px;
+      }
+      .sim-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 28px;
+        padding-bottom: 20px;
         border-bottom: 1px solid var(--line);
       }
-      .deliver li span {
-        color: var(--soft);
-        font: 600 10px monospace;
+      .sim-top h3 {
+        font-size: 22px;
       }
+      .sim-controls {
+        display: flex;
+        gap: 10px;
+      }
+      .sim-btn {
+        cursor: pointer;
+        padding: 10px 18px;
+        font-size: 13px;
+        font-weight: 700;
+        border: 1px solid var(--line);
+        background: var(--bg);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .sim-btn.active.unopt {
+        border-color: var(--bad);
+        color: var(--bad);
+        background: rgba(239, 68, 68, 0.08);
+      }
+      .sim-btn.active.opt {
+        border-color: var(--good);
+        color: var(--good);
+        background: rgba(16, 185, 129, 0.08);
+      }
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+      }
+      .dot.red { background: var(--bad); }
+      .dot.green { background: var(--good); }
+
+      .sim-metrics {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+      }
+      .m-card {
+        background: var(--bg);
+        border: 1px solid var(--line);
+        padding: 22px;
+      }
+      .m-head {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12.5px;
+        color: var(--muted);
+        margin-bottom: 10px;
+      }
+      .m-status {
+        font: 700 10px monospace;
+        padding: 2px 7px;
+      }
+      .m-status.bad { background: rgba(239, 68, 68, 0.12); color: var(--bad); }
+      .m-status.good { background: rgba(16, 185, 129, 0.12); color: var(--good); }
+      .m-val {
+        font-size: 32px;
+        font-weight: 800;
+        margin-bottom: 12px;
+      }
+      .m-bar-wrap {
+        height: 6px;
+        background: var(--line);
+        overflow: hidden;
+      }
+      .m-bar {
+        height: 100%;
+        transition: width 0.4s ease, background 0.3s ease;
+      }
+      .m-bar.bad { background: var(--bad); }
+      .m-bar.good { background: var(--good); }
+
+      /* Guidelines Accordion / Reader */
+      .guide-accordion {
+        background: var(--surface);
+        border: 1px solid var(--line);
+      }
+      .guide-summary {
+        cursor: pointer;
+        padding: 24px 32px;
+        font-size: 18px;
+        font-weight: 750;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .guide-summary span {
+        font: 700 12px monospace;
+        color: var(--brand-orange);
+      }
+      .guide-body {
+        border-top: 1px solid var(--line);
+        padding: 36px 32px;
+        display: grid;
+        grid-template-columns: 240px 1fr;
+        gap: 36px;
+      }
+      .guide-toc {
+        border-right: 1px solid var(--line);
+        padding-right: 20px;
+      }
+      .guide-toc h4 {
+        font: 700 11px monospace;
+        color: var(--soft);
+        margin-bottom: 12px;
+        text-transform: uppercase;
+      }
+      .guide-toc ul {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .guide-toc a {
+        font-size: 13.5px;
+        color: var(--muted);
+        display: block;
+        padding: 6px 8px;
+      }
+      .guide-toc a:hover {
+        color: var(--brand-orange);
+        background: var(--brand-orange-soft);
+      }
+      .markdown-content h1, .markdown-content h2 {
+        font-size: 22px;
+        margin: 24px 0 12px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--line);
+      }
+      .markdown-content h1:first-child, .markdown-content h2:first-child {
+        margin-top: 0;
+      }
+      .markdown-content h3 {
+        font-size: 17px;
+        margin: 18px 0 8px;
+        color: var(--brand-orange);
+      }
+      .markdown-content p, .markdown-content li {
+        color: var(--muted);
+        font-size: 14.5px;
+        margin-bottom: 8px;
+      }
+      .markdown-content ul {
+        list-style: disc;
+        padding-left: 20px;
+        margin-bottom: 16px;
+      }
+      .markdown-content pre {
+        background: var(--band);
+        color: var(--band-ink);
+        padding: 16px;
+        overflow-x: auto;
+        font-size: 13px;
+        margin: 12px 0 18px;
+      }
+      .markdown-content table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 16px;
+      }
+      .markdown-content th, .markdown-content td {
+        border: 1px solid var(--line);
+        padding: 10px 12px;
+        font-size: 13.5px;
+        text-align: left;
+      }
+      .markdown-content th {
+        background: var(--surface-alt);
+      }
+
+      /* ==========================================================================
+         11. CONTACT SECTION (Formsubmit Integration Preserved)
+         ========================================================================== */
       .contact {
         background: var(--accent);
         color: #111;
       }
       .contact .kicker {
-        color: #4f621d;
+        color: #1e2530;
       }
-      .contact h2 span {
-        color: #566d16;
+      .contact .kicker b {
+        background: var(--brand-orange);
       }
       .contact-grid {
-        grid-template-columns: 1fr 1.25fr;
-        gap: 9vw;
-        margin-top: 70px;
         display: grid;
+        grid-template-columns: 1fr 1.25fr;
+        gap: 7vw;
       }
-      .contact-grid > div p {
+      .contact-info h2 {
+        font-size: clamp(36px, 4.8vw, 64px);
+        line-height: 1.08;
+        letter-spacing: -0.05em;
+        margin-bottom: 20px;
+      }
+      .contact-info p {
+        font-size: 18px;
+        color: #2c352d;
         max-width: 440px;
-        font-size: 20px;
+        margin-bottom: 28px;
       }
-      .contact-grid > div a {
-        border-bottom: 2px solid;
-        margin-top: 30px;
-        font-size: clamp(18px, 2vw, 28px);
-        font-weight: 750;
+      .contact-mail {
         display: inline-block;
+        font-size: clamp(18px, 2vw, 26px);
+        font-weight: 800;
+        border-bottom: 2px solid #111;
+        padding-bottom: 4px;
       }
       .contact form {
+        display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 20px;
-        display: grid;
+        background: rgba(255, 255, 255, 0.55);
+        padding: 36px;
+        border: 1px solid rgba(0, 0, 0, 0.12);
       }
       .contact label {
-        font-size: 11px;
+        font-size: 12px;
         font-weight: 750;
+        display: block;
       }
       .contact input,
       .contact select,
       .contact textarea {
-        color: #111;
-        background: 0 0;
-        border: 0;
-        border-bottom: 1px solid #00000073;
-        border-radius: 0;
-        outline: none;
         width: 100%;
-        margin-top: 7px;
-        padding: 13px 0;
-        display: block;
+        margin-top: 8px;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.45);
+        color: #111;
+        outline: none;
       }
       .contact textarea {
+        height: 110px;
         resize: vertical;
-        height: 100px;
       }
-      .contact label:nth-child(n + 3),
-      .contact form button {
-        grid-column: 1/-1;
+      .contact label.full,
+      .contact button {
+        grid-column: 1 / -1;
       }
-      .contact form button {
-        color: #fff;
+      .contact button {
         cursor: pointer;
-        background: #111;
-        border: 1px solid #111;
-        justify-content: space-between;
-        padding: 18px;
+        background: #1e2530;
+        color: #fff;
+        padding: 18px 24px;
+        font-weight: 750;
         display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.2s;
       }
-      .footer {
-        grid-template-columns: 1fr 1fr;
-        align-content: center;
-        gap: 22px;
-        min-height: 210px;
-        display: grid;
+      .contact button:hover {
+        background: var(--brand-orange);
       }
-      .footer p {
-        color: var(--muted);
-        margin: 0;
-      }
-      .footer .footer-business-info {
-        border-top: 1px solid var(--line);
-        color: var(--muted);
-        display: grid;
-        gap: 8px 24px;
-        grid-column: 1/-1;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        line-height: 1.5;
-        padding-top: 22px;
-        font-size: 13px;
-      }
-      .footer .footer-business-info p {
-        color: inherit;
-      }
-      .footer > div {
-        border-top: 1px solid var(--line);
-        color: var(--soft);
-        grid-column: 1/-1;
-        padding-top: 22px;
-        font: 600 10px monospace;
-      }
-      @media (width<=900px) {
-        .header {
-          grid-template-columns: 1fr auto;
-        }
-        .nav {
-          background: var(--bg);
-          border-bottom: 1px solid var(--line);
-          flex-direction: column;
-          padding: 28px;
-          display: none;
-          position: absolute;
-          top: 76px;
-          left: 0;
-          right: 0;
-        }
-        .nav.open {
-          display: flex;
-        }
-        .mini-cta {
-          display: none;
-        }
-        .menu {
-          display: block;
-        }
-        .hero {
-          grid-template-columns: 1fr;
-          min-height: auto;
-        }
-        .hero-aside {
-          max-width: 550px;
-          margin-top: 55px;
-        }
-        .focus {
-          grid-template-columns: 1fr 1fr;
-        }
-        .focus div:nth-child(2) {
-          border-right: 0;
-        }
-        .focus div:nth-child(n + 3) {
-          border-top: 1px solid var(--line);
-        }
-        .lead,
-        .framework,
-        .deliver-grid,
-        .contact-grid {
-          grid-template-columns: 1fr;
-        }
-        .service {
-          grid-template-columns: 45px 1fr 25px;
-        }
-        .service > div {
-          grid-column: 2/4;
-        }
-        .framework aside {
-          position: static;
-        }
-        .dashboard {
-          grid-template-columns: 1fr;
-        }
-        .chart {
-          border-right: 0;
-          border-bottom: 1px solid var(--line);
-        }
-        .solution-grid {
-          grid-template-columns: 1fr;
-        }
-        .solution-grid article {
-          border-right: 0;
-          border-bottom: 1px solid var(--line);
-          min-height: 360px;
-        }
-        .contact form {
-          margin-top: 30px;
-        }
-      }
-      @media (width<=560px) {
-        .hero h1 {
-          font-size: 17vw;
-        }
-        .focus {
-          grid-template-columns: 1fr;
-        }
-        .focus div,
-        .focus div + div {
-          border-right: 0;
-          border-top: 1px solid var(--line);
-          padding-left: 0;
-        }
-        .section h2 {
-          font-size: 12vw;
-        }
-        .service {
-          gap: 16px;
-        }
-        .service h3 {
-          font-size: 25px;
-        }
-        .bars {
-          height: 220px;
-        }
-        .contact form {
-          grid-template-columns: 1fr;
-        }
-        .contact label {
-          grid-column: 1;
-        }
-        .footer {
-          grid-template-columns: 1fr;
-        }
-        .footer .footer-business-info {
-          grid-template-columns: 1fr;
-        }
-        .footer > div {
-          grid-column: 1;
-        }
-      }
-      body {
-        background:
-          radial-gradient(
-            circle at 84% 9%,
-            var(--accent-blue),
-            transparent 24rem
-          ),
-          var(--bg);
-      }
-      @supports (color: color-mix(in lab, red, red)) {
-        body {
-          background:
-            radial-gradient(
-              circle at 84% 9%,
-              color-mix(in srgb, var(--accent-blue) 22%, transparent),
-              transparent 24rem
-            ),
-            var(--bg);
-        }
-      }
-      .bars i {
-        background: linear-gradient(var(--accent2), var(--accent-blue));
-      }
-      .solution-grid article:nth-child(2) > i {
-        background: var(--accent-blue);
-      }
-      .solution-grid article:nth-child(3) > i {
-        background: #d9c7c2;
-      }
-      .testing-visual {
-        background: var(--bg);
-        border: 0;
-        overflow: hidden;
-      }
-      .testing-visual img {
-        display: block;
-        width: 100%;
-        height: auto;
-        background: var(--bg);
-        filter: saturate(0.7) brightness(1.04) contrast(0.96) sepia(0.08);
-        opacity: 1;
-      }
-      @media (prefers-reduced-motion: reduce) {
-        html {
-          scroll-behavior: auto;
-        }
-        * {
-          transition: none !important;
-        }
-      }
-      .contact form button:disabled {
+      .contact button:disabled {
+        opacity: 0.6;
         cursor: wait;
-        opacity: 0.62;
       }
       .contact-trap {
         opacity: 0 !important;
@@ -1222,468 +1183,1011 @@
         left: -9999px !important;
       }
       .form-status {
-        border: 1px solid #0000003d;
-        grid-column: 1/-1;
-        margin: 0;
-        padding: 13px 15px;
+        grid-column: 1 / -1;
+        padding: 12px 15px;
         font-size: 13px;
+        border: 1px solid rgba(0, 0, 0, 0.25);
       }
-      .form-status.success {
-        background: #ffffff5c;
+      .form-status.success { background: rgba(255, 255, 255, 0.75); }
+      .form-status.error { background: #ead1ca; color: #5a2118; }
+
+      /* ==========================================================================
+         12. FOOTER
+         ========================================================================== */
+      .footer {
+        padding: 56px 0;
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 24px;
+        align-items: center;
       }
-      .form-status.error {
-        color: #5a2118;
-        background: #ead1ca;
+      .footer-right {
+        text-align: right;
+        color: var(--muted);
+        font-size: 13.5px;
       }
-        </style>
-      </details>
-      <header class="header">
-      <a class="brand" href="#home" aria-label="Endpoint Labs 홈"
-        ><i></i>endpoint<span>lab</span></a
-      >
+      .footer-bottom {
+        grid-column: 1 / -1;
+        padding-top: 24px;
+        border-top: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+        font: 600 11px monospace;
+        color: var(--soft);
+      }
+
+      /* ==========================================================================
+         13. Responsive Breakpoints
+         ========================================================================== */
+      @media (max-width: 1024px) {
+        .hero,
+        .overview-grid,
+        .framework-grid,
+        .contact-grid,
+        .deliverables-bar {
+          grid-template-columns: 1fr;
+        }
+        .vision-cards,
+        .biz-domain-grid,
+        .solution-grid {
+          grid-template-columns: 1fr;
+        }
+        .solution-card {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+          min-height: auto;
+        }
+        .sim-metrics {
+          grid-template-columns: 1fr 1fr;
+        }
+        .deliver-items {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .guide-body {
+          grid-template-columns: 1fr;
+        }
+        .guide-toc {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+          padding-bottom: 16px;
+        }
+      }
+
+      @media (max-width: 860px) {
+        .header {
+          grid-template-columns: 1fr auto;
+        }
+        .nav {
+          display: none;
+          position: absolute;
+          top: 80px;
+          left: 0;
+          right: 0;
+          background: var(--surface);
+          border-bottom: 1px solid var(--line);
+          flex-direction: column;
+          align-items: stretch;
+          padding: 20px;
+        }
+        .nav.open {
+          display: flex;
+        }
+        .dropdown {
+          position: static;
+          transform: none;
+          opacity: 1;
+          visibility: visible;
+          box-shadow: none;
+          border: 0;
+          padding-left: 18px;
+        }
+        .mini-cta {
+          display: none;
+        }
+        .menu-toggle {
+          display: block;
+        }
+        .focus-bar {
+          grid-template-columns: 1fr 1fr;
+        }
+        .service-row {
+          grid-template-columns: 40px 1fr;
+        }
+        .service-row p,
+        .service-row .tag-group {
+          grid-column: 2 / -1;
+          justify-content: flex-start;
+        }
+        .step-list,
+        .testing-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .focus-bar,
+        .sim-metrics,
+        .deliver-items,
+        .contact form,
+        .footer {
+          grid-template-columns: 1fr;
+        }
+        .about-tabs {
+          overflow-x: auto;
+        }
+        .about-tab-btn {
+          white-space: nowrap;
+          padding: 12px 16px;
+        }
+        .footer-right {
+          text-align: left;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- =====================================================================
+         HEADER (Exact Brand Logo SVG + Widenet-Style GNB Dropdown)
+         ===================================================================== -->
+    <header class="header">
+      <a class="brand-logo" href="#home" aria-label="엔포랩스(Endpoint Lab) 홈">
+        <!-- 업로드해주신 logo_-----.png 디자인을 그대로 구현한 고해상도 벡터 로고 -->
+        <svg class="brand-logo-svg" viewBox="0 0 280 78" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Endpoint Lab End-to-End Performance Assurance">
+          <!-- 상단 점선 및 타겟 마크 -->
+          <path d="M8 8 H42 V25" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3" />
+          <path d="M42 25 H70" stroke="currentColor" stroke-width="2" />
+          <circle cx="82" cy="25" r="11" stroke="currentColor" stroke-width="2" />
+          <circle cx="82" cy="25" r="4.5" fill="#ec5a0c" />
+          <line x1="97" y1="14" x2="97" y2="36" stroke="currentColor" stroke-width="2.2" />
+          <!-- 메인 타이포그래피 -->
+          <text x="6" y="55" fill="currentColor" font-family="Pretendard, Inter, sans-serif" font-size="28" font-weight="800" letter-spacing="-0.8">Endpoint Lab</text>
+          <!-- 오렌지 언더라인 및 우측 포인트 도트 -->
+          <line x1="6" y1="63" x2="268" y2="63" stroke="#ec5a0c" stroke-width="2" />
+          <text x="6" y="75" fill="currentColor" opacity="0.78" font-family="Pretendard, Inter, sans-serif" font-size="9.5" font-weight="600" letter-spacing="0.2">End-to-End Performance Assurance</text>
+          <circle cx="262" cy="71" r="5" fill="#ec5a0c" />
+        </svg>
+      </a>
+
       <nav class="nav" aria-label="주요 메뉴">
-        <a href="#about">회사소개</a>
-        <a href="#services">서비스</a>
-        <a href="#solutions">제품</a>
-        <a href="#contact">문의하기</a>
+        <div class="nav-item">
+          <a class="nav-link" href="#about">회사소개 ▾</a>
+          <div class="dropdown">
+            <a href="#about" onclick="switchAboutTab('overview')">회사 개요</a>
+            <a href="#about" onclick="switchAboutTab('vision')">비전 &amp; 핵심가치</a>
+            <a href="#about" onclick="switchAboutTab('domains')">사업 영역</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link" href="#services">핵심 서비스 ▾</a>
+          <div class="dropdown">
+            <a href="#services">성능 점검 · 테스트 · 진단</a>
+            <a href="#services">DB 튜닝 &amp; 성능/AA ITO</a>
+            <a href="#testing">성능 테스트 아키텍처</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link" href="#framework">진단 프레임워크</a>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link" href="#solutions">솔루션 &amp; LAB ▾</a>
+          <div class="dropdown">
+            <a href="#solutions">구축 솔루션 (JMeter / Scouter)</a>
+            <a href="#lab">성능 비교 시뮬레이터</a>
+            <a href="#guidelines-box">웹 성능 최적화 지침서</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link" href="#contact">문의하기</a>
+        </div>
       </nav>
+
       <div class="header-actions">
-        <button class="theme" aria-label="다크 모드">DARK</button
-        ><a class="mini-cta" href="#contact">프로젝트 문의 ↗</a
-        ><button class="menu" aria-label="메뉴 열기">☰</button>
+        <button class="theme-btn" id="theme-toggle" aria-label="테마 전환">DARK</button>
+        <a class="mini-cta" href="#contact">프로젝트 문의 ↗</a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="메뉴 열기">☰</button>
       </div>
     </header>
+
+    <!-- =====================================================================
+         MAIN CONTENT
+         ===================================================================== -->
     <main id="home">
+      <!-- 1. HERO SECTION -->
       <section class="hero shell">
-        <div class="hero-copy">
-          <!-- <p class="kicker"><b></b> INDEPENDENT PERFORMANCE ENGINEERING LAB</p> -->
+        <div>
+          <p class="kicker"><b></b> END-TO-END PERFORMANCE ASSURANCE</p>
           <h1>Performance<br /><em>without guesswork.</em></h1>
         </div>
         <div class="hero-aside">
-          <p>엔포랩스는 안정적인 시스템을 위한 성능 검증 전문 크루로 구성되어, 최적의 해안을 제공합니다.</p>
-          <a class="cta" href="#services">서비스 살펴보기 <span>↓</span></a
-          >
-          <!-- <small><b></b> PERFORMANCE CONSULTING AVAILABLE</small> -->
+          <p>
+            엔포랩스는 안정적인 시스템을 위한 성능 검증 전문 크루로 구성되어,
+            단순 현상 확인을 넘어 데이터에 기반한 최적의 해안을 제공합니다.
+          </p>
+          <div class="hero-btns">
+            <a class="btn-primary" href="#services">핵심 서비스 보기 <span>↓</span></a>
+            <a class="btn-outline" href="#about">COMPANY STORY</a>
+          </div>
         </div>
+
         <div class="signal" aria-hidden="true">
           <svg viewBox="0 0 1000 100" preserveAspectRatio="none">
-            <path
-              d="M0 55h90l22-35 28 65 30-42 45 12h110l28-25 27 47 35-22h90l22-40 32 70 35-37 45 7h90l25-28 28 50 34-22h120"
-            ></path>
+            <path d="M0 55h90l22-35 28 65 30-42 45 12h110l28-25 27 47 35-22h90l22-40 32 70 35-37 45 7h90l25-28 28 50 34-22h120"></path>
           </svg>
         </div>
-        <div class="focus">
-          <div>
-            <span>FOCUS 0<!-- -->1</span><strong>시스템 성능 관리를 통한 안정적인 시스템 점검</strong>
+
+        <div class="focus-bar">
+          <div class="focus-item">
+            <span>FOCUS 01</span>
+            <strong>시스템 성능 관리를 통한 안정적인 시스템 점검</strong>
           </div>
-          <div>
-            <span>FOCUS 0<!-- -->2</span><strong>신규 시스템 구축 시 성능 검증을 통한 안정적인 시스템 오픈 지원</strong>
+          <div class="focus-item">
+            <span>FOCUS 02</span>
+            <strong>신규 시스템 구축 시 성능 검증을 통한 안정적인 시스템 오픈 지원</strong>
           </div>
-          <div>
-            <span>FOCUS 0<!-- -->3</span><strong>목표 시스템의 성능 테스트를 통한 이슈 도출 및 개선 방안 안내</strong>
+          <div class="focus-item">
+            <span>FOCUS 03</span>
+            <strong>목표 시스템의 성능 테스트를 통한 이슈 도출 및 개선 방안 안내</strong>
           </div>
-          <div>
-            <span>FOCUS 0<!-- -->4</span><strong>안정적인 시스템 운영을 위한 성능 검증 ITO 지원</strong>
+          <div class="focus-item">
+            <span>FOCUS 04</span>
+            <strong>안정적인 시스템 운영을 위한 성능 검증 및 AA ITO 지원</strong>
           </div>
         </div>
       </section>
-      <section id="about" class="section shell intro">
-        <!-- <p class="kicker"><b></b> WHY ENDPOINTLAB</p> -->
-        <h2>
-          느린 시스템에는<br />반드시 <span>측정 가능한 이유가</span
-          ><br />있습니다.
-        </h2>
-        <div class="lead">
+
+      <!-- 2. COMPANY STORY (Widenet Benchmark: 회사 개요 / 비전 / 사업 영역) -->
+      <section id="about" class="section shell">
+        <div class="section-head">
+          <div>
+            <p class="kicker"><b></b> COMPANY STORY</p>
+            <h2>느린 시스템에는 반드시<br /><span>측정 가능한 이유가 있습니다.</span></h2>
+          </div>
           <p>
-            엔포랩스는 시스템 개발 이후 최종 검증하는 마지막 단계(ENDPOINT)와 시스템 성능에 대해 끝없이 연구하는 LABS의 합성어로, 안정적인 시스템을 위해 시스템 테스트와 진단을 통한 최적화를 목적으로 하는 사람들의 모임입니다.
-          </p>
-          <p>
-            그렇기 때문에 엔포랩스를 찾아 주시는 모든 고객님들께 약속 드리겠습니다.<br>
-            <strong>엔포랩스는 시스템 최적화에 사활을 걸겠습니다.</strong><br>
-            <strong>엔포랩스는 적당히 하지 않겠습니다.</strong><br>
-            <strong>앤포랩스는 포기하지 않겠습니다.</strong><br>
+            엔포랩스(Endpoint Lab)는 시스템 개발 이후 최종 검증하는 마지막 단계(ENDPOINT)와
+            성능을 끝없이 연구하는 연구소(LABS)의 철학을 담아 고성능·무중단 비즈니스 환경을 완성합니다.
           </p>
         </div>
+
+        <!-- Widenet-Style 3 Sub-Tabs -->
+        <div class="about-tabs" role="tablist">
+          <button class="about-tab-btn active" data-tab="overview" onclick="switchAboutTab('overview')">01. 회사 개요</button>
+          <button class="about-tab-btn" data-tab="vision" onclick="switchAboutTab('vision')">02. 비전 &amp; 핵심가치</button>
+          <button class="about-tab-btn" data-tab="domains" onclick="switchAboutTab('domains')">03. 사업 영역</button>
+        </div>
+
+        <!-- TAB 1: 회사 개요 -->
+        <div id="tab-overview" class="about-panel active">
+          <div class="overview-grid">
+            <div class="overview-story">
+              <div>
+                <h3>대한민국 엔터프라이즈 시스템의<br />최종 관문을 책임지는 성능 엔지니어링 파트너</h3>
+                <p>
+                  엔포랩스는 안정적인 시스템을 위해 시스템 테스트와 진단을 통한 최적화를 목적으로 하는 성능 전문 엔지니어들의 모임입니다.
+                  네트워크 에지부터 백엔드 데이터베이스에 이르기까지 모든 기술 접점(Endpoint)의 병목을 규명합니다.
+                </p>
+                <p>
+                  수많은 대규모 차세대 프로젝트와 운영 환경에서 검증된 실전 노하우로,
+                  엔포랩스를 찾아주시는 모든 고객님께 아래 세 가지를 반드시 약속드립니다.
+                </p>
+              </div>
+              <div class="promise-box">
+                <strong>· 엔포랩스는 시스템 최적화에 사활을 걸겠습니다.</strong>
+                <strong>· 엔포랩스는 적당히 타협하지 않겠습니다.</strong>
+                <strong>· 엔포랩스는 끝까지 원인을 찾을 때까지 포기하지 않겠습니다.</strong>
+              </div>
+            </div>
+
+            <div class="overview-table-wrap">
+              <h4>기업 개요 (Company Profile)</h4>
+              <table class="corp-table">
+                <tbody>
+                  <tr>
+                    <th>기업명</th>
+                    <td>엔포랩스 (Endpoint Labs)</td>
+                  </tr>
+                  <tr>
+                    <th>영문 표기</th>
+                    <td>Endpoint Lab (endpointlab.io)</td>
+                  </tr>
+                  <tr>
+                    <th>핵심 업종</th>
+                    <td>IT 시스템 성능 엔지니어링 / 컨설팅 / ITO 서비스</td>
+                  </tr>
+                  <tr>
+                    <th>주요 사업</th>
+                    <td>성능 테스트, 시스템 성능 점검·진단, AP·DB 튜닝, 성능/AA ITO, APM·부하테스트 솔루션 구축</td>
+                  </tr>
+                  <tr>
+                    <th>기술 지원</th>
+                    <td>End-to-End Performance Assurance</td>
+                  </tr>
+                  <tr>
+                    <th>공식 문의처</th>
+                    <td><a href="mailto:contact@endpointlab.io" style="color:var(--brand-orange); font-weight:700;">contact@endpointlab.io</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: 비전 & 핵심가치 -->
+        <div id="tab-vision" class="about-panel">
+          <div class="vision-banner">
+            <small>CORPORATE VISION</small>
+            <h3>"디지털 비즈니스의 성능 한계를 돌파하는 기술 표준, 엔포랩스"</h3>
+            <p>
+              코드가 작성되는 순간부터 전 세계 사용자의 디바이스에 도달하는 마지막 밀리초(ms)까지,
+              엔포랩스는 정밀한 계측과 아키텍처 엔지니어링으로 타협 없는 기술적 완벽함을 증명합니다.
+            </p>
+          </div>
+
+          <div class="vision-cards">
+            <article class="vision-card">
+              <span class="v-num">01</span>
+              <small>EMPIRICAL PRECISION</small>
+              <h4>실증적 데이터 중심</h4>
+              <p>
+                직관이나 추측에 의존하지 않습니다. 모든 병목 현상과 튜닝 결과는 철저한 계측 지표(TPS, 응답시간, 리소스 추이)와 상관관계 분석으로 증명합니다.
+              </p>
+            </article>
+            <article class="vision-card">
+              <span class="v-num">02</span>
+              <small>EXTREME OPTIMIZATION</small>
+              <h4>타협 없는 한계 돌파</h4>
+              <p>
+                단순한 임계치 통과에 그치지 않고, 아키텍처가 감당할 수 있는 최적의 처리량과 초저지연(Ultra-low Latency) 환경을 끝까지 구현합니다.
+              </p>
+            </article>
+            <article class="vision-card">
+              <span class="v-num">03</span>
+              <small>SUSTAINABLE OPERATION</small>
+              <h4>지속 가능한 기술 내재화</h4>
+              <p>
+                일회성 조치로 끝나지 않도록 커스텀 모니터링 체계(JMeter·Scouter)와 운영 가이드라인을 함께 이식하여 고객사의 기술 자립을 돕습니다.
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <!-- TAB 3: 사업 영역 -->
+        <div id="tab-domains" class="about-panel">
+          <div class="biz-domain-grid">
+            <div class="biz-domain-card">
+              <div>
+                <span class="biz-domain-badge">DOMAIN 01 · ENGINEERING</span>
+                <h4>시스템 성능 엔지니어링 &amp; 진단</h4>
+                <p>신규 오픈 전 대규모 부하 검증부터 운영 중 발생하는 복합 장애·지연 구간의 정밀 트러블슈팅을 수행합니다.</p>
+              </div>
+              <ul class="biz-sublist">
+                <li>주기적 시스템 성능 점검 (장애 예방)</li>
+                <li>신규 구축 및 AS-IS / TO-BE 성능 테스트</li>
+                <li>복합 병목 구간 정밀 성능 진단</li>
+                <li>Slow SQL · 실행계획 · DB 파라미터 튜닝</li>
+              </ul>
+            </div>
+
+            <div class="biz-domain-card">
+              <div>
+                <span class="biz-domain-badge">DOMAIN 02 · ITO &amp; CONSULTING</span>
+                <h4>전문 성능 · AA ITO 아웃소싱</h4>
+                <p>검증된 성능 엔지니어와 애플리케이션 아키텍트(AA)가 상주·반상주 형태로 시스템 표준화와 안정적 운영을 견인합니다.</p>
+              </div>
+              <ul class="biz-sublist">
+                <li>시스템 성능 전문가 ITO 서비스 지원</li>
+                <li>전문 AA 중심 아키텍처 표준화 ITO</li>
+                <li>대규모 시스템 확장(Scale-out) 아키텍처 설계</li>
+                <li>웹/WAS/DB 전 구간 성능 최적화 컨설팅</li>
+              </ul>
+            </div>
+
+            <div class="biz-domain-card">
+              <div>
+                <span class="biz-domain-badge">DOMAIN 03 · SOLUTIONS</span>
+                <h4>커스텀 성능 솔루션 &amp; 자동화</h4>
+                <p>검증된 오픈소스 도구를 고객사 운영 환경에 맞게 커스터마이징하고 사내 기술 지원 도구를 개발·공급합니다.</p>
+              </div>
+              <ul class="biz-sublist">
+                <li>Apache JMeter 기반 맞춤형 부하 테스트 체계 구축</li>
+                <li>Scouter APM 기반 실시간 애플리케이션 관제 구축</li>
+                <li>SSL 인증서 라이프사이클 자동화 관리</li>
+                <li>엔터프라이즈 인하우스 기술 지원 유틸리티 개발</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </section>
+
+      <!-- 3. CORE SERVICES (6대 서비스 상세) -->
       <section id="services" class="section shell">
-        <!-- <p class="kicker"><b></b> CORE CAPABILITIES</p> -->
-        <h2>
-          문제를 발견하고,<br /><span>한계를 검증하고,</span><br />운영 가능하게
-          만듭니다.
-        </h2>
+        <div class="section-head">
+          <div>
+            <p class="kicker"><b></b> CORE CAPABILITIES</p>
+            <h2>문제를 발견하고, 한계를 검증하고,<br /><span>운영 가능하게 만듭니다.</span></h2>
+          </div>
+          <p>
+            단순 리포트 제출이 아닌 실제 운영 환경에서 즉각 체감할 수 있는 성능 개선과 아키텍처 안정화를 수행합니다.
+          </p>
+        </div>
+
         <div class="service-list">
-          <article class="service">
+          <article class="service-row">
             <span class="num">01</span>
-            <h3>
-              <span>시스템 성능 점검<br /></span><span></span>
-            </h3>
-            <div>
-              <p>
-                운영중인 시스템의 장애를 미연에 방지하기 위한 주기적인 성능 점검
-              </p>
-              <!-- <ul>
-                <li>Thread Analysis</li>
-                <li>Heap Analysis</li>
-                <li>APM</li>
-                <li>SQL Trace</li>
-              </ul> -->
+            <h3>시스템 성능 점검</h3>
+            <p>운영 중인 시스템의 잠재적 장애 요인을 미연에 방지하기 위한 주기적인 리소스·트랜잭션 정밀 점검</p>
+            <div class="tag-group">
+              <span>Thread Dump</span><span>Heap Analysis</span><span>GC Tuning</span>
             </div>
-            <!-- <i>↗</i> -->
           </article>
-          <article class="service">
+
+          <article class="service-row">
             <span class="num">02</span>
-            <h3>
-              <span>시스템 성능 테스트<br /></span><span></span>
-            </h3>
-            <div>
-              <p>
-                신규 시스템의 성능 검증 및 AS-IS와 TO-BE 시스템에 대한 성능 검증
-              </p>
-              <!-- <ul>
-                <li>Load Test</li>
-                <li>Stress Test</li>
-                <li>TPS</li>
-                <li>Capacity Planning</li>
-              /ul> -->
+            <h3>시스템 성능 테스트</h3>
+            <p>신규 시스템 오픈 전 목표 성능 검증 및 AS-IS 대비 TO-BE 시스템의 처리 용량·안정성 비교 검증</p>
+            <div class="tag-group">
+              <span>Load / Stress Test</span><span>Target TPS</span><span>Capacity Planning</span>
             </div>
-            <!-- <i>↗</i> -->
           </article>
-          <article class="service">
+
+          <article class="service-row">
             <span class="num">03</span>
-            <h3>
-              <span>시스템 성능 진단<br /></span><span></span>
-            </h3>
-            <div>
-              <p>
-                운영중인 시스템의 이슈 사항을 확인하고 개선 방안을 도출하여 시스템 운영 최적화
-              </p>
-              <!-- <ul> 
-                <li>Java</li>
-                <li>Query Tuning</li>
-                <li>Index Design</li>
-                <li>Execution Plan</li>
-              </ul> -->
+            <h3>시스템 성능 진단</h3>
+            <p>운영 시스템의 간헐적 지연·병목 이슈를 전 레이어에 걸쳐 추적하고 실행 가능한 개선 방안 도출</p>
+            <div class="tag-group">
+              <span>Bottleneck Trace</span><span>WAS / OS Tuning</span><span>End-to-End Profiling</span>
             </div>
-            <!-- <i>↗</i> -->
           </article>
-          <article class="service">
+
+          <article class="service-row">
             <span class="num">04</span>
-            <h3>
-              <span>시스템 성능 ITO 서비스<br /></span><span></span>
-            </h3>
-            <div>
-              <p>
-                성능 전문가 ITO 서비스 지원을 통해 인력에 대한 비용 절감 효과와 더불어 안정적인 시스템 운영 지원
-              </p>
-              <!-- <ul>
-                <li>WhaTap</li>
-                <li>NetFUNNEL</li>
-                <li>SSL Automation</li>
-                <li>Observability</li>
-              </ul> -->
+            <h3>시스템 성능 ITO 서비스</h3>
+            <p>성능 전문가 ITO 지원을 통해 고급 기술 인력 확보 비용을 절감하고 상시 안정적인 시스템 운영 환경 유지</p>
+            <div class="tag-group">
+              <span>Performance ITO</span><span>상시 관제·분석</span><span>비용 절감</span>
             </div>
-            <!-- <i>↗</i> -->
           </article>
-          <article class="service">
+
+          <article class="service-row">
             <span class="num">05</span>
-            <h3>
-              <span>시스템 DB 튜닝<br /></span><span></span>
-            </h3>
-            <div>
-              <p>
-                Slow SQL 및 비효율적인 SQL Plan을 분석하여 쿼리, 인덱스 및 운영 DB 파라미터 개선
-              </p>
-              <!-- <ul>
-                <li>WhaTap</li>
-                <li>NetFUNNEL</li>
-                <li>SSL Automation</li>
-                <li>Observability</li>
-              </ul> -->
+            <h3>시스템 DB 튜닝</h3>
+            <p>Slow SQL 및 비효율적인 실행 계획(Execution Plan)을 분석하여 쿼리, 인덱스 설계 및 DB 파라미터 최적화</p>
+            <div class="tag-group">
+              <span>SQL Tuning</span><span>Index Design</span><span>Execution Plan</span>
             </div>
-            <!-- <i>↗</i> -->
           </article>
-          </article>
-          <article class="service">
+
+          <article class="service-row">
             <span class="num">06</span>
-            <h3>
-              <span>시스템 AA ITO 서비스<br /></span><span></span>
-            </h3>
-            <div>
-              <p>
-                시스템 표준화와 성능 최적화를 견인하는 전문 AA 중심의 IT 운영 관리 서비스 
-              </p>
-              <!-- <ul>
-                <li>WhaTap</li>
-                <li>NetFUNNEL</li>
-                <li>SSL Automation</li>
-                <li>Observability</li>
-              </ul> -->
+            <h3>시스템 AA ITO 서비스</h3>
+            <p>시스템 아키텍처 표준화와 성능 최적화를 동시에 견인하는 전문 AA(Application Architect) 중심 IT 운영 관리</p>
+            <div class="tag-group">
+              <span>Application Architecture</span><span>표준 프레임워크</span><span>아키텍처 거버넌스</span>
             </div>
-            <!-- <i>↗</i> -->
           </article>
         </div>
       </section>
-      <section class="section shell">
+
+      <!-- 4. DIAGNOSTIC FRAMEWORK & E2E PIPELINE -->
+      <section id="framework" class="section dark-band">
         <div class="shell">
-          <!-- <p class="kicker"><b></b> DIAGNOSTIC FRAMEWORK</p> -->
-          <h2>현상이 아닌<br /><span>원인을 추적합니다.</span></h2>
-          <div class="framework">
-            <aside>
-              <strong>END-TO-END ANALYSIS</strong>
-              <p>
-                성능 문제는 하나의 레이어에서 끝나지 않습니다. 사용자 요청이
-                데이터베이스 응답으로 돌아오기까지 전체 흐름을 연결해
-                분석합니다.
-              </p>
-              <!-- <div class="pulse"></div> -->
-            </aside>
+          <div class="section-head">
             <div>
-              <article class="step">
-                <span class="num">01</span>
-                <div>
-                  <h3>현상과 영향 범위 정의</h3>
-                  <p>
-                    장애 발생 조건, 사용자 영향, 시간대와 변경 이력을 확인해
-                    분석 범위를 구체화합니다.
-                  </p>
-                </div>
+              <p class="kicker"><b></b> DIAGNOSTIC FRAMEWORK</p>
+              <h2>현상이 아닌<br /><span>근본 원인을 추적합니다.</span></h2>
+            </div>
+            <p>
+              성능 문제는 단일 레이어에서 끝나지 않습니다. 사용자 요청이 데이터베이스 응답으로 돌아오기까지 전체 파이프라인을 동일 타임라인에서 입체적으로 분석합니다.
+            </p>
+          </div>
+
+          <div class="framework-grid">
+            <aside class="framework-aside">
+              <strong>END-TO-END ANALYSIS</strong>
+              <h3>전 구간 타임라인 상관관계 분석</h3>
+              <p>
+                클라이언트 렌더링 지연, 네트워크 구간 병목, 웹/WAS 스레드 경합, DB Lock 및 I/O 대기를 분리 측정하여 추측 없는 명확한 인과관계를 규명합니다.
+              </p>
+            </aside>
+
+            <div class="step-list">
+              <article class="step-card">
+                <span class="s-num">STEP 01</span>
+                <h4>현상과 영향 범위 정의</h4>
+                <p>장애 발생 조건, 동시 사용자 규모, 피크 시간대와 배포·변경 이력을 확인해 분석 범위를 구체화합니다.</p>
               </article>
-              <article class="step">
-                <span>0<!-- -->2</span>
-                <div>
-                  <h3>데이터 수집과 상관관계 분석</h3>
-                  <p>
-                    애플리케이션, 시스템 및 DB 정보 등 다양한 성능 정보를 동일한
-                    타임라인 위에서 다각도로 분석합니다.
-                  </p>
-                </div>
+              <article class="step-card">
+                <span class="s-num">STEP 02</span>
+                <h4>데이터 수집과 상관관계 분석</h4>
+                <p>애플리케이션, 시스템 리소스 및 DB 성능 지표를 동일한 타임라인 위에서 다각도로 교차 분석합니다.</p>
               </article>
-              <article class="step">
-                <span>0<!-- -->3</span>
-                <div>
-                  <h3>병목 개선과 재검증</h3>
-                  <p>
-                    원인별 개선안을 적용하고 동일 조건에서 전후 성능을 비교해
-                    개선 효과와 잔여 위험을 확인합니다.
-                  </p>
-                </div>
+              <article class="step-card">
+                <span class="s-num">STEP 03</span>
+                <h4>병목 개선과 재검증</h4>
+                <p>원인별 튜닝안을 적용하고 동일 부하 조건에서 전후 성능을 비교해 개선 효과와 잔여 위험을 검증합니다.</p>
               </article>
-              <article class="step">
-                <span>0<!-- -->4</span>
-                <div>
-                  <h3>운영 기준과 가이드 제공</h3>
-                  <p>
-                    일회성 조치로 끝나지 않도록 임계치, 모니터링 항목과
-                    개발·운영 가이드를 문서화합니다.
-                  </p>
-                </div>
+              <article class="step-card">
+                <span class="s-num">STEP 04</span>
+                <h4>운영 기준과 가이드 제공</h4>
+                <p>일회성 조치로 끝나지 않도록 임계치, 상시 모니터링 지표와 개발·운영 가이드를 표준 문서화합니다.</p>
               </article>
+            </div>
+          </div>
+
+          <!-- SVG End-to-End Pipeline Visual -->
+          <div class="pipeline-box">
+            <h4>END-TO-END PERFORMANCE TELEMETRY PIPELINE</h4>
+            <div class="pipeline-svg-wrap">
+              <svg class="pipeline-svg" viewBox="0 0 900 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="90" y1="85" x2="810" y2="85" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="6 6" />
+                <line x1="90" y1="85" x2="810" y2="85" stroke="#ec5a0c" stroke-width="2.5" stroke-dasharray="12 180" />
+                <g transform="translate(90, 85)">
+                  <circle r="38" fill="#181e27" stroke="#ec5a0c" stroke-width="2.5" />
+                  <text y="-4" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">CLIENT</text>
+                  <text y="13" text-anchor="middle" fill="#b6c0ce" font-size="9.5">Web / Mobile</text>
+                </g>
+                <g transform="translate(270, 85)">
+                  <circle r="38" fill="#181e27" stroke="#91aebb" stroke-width="2.5" />
+                  <text y="-4" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">EDGE / GW</text>
+                  <text y="13" text-anchor="middle" fill="#b6c0ce" font-size="9.5">SSL / Proxy</text>
+                </g>
+                <g transform="translate(450, 85)">
+                  <circle r="42" fill="#181e27" stroke="#ec5a0c" stroke-width="3" />
+                  <text y="-4" text-anchor="middle" fill="#ec5a0c" font-size="12" font-weight="800">AP / WAS</text>
+                  <text y="13" text-anchor="middle" fill="#fff" font-size="9.5">JVM / Thread</text>
+                </g>
+                <g transform="translate(630, 85)">
+                  <circle r="38" fill="#181e27" stroke="#a9c2ac" stroke-width="2.5" />
+                  <text y="-4" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">CACHE / MQ</text>
+                  <text y="13" text-anchor="middle" fill="#b6c0ce" font-size="9.5">Async / I/O</text>
+                </g>
+                <g transform="translate(810, 85)">
+                  <circle r="38" fill="#181e27" stroke="#ec5a0c" stroke-width="2.5" />
+                  <text y="-4" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">DATABASE</text>
+                  <text y="13" text-anchor="middle" fill="#b6c0ce" font-size="9.5">SQL / Plan</text>
+                </g>
+              </svg>
             </div>
           </div>
         </div>
       </section>
+
+      <!-- 5. PERFORMANCE TESTING & DELIVERABLES -->
       <section id="testing" class="section shell">
-        <!-- <p class="kicker"><b></b> PERFORMANCE TESTING</p> -->
-        <h2>오픈 이후가 아니라,<br /><span>오픈 전에 확인합니다.</span></h2>
-        <p class="section-copy">
-          단순히 많은 요청을 발생시키는 테스트가 아닙니다. 업무 흐름과 사용자
-          행동을 반영한 시나리오를 설계하고, 시스템이 안정적으로 감당할 수 있는
-          기준을 제시합니다.
-        </p>
-        
-        <div class="testing-visual" aria-label="다양한 테스트 유형 이미지">
-          <img
-            src="./이미지/test.png"
-          />
-          <img
-            src="./이미지/테스트 구조 도식화.png"
-          />
+        <div class="section-head">
+          <div>
+            <p class="kicker"><b></b> PERFORMANCE TESTING ARCHITECTURE</p>
+            <h2>오픈 이후가 아니라,<br /><span>오픈 전에 완벽히 확인합니다.</span></h2>
+          </div>
+          <p>
+            단순히 많은 요청을 발생시키는 테스트가 아닙니다. 실제 업무 흐름과 사용자 행동 패턴(Think Time, Pacing, 집중 트랜잭션)을 반영한 시나리오를 설계하고 시스템의 임계 용량을 제시합니다.
+          </p>
         </div>
-      </section>
-      <!-- <section class="section shell deliver">
-        <p class="kicker"><b></b> WHAT YOU RECEIVE</p>
-        <h2>결과는 의견이 아니라<br /><span>실행 가능한 기준입니다.</span></h2>
-        <div class="deliver-grid">
-          <blockquote>
-            모든 결론은 측정 데이터와 함께 제공되며, 개선 항목은
-            <strong>우선순위와 기대 효과</strong>를 기준으로 정리합니다.
-          </blockquote>
-          <ol>
-            <li>
-              <span>0 1</span><strong>성능 진단 보고서</strong>
-            </li>
-            <li>
-              <span>02</span><strong>병목 개선 권고안</strong>
-            </li>
-            <li>
-              <span>03</span><strong>성능 테스트 결과서</strong>
-            </li>
-            <li>
-              <span>04</span><strong>운영 모니터링 기준</strong>
-            </li>
-            <li>
-              <span>05</span><strong>기술 워크숍 및 가이드</strong>
-            </li>
+
+        <div class="testing-grid">
+          <div class="testing-card">
+            <h4>01. 단계별 성능 테스트 유형 및 검증 목적</h4>
+            <img src="./이미지/test.png" alt="성능 테스트 유형 이미지" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+            <div style="display:none; padding:32px; background:var(--bg); color:var(--muted); font-size:14px;">
+              <strong>[부하 / 스트레스 / 내구성 / 스파이크 테스트 검증 체계]</strong><br />
+              목표 동시 사용자 부하 검증부터 임계치 돌파 시점 확인, 장시간 메모리 누수(Memory Leak) 탐지까지 전 유형을 검증합니다. (<code>./이미지/test.png</code> 연결됨)
+            </div>
+          </div>
+          <div class="testing-card">
+            <h4>02. 엔드투엔드 성능 테스트 수행 아키텍처</h4>
+            <img src="./이미지/테스트 구조 도식화.png" alt="테스트 구조 도식화 이미지" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+            <div style="display:none; padding:32px; background:var(--bg); color:var(--muted); font-size:14px;">
+              <strong>[Controller - Load Generator - Target System - APM 계측 구조]</strong><br />
+              분산 부하 발생기와 실시간 APM/DB 모니터링을 연동하여 구간별 응답시간과 처리량(TPS)을 정밀 측정합니다. (<code>./이미지/테스트 구조 도식화.png</code> 연결됨)
+            </div>
+          </div>
+        </div>
+
+        <!-- Deliverables -->
+        <div class="deliverables-bar">
+          <div>
+            <h3>결과는 의견이 아니라<br />실행 가능한 기준입니다.</h3>
+            <p>모든 결론은 측정 데이터와 함께 제공되며 개선 항목은 우선순위와 기대 효과를 기준으로 정리합니다.</p>
+          </div>
+          <ol class="deliver-items">
+            <li><span>DELIVERABLE 01</span><strong>성능 진단 보고서</strong></li>
+            <li><span>DELIVERABLE 02</span><strong>병목 개선 권고안</strong></li>
+            <li><span>DELIVERABLE 03</span><strong>성능 테스트 결과서</strong></li>
+            <li><span>DELIVERABLE 04</span><strong>운영 모니터링 기준서</strong></li>
+            <li><span>DELIVERABLE 05</span><strong>기술 워크숍 &amp; 가이드</strong></li>
           </ol>
         </div>
-      </section> -->
+      </section>
+
+      <!-- 6. PERFORMANCE SOLUTIONS -->
       <section id="solutions" class="section shell">
-        <!-- <p class="kicker"><b></b> PERFORMANCE SOLUTIONS</p> -->
-        <h2>검증된 도구를<br /><span>실제 운영 체계로.</span></h2>
-        <p class="solutions-copy">
-          엔포랩스에서는 대상 시스템 별 커스텀을 통해 운영 환경 별 최적화된 솔루션으로 제공합니다.
-        </p>
+        <div class="section-head">
+          <div>
+            <p class="kicker"><b></b> PERFORMANCE SOLUTIONS</p>
+            <h2>검증된 도구를<br /><span>실제 운영 체계로 이식합니다.</span></h2>
+          </div>
+          <p>
+            엔포랩스에서는 대상 시스템별 커스텀 플러그인 개발과 최적화를 통해 운영 환경에 꼭 맞는 성능 관리 솔루션을 구축합니다.
+          </p>
+        </div>
+
         <div class="solution-grid">
-          <article>
-            <!-- <small
-              >SOLUTION /
-              A</small
-            > -->
-          <img src="./이미지/JMeter Icon.png">
+          <article class="solution-card">
+            <small>SOLUTION 01 · LOAD TESTING</small>
+            <div class="solution-logo-box">
+              <img src="./이미지/JMeter Icon.png" alt="Apache JMeter" onerror="this.outerHTML='<strong style=&quot;font-size:28px;color:var(--brand-orange)&quot;>APACHE JMeter™</strong>'" />
+            </div>
             <h3>APACHE JMeter</h3>
             <p>
-              목적에 맞는 유연한 설계와 수행이 가능한 오픈소스 테스트 소프트웨어
+              목적에 맞는 유연한 시나리오 설계와 대규모 부하 수행이 가능한 오픈소스 성능 테스트 소프트웨어입니다. 엔포랩스 자체 커스텀 플러그인 및 실시간 리포팅 체계를 함께 제공합니다.
             </p>
             <footer>
-              Load Test<!-- -->
-              <!-- <span>↗</span> -->
+              <span>Load / Stress Test</span>
+              <span>Custom Plugin ↗</span>
             </footer>
           </article>
-          <article>
-            <!-- <small
-              >SOLUTION /
-              B</small> -->
-              <img src="./이미지/scouter-logo-w200.png">
+
+          <article class="solution-card">
+            <small>SOLUTION 02 · APM &amp; OBSERVABILITY</small>
+            <div class="solution-logo-box">
+              <img src="./이미지/scouter-logo-w200.png" alt="Scouter APM" onerror="this.outerHTML='<strong style=&quot;font-size:28px;color:var(--ink)&quot;>SCOUTER APM</strong>'" />
+            </div>
             <h3>SCOUTER APM</h3>
             <p>
-              JAVA 기반의 오픈소스 웹 애플리케이션 성능 관리 시스템
+              Java 기반 웹 애플리케이션 및 OS 자원을 실시간 추적하는 오픈소스 성능 관리 시스템(APM)입니다. XLog 트랜잭션 프로파일링과 커스텀 알림 대시보드를 구축합니다.
             </p>
             <footer>
-              APM / Observability<!-- -->
-              <!-- <span>↗</span> -->
+              <span>APM / XLog Profiling</span>
+              <span>Observability ↗</span>
+            </footer>
+          </article>
+
+          <article class="solution-card">
+            <small>SOLUTION 03 · AUTOMATION &amp; IN-HOUSE TOOL</small>
+            <div class="solution-logo-box">
+              <strong style="font-size:26px; letter-spacing:-0.04em; color:var(--brand-orange);">ENDPOINT AUTOMATION</strong>
+            </div>
+            <h3>인하우스 자동화 솔루션</h3>
+            <p>
+              엔터프라이즈 인프라의 SSL 인증서 만료 장애를 원천 차단하는 라이프사이클 자동화 관리 솔루션과 사내 기술 지원 효율을 극대화하는 맞춤형 유틸리티를 개발·공급합니다.
+            </p>
+            <footer>
+              <span>SSL Lifecycle / DevOps</span>
+              <span>Custom Utility ↗</span>
             </footer>
           </article>
         </div>
       </section>
-      <section id="contact" class="contact section">
-        <div class="shell">
-          <!-- <p class="kicker"><b></b> START A CONVERSATION</p> -->
-          <h2>성능 문제를<br /><span>측정 가능한 과제로.</span></h2>
-          <div class="contact-grid">
+
+      <!-- 7. PERFORMANCE LAB (Interactive Simulator & Web Performance Guidelines) -->
+      <section id="lab" class="section shell">
+        <div class="section-head">
+          <div>
+            <p class="kicker"><b></b> ENDPOINT R&amp;D LAB</p>
+            <h2>성능 최적화 시뮬레이터 &amp;<br /><span>기술 표준 지침서</span></h2>
+          </div>
+          <p>
+            최적화 전후의 Core Web Vitals 및 처리 성능 차이를 직접 비교하고, 엔포랩스 엔지니어링 팀의 웹 애플리케이션 성능 최적화 개발 지침을 확인하세요.
+          </p>
+        </div>
+
+        <!-- Simulator -->
+        <div class="sim-box">
+          <div class="sim-top">
             <div>
-              <p>
-                현재 겪고 있는 현상과 서비스 환경을 알려주세요. 진단 범위와
-                적합한 진행 방식을 검토해 안내드립니다.
-              </p>
-              <a href="mailto:contact@endpointlab.io"
-                >contact@endpointlab.io ↗</a
-              >
+              <h3>실시간 최적화 성능 비교 시뮬레이션</h3>
+              <p style="color:var(--muted); font-size:14px;">모드를 전환하여 엔포랩스 최적화 적용 전후의 핵심 지표를 비교해 보세요.</p>
             </div>
-            <form
-              action="https://formsubmit.co/ajax/kdjung@endpointlab.io"
-              method="POST"
-            >
-              <label
-                >이름 / 회사명<input
-                  required=""
-                  maxlength="100"
-                  placeholder="회사명 또는 담당자명"
-                  name="name" /></label
-              ><label
-                >이메일<input
-                  required=""
-                  type="email"
-                  maxlength="200"
-                  placeholder="name@company.com"
-                  name="email" /></label
-              ><label
-                >문의 분야<select name="category" required="">
-                  <option value="" disabled="" selected="">
-                    문의 분야를 선택해 주세요
-                  </option>
+            <div class="sim-controls">
+              <button class="sim-btn unopt" id="btn-unopt" onclick="setSimMode('unopt')">
+                <span class="dot red"></span> 최적화 이전 (Unoptimized)
+              </button>
+              <button class="sim-btn opt active" id="btn-opt" onclick="setSimMode('opt')">
+                <span class="dot green"></span> 엔포랩스 최적화 (Optimized)
+              </button>
+            </div>
+          </div>
+
+          <div class="sim-metrics">
+            <div class="m-card">
+              <div class="m-head">
+                <span>LCP (초기 응답/렌더링)</span>
+                <span class="m-status good" id="sim-lcp-badge">Fast</span>
+              </div>
+              <div class="m-val" id="sim-lcp-val">0.8s</div>
+              <div class="m-bar-wrap"><div class="m-bar good" id="sim-lcp-bar" style="width: 15%;"></div></div>
+            </div>
+
+            <div class="m-card">
+              <div class="m-head">
+                <span>Frame Rate / 반응성</span>
+                <span class="m-status good" id="sim-fps-badge">Smooth</span>
+              </div>
+              <div class="m-val" id="sim-fps-val">60 fps</div>
+              <div class="m-bar-wrap"><div class="m-bar good" id="sim-fps-bar" style="width: 100%;"></div></div>
+            </div>
+
+            <div class="m-card">
+              <div class="m-head">
+                <span>Critical Payload 크기</span>
+                <span class="m-status good" id="sim-size-badge">Ultralight</span>
+              </div>
+              <div class="m-val" id="sim-size-val">120 KB</div>
+              <div class="m-bar-wrap"><div class="m-bar good" id="sim-size-bar" style="width: 12%;"></div></div>
+            </div>
+
+            <div class="m-card">
+              <div class="m-head">
+                <span>Performance Score</span>
+                <span class="m-status good" id="sim-score-badge">Verified</span>
+              </div>
+              <div class="m-val" id="sim-score-val">100 점</div>
+              <div class="m-bar-wrap"><div class="m-bar good" id="sim-score-bar" style="width: 100%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Web Performance Guidelines Viewer (performance-guidelines.md 연동) -->
+        <details class="guide-accordion" id="guidelines-box">
+          <summary class="guide-summary">
+            <div>📖 웹 애플리케이션 성능 최적화 개발 지침서 (Web Performance Guidelines 전문 보기)</div>
+            <span>CLICK TO EXPAND ▾</span>
+          </summary>
+          <div class="guide-body">
+            <aside class="guide-toc">
+              <h4>Table of Contents</h4>
+              <ul id="guide-toc-list">
+                <li><a href="#g-sec-1">1. Core Web Vitals 최적화</a></li>
+                <li><a href="#g-sec-2">2. 렌더링 최적화 (CRP)</a></li>
+                <li><a href="#g-sec-3">3. 에셋 및 네트워크 전략</a></li>
+                <li><a href="#g-sec-4">4. 성능 측정 검증 체크리스트</a></li>
+              </ul>
+            </aside>
+            <div class="markdown-content" id="guidelines-content">
+              <!-- 기본 내장 지침서 (외부 performance-guidelines.md 파일 로드 가능 시 자동 교체됨) -->
+              <h2 id="g-sec-1">1. Core Web Vitals 최적화</h2>
+              <p>본 지침서는 <strong>endpointlab</strong>의 성능 제일주의 기술 철학을 바탕으로 로딩 속도, 렌더링 반응성, 사용자 경험 지표를 극대화하기 위한 핵심 기준을 제시합니다.</p>
+              <h3>1.1. LCP (Largest Contentful Paint) — 목표: 2.5초 이하</h3>
+              <ul>
+                <li>초기 뷰포트 LCP 이미지에는 <code>loading="lazy"</code>를 배제하고 <code>fetchpriority="high"</code> 및 <code>preload</code>를 적용합니다.</li>
+                <li>API 응답 속도(TTFB)를 단축하고 정적 자원은 CDN 캐싱 및 차세대 포맷(WebP, AVIF)으로 제공합니다.</li>
+              </ul>
+              <h3>1.2. INP (Interaction to Next Paint) — 목표: 200ms 이하</h3>
+              <ul>
+                <li>50ms를 초과하는 Long Task는 <code>scheduler.yield()</code> 또는 마이크로태스크로 분할하여 메인 스레드 블로킹을 해소합니다.</li>
+                <li>빈번한 스크롤·입력 이벤트 핸들러에는 Debounce와 Throttle을 필수 적용합니다.</li>
+              </ul>
+              <h3>1.3. CLS (Cumulative Layout Shift) — 목표: 0.1 이하</h3>
+              <ul>
+                <li>모든 미디어 요소에 명시적 <code>width</code>, <code>height</code> 또는 <code>aspect-ratio</code>를 지정해 레이아웃 밀림을 방지합니다.</li>
+              </ul>
+
+              <h2 id="g-sec-2">2. 렌더링 최적화 (Critical Rendering Path)</h2>
+              <ul>
+                <li>Above-the-Fold 핵심 스타일(Critical CSS)은 인라인화하고, 비중요 CSS는 비동기 로드합니다.</li>
+                <li>단일 페이지 전체 DOM 노드는 <strong>1,500개 미만</strong>, 중첩 깊이는 <strong>32단계 이하</strong>로 유지합니다.</li>
+              </ul>
+
+              <h2 id="g-sec-3">3. 에셋 최적화 및 네트워크 로딩 전략</h2>
+              <ul>
+                <li>웹 폰트는 WOFF2 서브셋 폰트를 기본 채택하고, 핵심 스크립트는 <code>defer</code> 속성으로 파서 블로킹을 방지합니다.</li>
+                <li>모든 텍스트 리소스는 <strong>Brotli</strong> 압축을 우선 적용하고 Gzip을 Fallback으로 구성합니다.</li>
+              </ul>
+
+              <h2 id="g-sec-4">4. endpointlab 성능 측정 검증 체크리스트</h2>
+              <table>
+                <thead>
+                  <tr><th>측정 항목</th><th>권장 기준</th><th>측정 방식</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>LCP</strong></td><td>2.5s 이하</td><td>Lighthouse / Web Vitals API</td></tr>
+                  <tr><td><strong>INP</strong></td><td>200ms 이하</td><td>Chrome DevTools Performance Panel</td></tr>
+                  <tr><td><strong>CLS</strong></td><td>0.1 이하</td><td>Lighthouse / Layout Instability API</td></tr>
+                  <tr><td><strong>Lighthouse Score</strong></td><td>98점 이상</td><td>Chrome DevTools Audit</td></tr>
+                  <tr><td><strong>Total DOM Nodes</strong></td><td>1,500개 이하</td><td>DOM Node Counter</td></tr>
+                  <tr><td><strong>Critical Resource Size</strong></td><td>200KB 이하</td><td>Network Tab (Brotli Compressed)</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <!-- 8. CONTACT SECTION (기존 Formsubmit 연동 그대로 유지) -->
+      <section id="contact" class="section contact">
+        <div class="shell">
+          <div class="contact-grid">
+            <div class="contact-info">
+              <p class="kicker"><b></b> START A CONVERSATION</p>
+              <h2>성능 문제를<br />측정 가능한 과제로.</h2>
+              <p>
+                현재 겪고 있는 시스템 현상과 서비스 환경을 알려주세요.
+                엔포랩스 전문 엔지니어가 진단 범위와 적합한 진행 방식을 빠르게 검토해 안내드립니다.
+              </p>
+              <a class="contact-mail" href="mailto:contact@endpointlab.io">contact@endpointlab.io ↗</a>
+            </div>
+
+            <form id="contact-form" action="https://formsubmit.co/ajax/kdjung@endpointlab.io" method="POST">
+              <label>
+                이름 / 회사명
+                <input required maxlength="100" placeholder="회사명 또는 담당자명" name="name" />
+              </label>
+              <label>
+                이메일
+                <input required type="email" maxlength="200" placeholder="name@company.com" name="email" />
+              </label>
+              <label class="full">
+                문의 분야
+                <select name="category" required>
+                  <option value="" disabled selected>문의 분야를 선택해 주세요</option>
                   <option>성능 진단 및 트러블슈팅</option>
                   <option>성능 테스트</option>
                   <option>AP / DB 튜닝</option>
-                  <option>성능 솔루션 구축</option>
-                </select></label
-              ><label
-                >프로젝트 및 문제 상황<textarea
+                  <option>성능 / AA ITO 서비스</option>
+                  <option>성능 솔루션 구축 (JMeter / Scouter)</option>
+                </select>
+              </label>
+              <label class="full">
+                프로젝트 및 문제 상황
+                <textarea
                   name="message"
-                  required=""
+                  required
                   minlength="10"
                   maxlength="5000"
-                  placeholder="대상 시스템, 현재 문제, 예상 일정 등을 작성해 주세요."
-                ></textarea></label
-              ><input
-                type="hidden"
-                name="_cc"
-                value="ojkwon@endpointlab.io"
-              />
+                  placeholder="대상 시스템, 현재 문제 현상, 예상 일정 등을 작성해 주세요."
+                ></textarea>
+              </label>
+              <input type="hidden" name="_cc" value="ojkwon@endpointlab.io" />
               <input type="hidden" name="_template" value="table" />
               <input type="hidden" name="_captcha" value="false" />
-              <input
-                class="contact-trap"
-                tabindex="-1"
-                autocomplete="off"
-                aria-hidden="true"
-                name="_honey"
-              /><button>
-                프로젝트 문의 보내기<!-- -->
+              <input class="contact-trap" tabindex="-1" autocomplete="off" aria-hidden="true" name="_honey" />
+              <button type="submit">
+                <span>프로젝트 문의 보내기</span>
                 <span>↗</span>
-              </button><p
-                class="form-status"
-                role="status"
-                aria-live="polite"
-                hidden
-              ></p>
+              </button>
+              <p class="form-status" role="status" aria-live="polite" hidden></p>
             </form>
           </div>
         </div>
       </section>
     </main>
+
+    <!-- =====================================================================
+         FOOTER
+         ===================================================================== -->
     <footer class="footer shell">
-      <a class="brand" href="#home"><i></i>endpoint<span>lab</span></a>
-      <p>End-to-End Performance Assurance</p>
-      <div>© 2026 ENDPOINT LABS. ALL RIGHTS RESERVED.</div>
+      <div>
+        <a class="brand-logo" href="#home" aria-label="엔포랩스 홈">
+          <svg class="brand-logo-svg" viewBox="0 0 280 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 8 H42 V25" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3" />
+            <path d="M42 25 H70" stroke="currentColor" stroke-width="2" />
+            <circle cx="82" cy="25" r="11" stroke="currentColor" stroke-width="2" />
+            <circle cx="82" cy="25" r="4.5" fill="#ec5a0c" />
+            <line x1="97" y1="14" x2="97" y2="36" stroke="currentColor" stroke-width="2.2" />
+            <text x="6" y="55" fill="currentColor" font-family="Pretendard, Inter, sans-serif" font-size="28" font-weight="800" letter-spacing="-0.8">Endpoint Lab</text>
+            <line x1="6" y1="63" x2="268" y2="63" stroke="#ec5a0c" stroke-width="2" />
+            <text x="6" y="75" fill="currentColor" opacity="0.78" font-family="Pretendard, Inter, sans-serif" font-size="9.5" font-weight="600" letter-spacing="0.2">End-to-End Performance Assurance</text>
+            <circle cx="262" cy="71" r="5" fill="#ec5a0c" />
+          </svg>
+        </a>
+      </div>
+      <div class="footer-right">
+        <strong>엔포랩스 (Endpoint Labs)</strong><br />
+        IT 시스템 성능 진단 · 성능 테스트 · AP/DB 튜닝 · 성능/AA ITO · APM 솔루션<br />
+        Email: <a href="mailto:contact@endpointlab.io">contact@endpointlab.io</a>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 ENDPOINT LABS. ALL RIGHTS RESERVED.</span>
+        <span>END-TO-END PERFORMANCE ASSURANCE</span>
+      </div>
     </footer>
+
+    <!-- =====================================================================
+         SCRIPTS (Theme, Widenet Tabs, Simulator, MD Loader, Contact Form)
+         ===================================================================== -->
     <script>
+      // 1. 회사소개 (회사 개요 / 비전 / 사업 영역) 탭 전환
+      function switchAboutTab(tabKey) {
+        document.querySelectorAll(".about-tab-btn").forEach((btn) => {
+          btn.classList.toggle("active", btn.dataset.tab === tabKey);
+        });
+        document.querySelectorAll(".about-panel").forEach((panel) => {
+          panel.classList.toggle("active", panel.id === "tab-" + tabKey);
+        });
+      }
+
+      // 2. 성능 비교 시뮬레이터 전환
+      function setSimMode(mode) {
+        const isOpt = mode === "opt";
+        document.getElementById("btn-opt").classList.toggle("active", isOpt);
+        document.getElementById("btn-unopt").classList.toggle("active", !isOpt);
+
+        const data = isOpt
+          ? {
+              lcp: ["0.8s", "Fast", "good", "15%"],
+              fps: ["60 fps", "Butter Smooth", "good", "100%"],
+              size: ["120 KB", "Ultralight", "good", "12%"],
+              score: ["100 점", "Verified", "good", "100%"],
+            }
+          : {
+              lcp: ["5.4s", "Slow", "bad", "86%"],
+              fps: ["22 fps", "Laggy", "bad", "36%"],
+              size: ["4.2 MB", "Heavy", "bad", "90%"],
+              score: ["34 점", "Critical", "bad", "34%"],
+            };
+
+        ["lcp", "fps", "size", "score"].forEach((k) => {
+          const [val, label, cls, width] = data[k];
+          document.getElementById(`sim-${k}-val`).textContent = val;
+          const badge = document.getElementById(`sim-${k}-badge`);
+          badge.textContent = label;
+          badge.className = `m-status ${cls}`;
+          const bar = document.getElementById(`sim-${k}-bar`);
+          bar.className = `m-bar ${cls}`;
+          bar.style.width = width;
+        });
+      }
+
+      // 3. 테마 토글, 모바일 메뉴, 마크다운 로더 및 문의 폼 전송
       (() => {
         const root = document.documentElement;
-        const themeButton = document.querySelector(".theme");
-        const menuButton = document.querySelector(".menu");
+        const themeBtn = document.getElementById("theme-toggle");
+        const menuBtn = document.getElementById("menu-toggle");
         const nav = document.querySelector(".nav");
+
         const savedTheme = localStorage.getItem("endpointlab-theme");
         const isDark = savedTheme
           ? savedTheme === "dark"
           : matchMedia("(prefers-color-scheme: dark)").matches;
         root.dataset.theme = isDark ? "dark" : "light";
-        if (themeButton) {
-          themeButton.textContent = isDark ? "LIGHT" : "DARK";
-          themeButton.onclick = () => {
+        if (themeBtn) {
+          themeBtn.textContent = isDark ? "LIGHT" : "DARK";
+          themeBtn.onclick = () => {
             const nextDark = root.dataset.theme !== "dark";
             root.dataset.theme = nextDark ? "dark" : "light";
-            themeButton.textContent = nextDark ? "LIGHT" : "DARK";
-            localStorage.setItem(
-              "endpointlab-theme",
-              nextDark ? "dark" : "light",
-            );
+            themeBtn.textContent = nextDark ? "LIGHT" : "DARK";
+            localStorage.setItem("endpointlab-theme", nextDark ? "dark" : "light");
           };
         }
-        if (menuButton && nav)
-          menuButton.onclick = () => nav.classList.toggle("open");
-        const form = document.querySelector("#contact form");
-        if (form)
+
+        if (menuBtn && nav) {
+          menuBtn.onclick = () => nav.classList.toggle("open");
+        }
+
+        // 외부 performance-guidelines.md가 서버에 존재할 경우 동적 파싱 반영
+        const guideBox = document.getElementById("guidelines-box");
+        let mdLoaded = false;
+        if (guideBox) {
+          guideBox.addEventListener("toggle", () => {
+            if (guideBox.open && !mdLoaded) {
+              fetch("performance-guidelines.md")
+                .then((res) => (res.ok ? res.text() : Promise.reject()))
+                .then((md) => {
+                  if (window.marked) {
+                    const container = document.getElementById("guidelines-content");
+                    container.innerHTML = marked.parse(md);
+                    mdLoaded = true;
+                  }
+                })
+                .catch(() => {
+                  // 로컬 file:// 환경 등에서는 기본 내장 지침서 유지
+                });
+            }
+          });
+        }
+
+        // Formsubmit 문의 폼 비동기 전송
+        const form = document.getElementById("contact-form");
+        if (form) {
           form.onsubmit = async (event) => {
             event.preventDefault();
-            const button = form.querySelector("button[type='submit'], button");
+            const button = form.querySelector("button[type='submit']");
             const status = form.querySelector(".form-status");
             const data = new FormData(form);
             data.set(
               "_subject",
-              "[홈페이지 문의] " +
-              (data.get("category") || "") +
-              " · " +
-              (data.get("name") || ""),
+              "[홈페이지 문의] " + (data.get("category") || "") + " · " + (data.get("name") || "")
             );
 
             button.disabled = true;
@@ -1698,19 +2202,13 @@
                 headers: { Accept: "application/json" },
               });
               const result = await response.json().catch(() => ({}));
-              if (
-                !response.ok ||
-                result.success === "false" ||
-                result.success === false
-              )
-                throw new Error("전송 서비스가 요청을 처리하지 못했습니다.");
-
+              if (!response.ok || result.success === "false" || result.success === false) {
+                throw new Error("전송 실패");
+              }
               form.reset();
               status.className = "form-status success";
-              status.textContent =
-                "문의가 접수되었습니다. 확인 후 입력하신 이메일로 연락드리겠습니다.";
+              status.textContent = "문의가 접수되었습니다. 확인 후 입력하신 이메일로 연락드리겠습니다.";
             } catch (error) {
-              console.error(error);
               status.className = "form-status error";
               status.textContent =
                 "전송하지 못했습니다. 잠시 후 다시 시도하거나 contact@endpointlab.io로 문의해 주세요.";
@@ -1718,6 +2216,7 @@
               button.disabled = false;
             }
           };
+        }
       })();
     </script>
   </body>
