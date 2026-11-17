@@ -846,7 +846,7 @@
          ========================================================================== */
       .solution-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         border: 1px solid var(--line);
         background: var(--surface);
       }
@@ -1371,11 +1371,11 @@
           <a class="nav-link" href="#framework">진단 프레임워크</a>
         </div>
         <div class="nav-item">
-          <a class="nav-link" href="#solutions">솔루션 &amp; LAB ▾</a>
-          <div class="dropdown">
-            <a href="#solutions">구축 솔루션 (JMeter / Scouter)</a>
-            <a href="#lab">성능 비교 시뮬레이터</a>
-            <a href="#guidelines-box">웹 성능 최적화 지침서</a>
+          <a class="nav-link" href="#solutions">솔루션</a>
+          <!-- <div class="dropdown"> -->
+            <!-- <a href="#solutions">구축 솔루션 (JMeter / Scouter)</a> -->
+            <!-- <a href="#lab">성능 비교 시뮬레이터</a> -->
+            <!-- <a href="#guidelines-box">웹 성능 최적화 지침서</a> -->
           </div>
         </div>
         <div class="nav-item">
@@ -1395,57 +1395,63 @@
          ===================================================================== -->
     <main id="home">
       <!-- 1. HERO SECTION -->
-      <section class="hero shell">
-        <div>
-          <p class="kicker"><b></b> END-TO-END PERFORMANCE ASSURANCE</p>
-          <h1>Performance<br /><em>without guesswork.</em></h1>
-        </div>
-        <div class="hero-aside">
-          <p>
-            엔포랩스는 안정적인 시스템을 위한 성능 검증 전문 크루로 구성되어,
-            단순 현상 확인을 넘어 데이터에 기반한 최적의 해안을 제공합니다.
-          </p>
-          <div class="hero-btns">
-            <a class="btn-primary" href="#services">핵심 서비스 보기 <span>↓</span></a>
-            <a class="btn-outline" href="#about">COMPANY STORY</a>
-          </div>
-        </div>
+<!-- 변경 후: id와 인라인 style, 그리고 FOCUS 01~04 버튼(div)에 onclick 이벤트와 style을 더해줍니다. -->
+<section id="hero-banner" class="hero shell" style="
+  background: linear-gradient(rgba(30, 37, 48, 0.88), rgba(24, 30, 39, 0.94)), url('./이미지/focus01.png') no-repeat center center;
+  background-size: cover;
+  transition: background 0.6s ease-in-out; /* 배경이 스르륵 바뀌는 효과 */
+">
+  <div>
+    <!-- <p class="kicker"><b></b> END-TO-END PERFORMANCE ASSURANCE</p> -->
+    <h1>Performance<br /><em>without guesswork.</em></h1>
+  </div>
+  <div class="hero-aside">
+    <p>
+      엔포랩스는 안정적인 시스템을 위한 성능 검증 전문 크루로 구성되어,
+      단순 현상 확인을 넘어 데이터에 기반한 최적의 해안을 제공합니다.
+    </p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="#services">핵심 서비스 보기 <span>↓</span></a>
+      <a class="btn-outline" href="#about">COMPANY STORY</a>
+    </div>
+  </div>
 
-        <div class="signal" aria-hidden="true">
-          <svg viewBox="0 0 1000 100" preserveAspectRatio="none">
-            <path d="M0 55h90l22-35 28 65 30-42 45 12h110l28-25 27 47 35-22h90l22-40 32 70 35-37 45 7h90l25-28 28 50 34-22h120"></path>
-          </svg>
-        </div>
+  <div class="signal" aria-hidden="true">
+    <svg viewBox="0 0 1000 100" preserveAspectRatio="none">
+      <path d="M0 55h90l22-35 28 65 30-42 45 12h110l28-25 27 47 35-22h90l22-40 32 70 35-37 45 7h90l25-28 28 50 34-22h120"></path>
+    </svg>
+  </div>
 
-        <div class="focus-bar">
-          <div class="focus-item">
-            <span>FOCUS 01</span>
-            <strong>시스템 성능 관리를 통한 안정적인 시스템 점검</strong>
-          </div>
-          <div class="focus-item">
-            <span>FOCUS 02</span>
-            <strong>신규 시스템 구축 시 성능 검증을 통한 안정적인 시스템 오픈 지원</strong>
-          </div>
-          <div class="focus-item">
-            <span>FOCUS 03</span>
-            <strong>목표 시스템의 성능 테스트를 통한 이슈 도출 및 개선 방안 안내</strong>
-          </div>
-          <div class="focus-item">
-            <span>FOCUS 04</span>
-            <strong>안정적인 시스템 운영을 위한 성능 검증 및 AA ITO 지원</strong>
-          </div>
-        </div>
-      </section>
+  <!-- FOCUS 01 ~ 04 버튼들: 클릭 시 배경 변경 함수 연결 및 포인터 스타일 제공 -->
+  <div class="focus-bar">
+    <div class="focus-item" style="cursor: pointer;" onclick="changeHeroBg(1, this)">
+      <span>FOCUS 01</span>
+      <strong>시스템 성능 관리를 통한 안정적인 시스템 점검</strong>
+    </div>
+    <div class="focus-item" style="cursor: pointer;" onclick="changeHeroBg(2, this)">
+      <span>FOCUS 02</span>
+      <strong>신규 시스템 구축 시 성능 검증을 통한 안정적인 시스템 오픈 지원</strong>
+    </div>
+    <div class="focus-item" style="cursor: pointer;" onclick="changeHeroBg(3, this)">
+      <span>FOCUS 03</span>
+      <strong>목표 시스템의 성능 테스트를 통한 이슈 도출 및 개선 방안 안내</strong>
+    </div>
+    <div class="focus-item" style="cursor: pointer;" onclick="changeHeroBg(4, this)">
+      <span>FOCUS 04</span>
+      <strong>안정적인 시스템 운영을 위한 성능 검증 및 AA ITO 지원</strong>
+    </div>
+  </div>
+</section>
 
       <!-- 2. COMPANY STORY (Widenet Benchmark: 회사 개요 / 비전 / 사업 영역) -->
       <section id="about" class="section shell">
         <div class="section-head">
           <div>
-            <p class="kicker"><b></b> COMPANY STORY</p>
+            <!-- <p class="kicker"><b></b> COMPANY STORY</p> -->
             <h2>느린 시스템에는 반드시<br /><span>측정 가능한 이유가 있습니다.</span></h2>
           </div>
           <p>
-            엔포랩스(Endpoint Lab)는 시스템 개발 이후 최종 검증하는 마지막 단계(ENDPOINT)와
+            엔포랩스(ENPO Labs)는 시스템 개발 이후 최종 검증하는 마지막 단계(ENDPOINT)와
             성능을 끝없이 연구하는 연구소(LABS)의 철학을 담아 고성능·무중단 비즈니스 환경을 완성합니다.
           </p>
         </div>
@@ -1468,7 +1474,7 @@
                   네트워크 에지부터 백엔드 데이터베이스에 이르기까지 모든 기술 접점(Endpoint)의 병목을 규명합니다.
                 </p>
                 <p>
-                  수많은 대규모 차세대 프로젝트와 운영 환경에서 검증된 실전 노하우로,
+                  수많은 프로젝트 경헙과 운영 환경에서 검증된 실전 노하우로,
                   엔포랩스를 찾아주시는 모든 고객님께 아래 세 가지를 반드시 약속드립니다.
                 </p>
               </div>
@@ -1485,11 +1491,11 @@
                 <tbody>
                   <tr>
                     <th>기업명</th>
-                    <td>엔포랩스 (Endpoint Labs)</td>
+                    <td>엔포랩스</td>
                   </tr>
                   <tr>
                     <th>영문 표기</th>
-                    <td>Endpoint Lab (endpointlab.io)</td>
+                    <td>ENPO Labs (endpointlab.io)</td>
                   </tr>
                   <tr>
                     <th>핵심 업종</th>
@@ -1516,7 +1522,7 @@
         <!-- TAB 2: 비전 & 핵심가치 -->
         <div id="tab-vision" class="about-panel">
           <div class="vision-banner">
-            <small>CORPORATE VISION</small>
+            <!-- <small>CORPORATE VISION</small> -->
             <h3>"디지털 비즈니스의 성능 한계를 돌파하는 기술 표준, 엔포랩스"</h3>
             <p>
               코드가 작성되는 순간부터 전 세계 사용자의 디바이스에 도달하는 마지막 밀리초(ms)까지,
@@ -1527,7 +1533,7 @@
           <div class="vision-cards">
             <article class="vision-card">
               <span class="v-num">01</span>
-              <small>EMPIRICAL PRECISION</small>
+              <!-- <small>EMPIRICAL PRECISION</small> -->
               <h4>실증적 데이터 중심</h4>
               <p>
                 직관이나 추측에 의존하지 않습니다. 모든 병목 현상과 튜닝 결과는 철저한 계측 지표(TPS, 응답시간, 리소스 추이)와 상관관계 분석으로 증명합니다.
@@ -1535,7 +1541,7 @@
             </article>
             <article class="vision-card">
               <span class="v-num">02</span>
-              <small>EXTREME OPTIMIZATION</small>
+              <!-- <small>EXTREME OPTIMIZATION</small> -->
               <h4>타협 없는 한계 돌파</h4>
               <p>
                 단순한 임계치 통과에 그치지 않고, 아키텍처가 감당할 수 있는 최적의 처리량과 초저지연(Ultra-low Latency) 환경을 끝까지 구현합니다.
@@ -1543,7 +1549,7 @@
             </article>
             <article class="vision-card">
               <span class="v-num">03</span>
-              <small>SUSTAINABLE OPERATION</small>
+              <!-- <small>SUSTAINABLE OPERATION</small> -->
               <h4>지속 가능한 기술 내재화</h4>
               <p>
                 일회성 조치로 끝나지 않도록 커스텀 모니터링 체계(JMeter·Scouter)와 운영 가이드라인을 함께 이식하여 고객사의 기술 자립을 돕습니다.
@@ -1557,7 +1563,7 @@
           <div class="biz-domain-grid">
             <div class="biz-domain-card">
               <div>
-                <span class="biz-domain-badge">DOMAIN 01 · ENGINEERING</span>
+                <span class="biz-domain-badge">DOMAIN 01 · Consulting</span>
                 <h4>시스템 성능 엔지니어링 &amp; 진단</h4>
                 <p>신규 오픈 전 대규모 부하 검증부터 운영 중 발생하는 복합 장애·지연 구간의 정밀 트러블슈팅을 수행합니다.</p>
               </div>
@@ -1571,7 +1577,7 @@
 
             <div class="biz-domain-card">
               <div>
-                <span class="biz-domain-badge">DOMAIN 02 · ITO &amp; CONSULTING</span>
+                <span class="biz-domain-badge">DOMAIN 02 · AA &amp; ITO</span>
                 <h4>전문 성능 · AA ITO 아웃소싱</h4>
                 <p>검증된 성능 엔지니어와 애플리케이션 아키텍트(AA)가 상주·반상주 형태로 시스템 표준화와 안정적 운영을 견인합니다.</p>
               </div>
@@ -1592,8 +1598,8 @@
               <ul class="biz-sublist">
                 <li>Apache JMeter 기반 맞춤형 부하 테스트 체계 구축</li>
                 <li>Scouter APM 기반 실시간 애플리케이션 관제 구축</li>
-                <li>SSL 인증서 라이프사이클 자동화 관리</li>
-                <li>엔터프라이즈 인하우스 기술 지원 유틸리티 개발</li>
+                <!-- <li>SSL 인증서 라이프사이클 자동화 관리</li>
+                <li>엔터프라이즈 인하우스 기술 지원 유틸리티 개발</li> -->
               </ul>
             </div>
           </div>
@@ -1604,7 +1610,7 @@
       <section id="services" class="section shell">
         <div class="section-head">
           <div>
-            <p class="kicker"><b></b> CORE CAPABILITIES</p>
+            <!-- <p class="kicker"><b></b> CORE CAPABILITIES</p> -->
             <h2>문제를 발견하고, 한계를 검증하고,<br /><span>운영 가능하게 만듭니다.</span></h2>
           </div>
           <p>
@@ -1674,7 +1680,7 @@
         <div class="shell">
           <div class="section-head">
             <div>
-              <p class="kicker"><b></b> DIAGNOSTIC FRAMEWORK</p>
+              <!-- <p class="kicker"><b></b> DIAGNOSTIC FRAMEWORK</p> -->
               <h2>현상이 아닌<br /><span>근본 원인을 추적합니다.</span></h2>
             </div>
             <p>
@@ -1757,7 +1763,7 @@
       <section id="testing" class="section shell">
         <div class="section-head">
           <div>
-            <p class="kicker"><b></b> PERFORMANCE TESTING ARCHITECTURE</p>
+            <!-- <p class="kicker"><b></b> PERFORMANCE TESTING ARCHITECTURE</p> -->
             <h2>오픈 이후가 아니라,<br /><span>오픈 전에 완벽히 확인합니다.</span></h2>
           </div>
           <p>
@@ -1775,7 +1781,7 @@
             </div>
           </div>
           <div class="testing-card">
-            <h4>02. 엔드투엔드 성능 테스트 수행 아키텍처</h4>
+            <h4>02. End-to-End 성능 테스트 수행 아키텍처</h4>
             <img src="./이미지/테스트 구조 도식화.png" alt="테스트 구조 도식화 이미지" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
             <div style="display:none; padding:32px; background:var(--bg); color:var(--muted); font-size:14px;">
               <strong>[Controller - Load Generator - Target System - APM 계측 구조]</strong><br />
@@ -1804,7 +1810,7 @@
       <section id="solutions" class="section shell">
         <div class="section-head">
           <div>
-            <p class="kicker"><b></b> PERFORMANCE SOLUTIONS</p>
+            <!-- <p class="kicker"><b></b> PERFORMANCE SOLUTIONS</p> -->
             <h2>검증된 도구를<br /><span>실제 운영 체계로 이식합니다.</span></h2>
           </div>
           <p>
@@ -1823,8 +1829,8 @@
               목적에 맞는 유연한 시나리오 설계와 대규모 부하 수행이 가능한 오픈소스 성능 테스트 소프트웨어입니다. 엔포랩스 자체 커스텀 플러그인 및 실시간 리포팅 체계를 함께 제공합니다.
             </p>
             <footer>
-              <span>Load / Stress Test</span>
-              <span>Custom Plugin ↗</span>
+              <!-- <span>Load Test</span> -->
+              <span>Performance Testing ↗</span>
             </footer>
           </article>
 
@@ -1835,14 +1841,14 @@
             </div>
             <h3>SCOUTER APM</h3>
             <p>
-              Java 기반 웹 애플리케이션 및 OS 자원을 실시간 추적하는 오픈소스 성능 관리 시스템(APM)입니다. XLog 트랜잭션 프로파일링과 커스텀 알림 대시보드를 구축합니다.
+              Java 기반 웹 애플리케이션 및 OS 자원을 실시간 추적하는 오픈소스 성능 관리 시스템(APM)입니다. <!-- XLog 트랜잭션 프로파일링과 커스텀 알림 대시보드를 구축합니다. -->
             </p>
             <footer>
-              <span>APM / XLog Profiling</span>
+              <!-- <span>Application Performance Monitoring</span> -->
               <span>Observability ↗</span>
             </footer>
           </article>
-
+<!-- 
           <article class="solution-card">
             <small>SOLUTION 03 · AUTOMATION &amp; IN-HOUSE TOOL</small>
             <div class="solution-logo-box">
@@ -1856,24 +1862,24 @@
               <span>SSL Lifecycle / DevOps</span>
               <span>Custom Utility ↗</span>
             </footer>
-          </article>
+          </article> -->
         </div>
       </section>
 
       <!-- 7. PERFORMANCE LAB (Interactive Simulator & Web Performance Guidelines) -->
-      <section id="lab" class="section shell">
+      <!-- <section id="lab" class="section shell">
         <div class="section-head">
-          <div>
-            <p class="kicker"><b></b> ENDPOINT R&amp;D LAB</p>
-            <h2>성능 최적화 시뮬레이터 &amp;<br /><span>기술 표준 지침서</span></h2>
+          <div> -->
+            <!-- <p class="kicker"><b></b> ENDPOINT R&amp;D LAB</p> -->
+            <!-- <h2>성능 최적화 시뮬레이터 &amp;<br /><span>기술 표준 지침서</span></h2>
           </div>
           <p>
             최적화 전후의 Core Web Vitals 및 처리 성능 차이를 직접 비교하고, 엔포랩스 엔지니어링 팀의 웹 애플리케이션 성능 최적화 개발 지침을 확인하세요.
           </p>
-        </div>
+        </div> -->
 
         <!-- Simulator -->
-        <div class="sim-box">
+        <!-- <div class="sim-box">
           <div class="sim-top">
             <div>
               <h3>실시간 최적화 성능 비교 시뮬레이션</h3>
@@ -1926,10 +1932,10 @@
               <div class="m-bar-wrap"><div class="m-bar good" id="sim-score-bar" style="width: 100%;"></div></div>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <!-- Web Performance Guidelines Viewer (performance-guidelines.md 연동) -->
-        <details class="guide-accordion" id="guidelines-box">
+        <!-- <details class="guide-accordion" id="guidelines-box">
           <summary class="guide-summary">
             <div>📖 웹 애플리케이션 성능 최적화 개발 지침서 (Web Performance Guidelines 전문 보기)</div>
             <span>CLICK TO EXPAND ▾</span>
@@ -1944,9 +1950,9 @@
                 <li><a href="#g-sec-4">4. 성능 측정 검증 체크리스트</a></li>
               </ul>
             </aside>
-            <div class="markdown-content" id="guidelines-content">
+            <div class="markdown-content" id="guidelines-content"> -->
               <!-- 기본 내장 지침서 (외부 performance-guidelines.md 파일 로드 가능 시 자동 교체됨) -->
-              <h2 id="g-sec-1">1. Core Web Vitals 최적화</h2>
+              <!-- <h2 id="g-sec-1">1. Core Web Vitals 최적화</h2>
               <p>본 지침서는 <strong>endpointlab</strong>의 성능 제일주의 기술 철학을 바탕으로 로딩 속도, 렌더링 반응성, 사용자 경험 지표를 극대화하기 위한 핵심 기준을 제시합니다.</p>
               <h3>1.1. LCP (Largest Contentful Paint) — 목표: 2.5초 이하</h3>
               <ul>
@@ -1992,14 +1998,14 @@
             </div>
           </div>
         </details>
-      </section>
+      </section> -->
 
       <!-- 8. CONTACT SECTION (기존 Formsubmit 연동 그대로 유지) -->
       <section id="contact" class="section contact">
         <div class="shell">
           <div class="contact-grid">
             <div class="contact-info">
-              <p class="kicker"><b></b> START A CONVERSATION</p>
+              <!-- <p class="kicker"><b></b> START A CONVERSATION</p> -->
               <h2>성능 문제를<br />측정 가능한 과제로.</h2>
               <p>
                 현재 겪고 있는 시스템 현상과 서비스 환경을 알려주세요.
@@ -2218,6 +2224,23 @@
           };
         }
       })();
+
+      // 4. FOCUS 버튼 클릭 시 히어로 배경 전환 (추가)
+      function changeHeroBg(index, element) {
+        const heroBanner = document.getElementById("hero-banner");
+        if (!heroBanner) return;
+        
+        // 배경 이미지 교체
+        heroBanner.style.backgroundImage = `linear-gradient(rgba(30, 37, 48, 0.88), rgba(24, 30, 39, 0.94)), url('./이미지/focus0${index}.png')`;
+
+        // 클릭된 느낌을 주도록 FOCUS 아이템 활성화 효과 (선택사항)
+        document.querySelectorAll(".focus-item").forEach(item => {
+          item.style.borderTop = "none";
+          item.style.background = "var(--surface)";
+        });
+        element.style.borderTop = "3px solid var(--brand-orange)";
+        element.style.background = "var(--surface-alt)";
+      }
     </script>
   </body>
 </html>
