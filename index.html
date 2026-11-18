@@ -36,10 +36,10 @@
          1. Brand Color Tokens (Logo & Existing Index Theme Preserved)
          ========================================================================== */
       :root {
-        /* Logo Cream / Navy / Orange + Existing Sage Accent */
-        --bg: #f5f2eb;
-        --surface: #fbfaf7;
-        --surface-alt: #ede9df;
+        /* White / Navy / Orange + Existing Sage Accent */
+        --bg: #ffffff;
+        --surface: #ffffff;
+        --surface-alt: #ffffff;
         --ink: #1e2530;
         --muted: #5a626e;
         --soft: #8a929e;
@@ -95,10 +95,7 @@
         scroll-padding-top: 84px;
       }
       body {
-        background:
-          radial-gradient(circle at 86% 8%, rgba(185, 204, 216, 0.25), transparent 28rem),
-          radial-gradient(circle at 12% 35%, var(--brand-orange-soft), transparent 32rem),
-          var(--bg);
+        background: var(--bg);
         color: var(--ink);
         word-break: keep-all;
         font-family: Pretendard, "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -143,19 +140,19 @@
         border-bottom: 1px solid var(--line);
       }
 
-      /* Logo SVG + Image Support matching logo_-----.png */
+      /* Brand logo assets */
       .brand-logo {
         display: inline-flex;
         align-items: center;
         gap: 12px;
         user-select: none;
       }
-      .brand-logo-svg {
-        height: 46px;
+      .brand-logo-image {
+        height: 74px;
         width: auto;
         display: block;
+        object-fit: contain;
       }
-
       .nav {
         display: flex;
         justify-content: center;
@@ -348,38 +345,6 @@
         stroke: var(--brand-orange);
         stroke-width: 2px;
         vector-effect: non-scaling-stroke;
-      }
-
-      /* 4 Quick Focus Pillars */
-      .focus-bar {
-        grid-column: 1 / -1;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        border-top: 2px solid var(--ink);
-        border-bottom: 1px solid var(--line);
-        background: var(--surface);
-      }
-      .focus-item {
-        padding: 26px 24px;
-        border-right: 1px solid var(--line);
-        transition: background 0.2s;
-      }
-      .focus-item:last-child {
-        border-right: 0;
-      }
-      .focus-item:hover {
-        background: var(--surface-alt);
-      }
-      .focus-item span {
-        display: block;
-        font: 700 10px monospace;
-        color: var(--brand-orange);
-        margin-bottom: 8px;
-      }
-      .focus-item strong {
-        display: block;
-        font-size: 16px;
-        line-height: 1.45;
       }
 
       /* ==========================================================================
@@ -648,48 +613,118 @@
       }
 
       /* ==========================================================================
-         7. CORE SERVICES (6 Capabilities + Solution/Service Matrix)
+         7. CORE SERVICES (Image Cards + Shared Detail Dialog)
          ========================================================================== */
       .service-list {
-        border-top: 2px solid var(--ink);
-      }
-      .service-row {
         display: grid;
-        grid-template-columns: 70px 1.1fr 1.6fr auto;
-        gap: 28px;
-        align-items: center;
-        padding: 32px 16px;
-        border-bottom: 1px solid var(--line);
-        transition: background 0.2s, padding-left 0.25s;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
       }
-      .service-row:hover {
+      .service-card {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        padding: 0;
+        border: 1px solid var(--line);
         background: var(--surface);
-        padding-left: 26px;
+        box-shadow: var(--shadow);
+        color: var(--ink);
+        text-align: left;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
       }
-      .service-row .num {
-        font: 700 13px monospace;
-        color: var(--brand-orange);
+      .service-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 24px 60px rgba(30, 37, 48, 0.12);
       }
-      .service-row h3 {
+      .service-card:focus-visible {
+        outline: 2px solid var(--brand-orange);
+        outline-offset: 3px;
+      }
+      .service-image {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        background: var(--surface-alt);
+      }
+      .service-card h3 {
+        padding: 22px 24px;
+        text-align: center;
         font-size: clamp(20px, 2vw, 28px);
         letter-spacing: -0.03em;
+        line-height: 1.3;
       }
-      .service-row p {
+      .service-dialog {
+        width: min(680px, calc(100% - 32px));
+        max-height: min(80vh, 760px);
+        max-height: min(80dvh, 760px);
+        margin: auto;
+        padding: 0;
+        overflow-y: auto;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        color: var(--ink);
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
+      }
+      .service-dialog::backdrop {
+        background: rgba(15, 19, 25, 0.64);
+        backdrop-filter: blur(4px);
+      }
+      .service-dialog-inner {
+        padding: 28px 32px 32px;
+      }
+      .service-dialog-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 20px;
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--line);
+      }
+      .service-dialog-header h3 {
+        font-size: clamp(22px, 3vw, 30px);
+        letter-spacing: -0.03em;
+      }
+      .service-dialog-close {
+        flex: 0 0 auto;
+        width: 36px;
+        height: 36px;
+        border: 1px solid var(--line);
+        cursor: pointer;
+        font-size: 24px;
+        line-height: 1;
+      }
+      .service-dialog-close:hover {
+        border-color: var(--brand-orange);
+        color: var(--brand-orange);
+      }
+      .service-dialog-body p {
+        max-width: 760px;
+        margin-bottom: 12px;
         color: var(--muted);
         font-size: 15.5px;
       }
-      .tag-group {
-        display: flex;
-        flex-wrap: wrap;
+      .service-dialog-body ul {
+        display: grid;
         gap: 6px;
-        justify-content: flex-end;
       }
-      .tag-group span {
-        border: 1px solid var(--line);
-        background: var(--surface);
-        padding: 4px 10px;
-        font: 600 11px monospace;
+      .service-dialog-body li {
+        position: relative;
+        padding-left: 16px;
         color: var(--muted);
+        font-size: 14px;
+      }
+      .service-dialog-body li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.7em;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--brand-orange);
       }
 
       /* ==========================================================================
@@ -1289,16 +1324,8 @@
         .menu-toggle {
           display: block;
         }
-        .focus-bar {
-          grid-template-columns: 1fr 1fr;
-        }
-        .service-row {
-          grid-template-columns: 40px 1fr;
-        }
-        .service-row p,
-        .service-row .tag-group {
-          grid-column: 2 / -1;
-          justify-content: flex-start;
+        .service-list {
+          grid-template-columns: 1fr;
         }
         .step-list,
         .testing-grid {
@@ -1307,12 +1334,17 @@
       }
 
       @media (max-width: 560px) {
-        .focus-bar,
         .sim-metrics,
         .deliver-items,
         .contact form,
         .footer {
           grid-template-columns: 1fr;
+        }
+        .service-card h3 {
+          padding: 18px 20px;
+        }
+        .service-dialog-inner {
+          padding: 22px 20px 24px;
         }
         .about-tabs {
           overflow-x: auto;
@@ -1335,6 +1367,9 @@
       .hero-bg-wrap {
         position: relative;
         width: 100%;
+        min-height: calc(100vh - 80px);
+        min-height: calc(100dvh - 80px);
+        display: flex;
         background-color: #0f1319; /* 페이드 전환 시 비치는 베이스 다크 컬러 */
         background-image:
           linear-gradient(90deg, rgba(15, 19, 25, 0.78) 0%, rgba(15, 19, 25, 0.45) 55%, rgba(15, 19, 25, 0.25) 100%),
@@ -1366,6 +1401,8 @@
       .hero-bg-wrap > .hero {
         position: relative;
         z-index: 2;
+        flex: 1;
+        align-content: center;
       }
 
       /* 어두운 배경 이미지 위에서 글씨가 선명하게 보이도록 흰색 계열로 고정 */
@@ -1390,25 +1427,11 @@
   </head>
   <body>
     <!-- =====================================================================
-         HEADER (Exact Brand Logo SVG + Widenet-Style GNB Dropdown)
+         HEADER (Brand Logo Image + Widenet-Style GNB Dropdown)
          ===================================================================== -->
     <header class="header">
       <a class="brand-logo" href="#home" aria-label="엔포랩스(Endpoint Lab) 홈">
-        <!-- 업로드해주신 logo_-----.png 디자인을 그대로 구현한 고해상도 벡터 로고 -->
-        <svg class="brand-logo-svg" viewBox="0 0 280 78" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Endpoint Lab End-to-End Performance Assurance">
-          <!-- 상단 점선 및 타겟 마크 -->
-          <path d="M8 8 H42 V25" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3" />
-          <path d="M42 25 H70" stroke="currentColor" stroke-width="2" />
-          <circle cx="82" cy="25" r="11" stroke="currentColor" stroke-width="2" />
-          <circle cx="82" cy="25" r="4.5" fill="#ec5a0c" />
-          <line x1="97" y1="14" x2="97" y2="36" stroke="currentColor" stroke-width="2.2" />
-          <!-- 메인 타이포그래피 -->
-          <text x="6" y="55" fill="currentColor" font-family="Pretendard, Inter, sans-serif" font-size="28" font-weight="800" letter-spacing="-0.8">Endpoint Lab</text>
-          <!-- 오렌지 언더라인 및 우측 포인트 도트 -->
-          <line x1="6" y1="63" x2="268" y2="63" stroke="#ec5a0c" stroke-width="2" />
-          <text x="6" y="75" fill="currentColor" opacity="0.78" font-family="Pretendard, Inter, sans-serif" font-size="9.5" font-weight="600" letter-spacing="0.2">End-to-End Performance Assurance</text>
-          <circle cx="262" cy="71" r="5" fill="#ec5a0c" />
-        </svg>
+        <img class="brand-logo-image" src="./logo_new.png" alt="" />
       </a>
 
       <nav class="nav" aria-label="주요 메뉴">
@@ -1421,23 +1444,22 @@
           </div>
         </div>
         <div class="nav-item">
-          <a class="nav-link" href="#services">핵심 서비스 ▾</a>
+          <a class="nav-link" href="#services_test">테스트 서비스 ▾</a>
           <div class="dropdown">
-            <a href="#services">성능 점검 · 테스트 · 진단</a>
-            <a href="#services">DB 튜닝 &amp; 성능/AA ITO</a>
-            <a href="#testing">성능 테스트 아키텍처</a>
+            <a href="#services_test">성능 테스트</a>
+            <a href="#services_test">AI 성능 테스트</a>
           </div>
         </div>
+        <div class="nav-item">
+          <a class="nav-link" href="#services_consulting">컨설팅 서비스 ▾</a>
+          <div class="dropdown">
+            <a href="#services_consulting">성능 진단</a>
+            <a href="#services_consulting">DB 튜닝</a>
+            <a href="#services_consulting">전문 AA/ITO 서비스</a>
+          </div>
+        </div>        
         <div class="nav-item">
           <a class="nav-link" href="#framework">진단 프레임워크</a>
-        </div>
-        <div class="nav-item">
-          <a class="nav-link" href="#solutions">솔루션</a>
-          <!-- <div class="dropdown"> -->
-            <!-- <a href="#solutions">구축 솔루션 (JMeter / Scouter)</a> -->
-            <!-- <a href="#lab">성능 비교 시뮬레이터</a> -->
-            <!-- <a href="#guidelines-box">웹 성능 최적화 지침서</a> -->
-          </div>
         </div>
         <div class="nav-item">
           <a class="nav-link" href="#contact">문의하기</a>
@@ -1456,10 +1478,7 @@
          ===================================================================== -->
     <main id="home">
       <!-- 1. HERO SECTION -->
-<!-- 변경 후: id와 인라인 style, 그리고 FOCUS 01~04 버튼(div)에 onclick 이벤트와 style을 더해줍니다. -->
-<!-- 1. HERO SECTION -->
 <section id="hero-banner" class="hero-bg-wrap">
-  <!-- 내부 컨텐츠는 기존 .hero .shell 규격(1380px 중앙 정렬)을 그대로 유지 -->
   <div class="hero shell">
     <div>
       <!-- <p class="kicker"><b></b> END-TO-END PERFORMANCE ASSURANCE</p> -->
@@ -1476,31 +1495,12 @@
       </div>
     </div>
 
-    <div class="signal" aria-hidden="true">
+    <!-- <div class="signal" aria-hidden="true">
       <svg viewBox="0 0 1000 100" preserveAspectRatio="none">
         <path d="M0 55h90l22-35 28 65 30-42 45 12h110l28-25 27 47 35-22h90l22-40 32 70 35-37 45 7h90l25-28 28 50 34-22h120"></path>
       </svg>
-    </div>
+    </div> -->
 
-    <!-- FOCUS 01 ~ 04 버튼들 -->
-    <div class="focus-bar">
-      <div class="focus-item" style="cursor: pointer;" onclick="changeHeroBg(1, this)">
-        <span>FOCUS 01</span>
-        <strong>시스템 성능 관리를 통한 안정적인 시스템 점검</strong>
-      </div>
-      <div class="focus-item" style="cursor: pointer;" onclick="changeHeroBg(2, this)">
-        <span>FOCUS 02</span>
-        <strong>신규 시스템 구축 시 성능 검증을 통한 안정적인 시스템 오픈 지원</strong>
-      </div>
-      <div class="focus-item" style="cursor: pointer;" onclick="changeHeroBg(3, this)">
-        <span>FOCUS 03</span>
-        <strong>목표 시스템의 성능 테스트를 통한 이슈 도출 및 개선 방안 안내</strong>
-      </div>
-      <div class="focus-item" style="cursor: pointer;" onclick="changeHeroBg(4, this)">
-        <span>FOCUS 04</span>
-        <strong>안정적인 시스템 운영을 위한 성능 검증 및 AA ITO 지원</strong>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1667,8 +1667,8 @@
         </div>
       </section>
 
-      <!-- 3. CORE SERVICES (6대 서비스 상세) -->
-      <section id="services" class="section shell">
+      <!-- 3. CORE SERVICES (서비스 상세) -->
+      <section id="services_test" class="section shell">
         <div class="section-head">
           <div>
             <!-- <p class="kicker"><b></b> CORE CAPABILITIES</p> -->
@@ -1680,62 +1680,108 @@
         </div>
 
         <div class="service-list">
-          <article class="service-row">
-            <span class="num">01</span>
-            <h3>시스템 성능 점검</h3>
-            <p>운영 중인 시스템의 잠재적 장애 요인을 미연에 방지하기 위한 주기적인 리소스·트랜잭션 정밀 점검</p>
-            <div class="tag-group">
-              <span>Thread Dump</span><span>Heap Analysis</span><span>GC Tuning</span>
-            </div>
-          </article>
-
-          <article class="service-row">
-            <span class="num">02</span>
-            <h3>시스템 성능 테스트</h3>
-            <p>신규 시스템 오픈 전 목표 성능 검증 및 AS-IS 대비 TO-BE 시스템의 처리 용량·안정성 비교 검증</p>
-            <div class="tag-group">
-              <span>Load / Stress Test</span><span>Target TPS</span><span>Capacity Planning</span>
-            </div>
-          </article>
-
-          <article class="service-row">
-            <span class="num">03</span>
-            <h3>시스템 성능 진단</h3>
-            <p>운영 시스템의 간헐적 지연·병목 이슈를 전 레이어에 걸쳐 추적하고 실행 가능한 개선 방안 도출</p>
-            <div class="tag-group">
-              <span>Bottleneck Trace</span><span>WAS / OS Tuning</span><span>End-to-End Profiling</span>
-            </div>
-          </article>
-
-          <article class="service-row">
-            <span class="num">04</span>
-            <h3>시스템 성능 ITO 서비스</h3>
-            <p>성능 전문가 ITO 지원을 통해 고급 기술 인력 확보 비용을 절감하고 상시 안정적인 시스템 운영 환경 유지</p>
-            <div class="tag-group">
-              <span>Performance ITO</span><span>상시 관제·분석</span><span>비용 절감</span>
-            </div>
-          </article>
-
-          <article class="service-row">
-            <span class="num">05</span>
-            <h3>시스템 DB 튜닝</h3>
-            <p>Slow SQL 및 비효율적인 실행 계획(Execution Plan)을 분석하여 쿼리, 인덱스 설계 및 DB 파라미터 최적화</p>
-            <div class="tag-group">
-              <span>SQL Tuning</span><span>Index Design</span><span>Execution Plan</span>
-            </div>
-          </article>
-
-          <article class="service-row">
-            <span class="num">06</span>
-            <h3>시스템 AA ITO 서비스</h3>
-            <p>시스템 아키텍처 표준화와 성능 최적화를 동시에 견인하는 전문 AA(Application Architect) 중심 IT 운영 관리</p>
-            <div class="tag-group">
-              <span>Application Architecture</span><span>표준 프레임워크</span><span>아키텍처 거버넌스</span>
-            </div>
-          </article>
+          <button class="service-card" type="button" data-service-detail="service-detail-performance-test" aria-haspopup="dialog">
+            <img class="service-image" src="./이미지/service-performance-test.png" alt="" loading="lazy" decoding="async" />
+            <h3>성능 테스트</h3>
+          </button>
+          <button class="service-card" type="button" data-service-detail="service-detail-ai-performance-test" aria-haspopup="dialog">
+            <img class="service-image" src="./이미지/service-ai-performance-test.png" alt="" loading="lazy" decoding="async" />
+            <h3>AI 성능 테스트</h3>
+          </button>
         </div>
+
+        <dialog class="service-dialog" id="service-dialog" aria-labelledby="service-dialog-title">
+          <div class="service-dialog-inner">
+            <div class="service-dialog-header">
+              <h3 id="service-dialog-title"></h3>
+              <button class="service-dialog-close" type="button" aria-label="상세 내용 닫기">×</button>
+            </div>
+            <div class="service-dialog-body" id="service-dialog-body"></div>
+          </div>
+        </dialog>
+
+        <template id="service-detail-performance-test">
+          <p>실제 사용 패턴을 반영한 시나리오로 목표 부하를 검증하고, 오픈 전 성능 위험을 확인합니다.</p>
+          <ul>
+            <li>부하·스트레스 테스트 시나리오 설계 및 수행</li>
+            <li>응답시간, 처리량, 오류율과 자원 사용량 분석</li>
+            <li>AS-IS와 TO-BE 결과를 비교해 용량과 개선 우선순위 제시</li>
+          </ul>
+        </template>
+        <template id="service-detail-ai-performance-test">
+          <p>AI 서비스의 토큰 스트리밍 특성을 반영해 요청부터 응답 완료까지 사용자 체감 성능을 측정합니다.</p>
+          <ul>
+            <li>첫 토큰 응답 시간과 토큰 간 지연 시간 측정</li>
+            <li>토큰 처리량, 동시 요청, 오류율 분석</li>
+            <li>모델 및 부하 조건별 결과 비교와 개선점 도출</li>
+          </ul>
+        </template>
+        </template>
       </section>
 
+      <!-- 4. CORE SERVICES - 컨설팅 (서비스 상세) -->
+      <section id="services_consulting" class="section shell">
+        <div class="section-head">
+          <div>
+            <!-- <p class="kicker"><b></b> CORE CAPABILITIES</p> -->
+            <h2>문제를 발견하고, 한계를 검증하고,<br /><span>운영 가능하게 만듭니다.</span></h2>
+          </div>
+          <p>
+            단순 리포트 제출이 아닌 실제 운영 환경에서 즉각 체감할 수 있는 성능 개선과 아키텍처 안정화를 수행합니다.
+          </p>
+        </div>
+
+        <div class="service-list">
+          <button class="service-card" type="button" data-service-detail="service-detail-performance-analysis" aria-haspopup="dialog">
+            <img class="service-image" src="./이미지/service-performance-analysis.png" alt="" loading="lazy" decoding="async" />
+            <h3>성능 진단</h3>
+          </button>
+          <button class="service-card" type="button" data-service-detail="service-detail-db-tuning" aria-haspopup="dialog">
+            <img class="service-image" src="./이미지/service-db-tuning.png" alt="" loading="lazy" decoding="async" />
+            <h3>DB 튜닝</h3>
+          </button>
+          <button class="service-card" type="button" data-service-detail="service-detail-aa-ito" aria-haspopup="dialog">
+            <img class="service-image" src="./이미지/service-aa-ito.png" alt="" loading="lazy" decoding="async" />
+            <h3>전문 AA ITO 서비스</h3>
+          </button>
+        </div>
+
+        <dialog class="service-dialog" id="service-dialog" aria-labelledby="service-dialog-title">
+          <div class="service-dialog-inner">
+            <div class="service-dialog-header">
+              <h3 id="service-dialog-title"></h3>
+              <button class="service-dialog-close" type="button" aria-label="상세 내용 닫기">×</button>
+            </div>
+            <div class="service-dialog-body" id="service-dialog-body"></div>
+          </div>
+        </dialog>
+
+        <template id="service-detail-performance-analysis">
+          <p>재현이 어려운 지연 현상도 요청 흐름과 시스템 지표를 함께 살펴 근본 원인을 좁혀갑니다.</p>
+          <ul>
+            <li>클라이언트·네트워크·웹/WAS·DB 구간별 지표 수집</li>
+            <li>로그와 성능 데이터의 시간대별 상관관계 분석</li>
+            <li>원인별 개선안과 적용 후 검증 방법 제시</li>
+          </ul>
+        </template>
+        <template id="service-detail-db-tuning">
+          <p>데이터베이스 부하를 유발하는 SQL과 대기 구간을 찾아 서비스 영향도를 고려해 개선합니다.</p>
+          <ul>
+            <li>실행 계획, 인덱스 활용, 통계 정보와 대기 이벤트 분석</li>
+            <li>쿼리 및 인덱스 설계 개선과 DB 설정 점검</li>
+            <li>변경 전후 실행 성능 비교 및 안정성 확인</li>
+          </ul>
+        </template>
+        <template id="service-detail-aa-ito">
+          <p>전문 AA가 시스템의 설계·변경·운영 과정에 참여해 아키텍처 품질과 안정적인 운영을 지원합니다.</p>
+          <ul>
+            <li>아키텍처 표준과 기술 가이드 수립 및 준수 점검</li>
+            <li>서비스 변경·확장 시 성능과 운영 위험 검토</li>
+            <li>운영 이슈 분석 및 지속 가능한 개선 과제 관리</li>
+          </ul>
+        </template>
+      </section>
+      
       <!-- 4. DIAGNOSTIC FRAMEWORK & E2E PIPELINE -->
       <section id="framework" class="section dark-band">
         <div class="shell">
@@ -1820,247 +1866,6 @@
         </div>
       </section>
 
-      <!-- 5. PERFORMANCE TESTING & DELIVERABLES -->
-      <section id="testing" class="section shell">
-        <div class="section-head">
-          <div>
-            <!-- <p class="kicker"><b></b> PERFORMANCE TESTING ARCHITECTURE</p> -->
-            <h2>오픈 이후가 아니라,<br /><span>오픈 전에 완벽히 확인합니다.</span></h2>
-          </div>
-          <p>
-            단순히 많은 요청을 발생시키는 테스트가 아닙니다. 실제 업무 흐름과 사용자 행동 패턴(Think Time, Pacing 및 집중 트랜잭션)을 반영한 시나리오를 설계하고 시스템의 임계 용량을 제시합니다.
-          </p>
-        </div>
-
-        <div class="testing-grid">
-          <div class="testing-card">
-            <h4>01. 단계별 성능 테스트 유형 및 검증 목적</h4>
-            <img src="./이미지/test.png" alt="성능 테스트 유형 이미지" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-            <div style="display:none; padding:32px; background:var(--bg); color:var(--muted); font-size:14px;">
-              <strong>[부하 / 스트레스 / 내구성 / 스파이크 테스트 검증 체계]</strong><br />
-              목표 동시 사용자 부하 검증부터 임계치 돌파 시점 확인, 장시간 메모리 누수(Memory Leak) 탐지까지 전 유형을 검증합니다. (<code>./이미지/test.png</code> 연결됨)
-            </div>
-          </div>
-          <div class="testing-card">
-            <h4>02. End-to-End 성능 테스트 수행 아키텍처</h4>
-            <img src="./이미지/테스트 구조 도식화.png" alt="테스트 구조 도식화 이미지" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-            <div style="display:none; padding:32px; background:var(--bg); color:var(--muted); font-size:14px;">
-              <strong>[Controller - Load Generator - Target System - APM 계측 구조]</strong><br />
-              분산 부하 발생기와 실시간 APM/DB 모니터링을 연동하여 구간별 응답시간과 처리량(TPS)을 정밀 측정합니다. (<code>./이미지/테스트 구조 도식화.png</code> 연결됨)
-            </div>
-          </div>
-        </div>
-
-        <!-- Deliverables -->
-        <div class="deliverables-bar">
-          <div>
-            <h3>결과는 의견이 아니라<br />실행 가능한 기준입니다.</h3>
-            <p>모든 결론은 측정 데이터와 함께 제공되며 개선 항목은 우선순위와 기대 효과를 기준으로 정리합니다.</p>
-          </div>
-          <ol class="deliver-items">
-            <li><span>DELIVERABLE 01</span><strong>성능 진단 보고서</strong></li>
-            <li><span>DELIVERABLE 02</span><strong>병목 개선 권고안</strong></li>
-            <li><span>DELIVERABLE 03</span><strong>성능 테스트 결과서</strong></li>
-            <li><span>DELIVERABLE 04</span><strong>운영 모니터링 기준서</strong></li>
-            <li><span>DELIVERABLE 05</span><strong>기술 워크숍 &amp; 가이드</strong></li>
-          </ol>
-        </div>
-      </section>
-
-      <!-- 6. PERFORMANCE SOLUTIONS -->
-      <section id="solutions" class="section shell">
-        <div class="section-head">
-          <div>
-            <!-- <p class="kicker"><b></b> PERFORMANCE SOLUTIONS</p> -->
-            <h2>검증된 도구를<br /><span>실제 운영 체계로 이식합니다.</span></h2>
-          </div>
-          <p>
-            엔포랩스에서는 대상 시스템별 커스텀 플러그인 개발과 최적화를 통해 운영 환경에 꼭 맞는 성능 관리 솔루션을 구축합니다.
-          </p>
-        </div>
-
-        <div class="solution-grid">
-          <article class="solution-card">
-            <small>SOLUTION 01 · LOAD TESTING</small>
-            <div class="solution-logo-box">
-              <img src="./이미지/JMeter Icon.png" alt="Apache JMeter" onerror="this.outerHTML='<strong style=&quot;font-size:28px;color:var(--brand-orange)&quot;>APACHE JMeter™</strong>'" />
-            </div>
-            <h3>APACHE JMeter</h3>
-            <p>
-              목적에 맞는 유연한 시나리오 설계와 대규모 부하 수행이 가능한 오픈소스 성능 테스트 소프트웨어입니다. 엔포랩스 자체 커스텀 플러그인 및 실시간 리포팅 체계를 함께 제공합니다.
-            </p>
-            <footer>
-              <!-- <span>Load Test</span> -->
-              <span>Performance Testing ↗</span>
-            </footer>
-          </article>
-
-          <article class="solution-card">
-            <small>SOLUTION 02 · APM &amp; OBSERVABILITY</small>
-            <div class="solution-logo-box">
-              <img src="./이미지/scouter-logo-w200.png" alt="Scouter APM" onerror="this.outerHTML='<strong style=&quot;font-size:28px;color:var(--ink)&quot;>SCOUTER APM</strong>'" />
-            </div>
-            <h3>SCOUTER APM</h3>
-            <p>
-              Java 기반 웹 애플리케이션 및 OS 자원을 실시간 추적하는 오픈소스 성능 관리 시스템(APM)입니다. <!-- XLog 트랜잭션 프로파일링과 커스텀 알림 대시보드를 구축합니다. -->
-            </p>
-            <footer>
-              <!-- <span>Application Performance Monitoring</span> -->
-              <span>Observability ↗</span>
-            </footer>
-          </article>
-<!-- 
-          <article class="solution-card">
-            <small>SOLUTION 03 · AUTOMATION &amp; IN-HOUSE TOOL</small>
-            <div class="solution-logo-box">
-              <strong style="font-size:26px; letter-spacing:-0.04em; color:var(--brand-orange);">ENDPOINT AUTOMATION</strong>
-            </div>
-            <h3>인하우스 자동화 솔루션</h3>
-            <p>
-              엔터프라이즈 인프라의 SSL 인증서 만료 장애를 원천 차단하는 라이프사이클 자동화 관리 솔루션과 사내 기술 지원 효율을 극대화하는 맞춤형 유틸리티를 개발·공급합니다.
-            </p>
-            <footer>
-              <span>SSL Lifecycle / DevOps</span>
-              <span>Custom Utility ↗</span>
-            </footer>
-          </article> -->
-        </div>
-      </section>
-
-      <!-- 7. PERFORMANCE LAB (Interactive Simulator & Web Performance Guidelines) -->
-      <!-- <section id="lab" class="section shell">
-        <div class="section-head">
-          <div> -->
-            <!-- <p class="kicker"><b></b> ENDPOINT R&amp;D LAB</p> -->
-            <!-- <h2>성능 최적화 시뮬레이터 &amp;<br /><span>기술 표준 지침서</span></h2>
-          </div>
-          <p>
-            최적화 전후의 Core Web Vitals 및 처리 성능 차이를 직접 비교하고, 엔포랩스 엔지니어링 팀의 웹 애플리케이션 성능 최적화 개발 지침을 확인하세요.
-          </p>
-        </div> -->
-
-        <!-- Simulator -->
-        <!-- <div class="sim-box">
-          <div class="sim-top">
-            <div>
-              <h3>실시간 최적화 성능 비교 시뮬레이션</h3>
-              <p style="color:var(--muted); font-size:14px;">모드를 전환하여 엔포랩스 최적화 적용 전후의 핵심 지표를 비교해 보세요.</p>
-            </div>
-            <div class="sim-controls">
-              <button class="sim-btn unopt" id="btn-unopt" onclick="setSimMode('unopt')">
-                <span class="dot red"></span> 최적화 이전 (Unoptimized)
-              </button>
-              <button class="sim-btn opt active" id="btn-opt" onclick="setSimMode('opt')">
-                <span class="dot green"></span> 엔포랩스 최적화 (Optimized)
-              </button>
-            </div>
-          </div>
-
-          <div class="sim-metrics">
-            <div class="m-card">
-              <div class="m-head">
-                <span>LCP (초기 응답/렌더링)</span>
-                <span class="m-status good" id="sim-lcp-badge">Fast</span>
-              </div>
-              <div class="m-val" id="sim-lcp-val">0.8s</div>
-              <div class="m-bar-wrap"><div class="m-bar good" id="sim-lcp-bar" style="width: 15%;"></div></div>
-            </div>
-
-            <div class="m-card">
-              <div class="m-head">
-                <span>Frame Rate / 반응성</span>
-                <span class="m-status good" id="sim-fps-badge">Smooth</span>
-              </div>
-              <div class="m-val" id="sim-fps-val">60 fps</div>
-              <div class="m-bar-wrap"><div class="m-bar good" id="sim-fps-bar" style="width: 100%;"></div></div>
-            </div>
-
-            <div class="m-card">
-              <div class="m-head">
-                <span>Critical Payload 크기</span>
-                <span class="m-status good" id="sim-size-badge">Ultralight</span>
-              </div>
-              <div class="m-val" id="sim-size-val">120 KB</div>
-              <div class="m-bar-wrap"><div class="m-bar good" id="sim-size-bar" style="width: 12%;"></div></div>
-            </div>
-
-            <div class="m-card">
-              <div class="m-head">
-                <span>Performance Score</span>
-                <span class="m-status good" id="sim-score-badge">Verified</span>
-              </div>
-              <div class="m-val" id="sim-score-val">100 점</div>
-              <div class="m-bar-wrap"><div class="m-bar good" id="sim-score-bar" style="width: 100%;"></div></div>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- Web Performance Guidelines Viewer (performance-guidelines.md 연동) -->
-        <!-- <details class="guide-accordion" id="guidelines-box">
-          <summary class="guide-summary">
-            <div>📖 웹 애플리케이션 성능 최적화 개발 지침서 (Web Performance Guidelines 전문 보기)</div>
-            <span>CLICK TO EXPAND ▾</span>
-          </summary>
-          <div class="guide-body">
-            <aside class="guide-toc">
-              <h4>Table of Contents</h4>
-              <ul id="guide-toc-list">
-                <li><a href="#g-sec-1">1. Core Web Vitals 최적화</a></li>
-                <li><a href="#g-sec-2">2. 렌더링 최적화 (CRP)</a></li>
-                <li><a href="#g-sec-3">3. 에셋 및 네트워크 전략</a></li>
-                <li><a href="#g-sec-4">4. 성능 측정 검증 체크리스트</a></li>
-              </ul>
-            </aside>
-            <div class="markdown-content" id="guidelines-content"> -->
-              <!-- 기본 내장 지침서 (외부 performance-guidelines.md 파일 로드 가능 시 자동 교체됨) -->
-              <!-- <h2 id="g-sec-1">1. Core Web Vitals 최적화</h2>
-              <p>본 지침서는 <strong>endpointlab</strong>의 성능 제일주의 기술 철학을 바탕으로 로딩 속도, 렌더링 반응성, 사용자 경험 지표를 극대화하기 위한 핵심 기준을 제시합니다.</p>
-              <h3>1.1. LCP (Largest Contentful Paint) — 목표: 2.5초 이하</h3>
-              <ul>
-                <li>초기 뷰포트 LCP 이미지에는 <code>loading="lazy"</code>를 배제하고 <code>fetchpriority="high"</code> 및 <code>preload</code>를 적용합니다.</li>
-                <li>API 응답 속도(TTFB)를 단축하고 정적 자원은 CDN 캐싱 및 차세대 포맷(WebP, AVIF)으로 제공합니다.</li>
-              </ul>
-              <h3>1.2. INP (Interaction to Next Paint) — 목표: 200ms 이하</h3>
-              <ul>
-                <li>50ms를 초과하는 Long Task는 <code>scheduler.yield()</code> 또는 마이크로태스크로 분할하여 메인 스레드 블로킹을 해소합니다.</li>
-                <li>빈번한 스크롤·입력 이벤트 핸들러에는 Debounce와 Throttle을 필수 적용합니다.</li>
-              </ul>
-              <h3>1.3. CLS (Cumulative Layout Shift) — 목표: 0.1 이하</h3>
-              <ul>
-                <li>모든 미디어 요소에 명시적 <code>width</code>, <code>height</code> 또는 <code>aspect-ratio</code>를 지정해 레이아웃 밀림을 방지합니다.</li>
-              </ul>
-
-              <h2 id="g-sec-2">2. 렌더링 최적화 (Critical Rendering Path)</h2>
-              <ul>
-                <li>Above-the-Fold 핵심 스타일(Critical CSS)은 인라인화하고, 비중요 CSS는 비동기 로드합니다.</li>
-                <li>단일 페이지 전체 DOM 노드는 <strong>1,500개 미만</strong>, 중첩 깊이는 <strong>32단계 이하</strong>로 유지합니다.</li>
-              </ul>
-
-              <h2 id="g-sec-3">3. 에셋 최적화 및 네트워크 로딩 전략</h2>
-              <ul>
-                <li>웹 폰트는 WOFF2 서브셋 폰트를 기본 채택하고, 핵심 스크립트는 <code>defer</code> 속성으로 파서 블로킹을 방지합니다.</li>
-                <li>모든 텍스트 리소스는 <strong>Brotli</strong> 압축을 우선 적용하고 Gzip을 Fallback으로 구성합니다.</li>
-              </ul>
-
-              <h2 id="g-sec-4">4. endpointlab 성능 측정 검증 체크리스트</h2>
-              <table>
-                <thead>
-                  <tr><th>측정 항목</th><th>권장 기준</th><th>측정 방식</th></tr>
-                </thead>
-                <tbody>
-                  <tr><td><strong>LCP</strong></td><td>2.5s 이하</td><td>Lighthouse / Web Vitals API</td></tr>
-                  <tr><td><strong>INP</strong></td><td>200ms 이하</td><td>Chrome DevTools Performance Panel</td></tr>
-                  <tr><td><strong>CLS</strong></td><td>0.1 이하</td><td>Lighthouse / Layout Instability API</td></tr>
-                  <tr><td><strong>Lighthouse Score</strong></td><td>98점 이상</td><td>Chrome DevTools Audit</td></tr>
-                  <tr><td><strong>Total DOM Nodes</strong></td><td>1,500개 이하</td><td>DOM Node Counter</td></tr>
-                  <tr><td><strong>Critical Resource Size</strong></td><td>200KB 이하</td><td>Network Tab (Brotli Compressed)</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </details>
-      </section> -->
-
       <!-- 8. CONTACT SECTION (기존 Formsubmit 연동 그대로 유지) -->
       <section id="contact" class="section contact">
         <div class="shell">
@@ -2126,17 +1931,7 @@
     <footer class="footer shell">
       <div>
         <a class="brand-logo" href="#home" aria-label="엔포랩스 홈">
-          <svg class="brand-logo-svg" viewBox="0 0 280 78" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 8 H42 V25" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3" />
-            <path d="M42 25 H70" stroke="currentColor" stroke-width="2" />
-            <circle cx="82" cy="25" r="11" stroke="currentColor" stroke-width="2" />
-            <circle cx="82" cy="25" r="4.5" fill="#ec5a0c" />
-            <line x1="97" y1="14" x2="97" y2="36" stroke="currentColor" stroke-width="2.2" />
-            <text x="6" y="55" fill="currentColor" font-family="Pretendard, Inter, sans-serif" font-size="28" font-weight="800" letter-spacing="-0.8">Endpoint Lab</text>
-            <line x1="6" y1="63" x2="268" y2="63" stroke="#ec5a0c" stroke-width="2" />
-            <text x="6" y="75" fill="currentColor" opacity="0.78" font-family="Pretendard, Inter, sans-serif" font-size="9.5" font-weight="600" letter-spacing="0.2">End-to-End Performance Assurance</text>
-            <circle cx="262" cy="71" r="5" fill="#ec5a0c" />
-          </svg>
+          <img class="brand-logo-image" src="./logo_new.png" alt="" />
         </a>
       </div>
       <div class="footer-right">
@@ -2286,7 +2081,37 @@
         }
       })();
 
-      // 4. FOCUS 배경 이미지 프리로드 (클릭 시 깜빡임 방지)
+      (() => {
+        const dialog = document.getElementById("service-dialog");
+        const dialogTitle = document.getElementById("service-dialog-title");
+        const dialogBody = document.getElementById("service-dialog-body");
+        if (!(dialog instanceof HTMLDialogElement) || !dialogTitle || !dialogBody) {
+          throw new Error("Service detail dialog is missing.");
+        }
+        const closeButton = dialog.querySelector(".service-dialog-close");
+        if (!closeButton) throw new Error("Service detail close button is missing.");
+
+        document.querySelectorAll(".service-card").forEach((card) => {
+          const template = document.getElementById(card.dataset.serviceDetail);
+          const title = card.querySelector("h3");
+          if (!(template instanceof HTMLTemplateElement) || !title) {
+            throw new Error("Service card detail content is missing.");
+          }
+
+          card.addEventListener("click", () => {
+            dialogTitle.textContent = title.textContent;
+            dialogBody.replaceChildren(template.content.cloneNode(true));
+            dialog.showModal();
+          });
+        });
+
+        closeButton.addEventListener("click", () => dialog.close());
+        dialog.addEventListener("click", (event) => {
+          if (event.target === dialog) dialog.close();
+        });
+      })();
+
+      // 4. FOCUS 배경 이미지 프리로드
       [1, 2, 3, 4].forEach((num) => {
         const img = new Image();
         img.src = `./이미지/focus0${num}.png`;
@@ -2294,22 +2119,20 @@
 
       let currentFocusIndex = 1;
       let fadeTimer = null;
+      let autoRotateTimer = null;
 
-      // FOCUS 버튼 클릭 시 히어로 배경 부드럽게 페이드 전환
-      function changeHeroBg(index, element) {
+      function scheduleHeroRotation() {
+        clearTimeout(autoRotateTimer);
+        autoRotateTimer = setTimeout(() => {
+          changeHeroBg((currentFocusIndex % 4) + 1);
+        }, 5000);
+      }
+
+      function changeHeroBg(index) {
         const heroBanner = document.getElementById("hero-banner");
         if (!heroBanner || currentFocusIndex === index) return;
         currentFocusIndex = index;
 
-        // 1) FOCUS 탭 활성화 스타일 즉시 반영
-        document.querySelectorAll(".focus-item").forEach((item) => {
-          item.style.borderTop = "none";
-          item.style.background = "var(--surface)";
-        });
-        element.style.borderTop = "3px solid var(--brand-orange)";
-        element.style.background = "var(--surface-alt)";
-
-        // 2) 페이드 아웃 시작 -> 이미지 교체 -> 페이드 인
         heroBanner.classList.add("is-fading");
         clearTimeout(fadeTimer);
 
@@ -2317,7 +2140,10 @@
           heroBanner.style.backgroundImage = `linear-gradient(90deg, rgba(15, 19, 25, 0.78) 0%, rgba(15, 19, 25, 0.45) 55%, rgba(15, 19, 25, 0.25) 100%), url('./이미지/focus0${index}.png')`;
           heroBanner.classList.remove("is-fading");
         }, 280);
+        scheduleHeroRotation();
       }
+
+      scheduleHeroRotation();
     </script>
   </body>
 </html>
