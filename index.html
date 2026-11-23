@@ -655,6 +655,61 @@
         letter-spacing: -0.03em;
         line-height: 1.3;
       }
+      .service-detail-section {
+        border-top: 1px solid var(--line);
+        padding-top: clamp(48px, 6vw, 80px);
+        padding-bottom: clamp(48px, 6vw, 80px);
+      }
+      .service-detail-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+        gap: clamp(28px, 5vw, 64px);
+        align-items: center;
+      }
+      .service-detail-copy h2 {
+        font-size: clamp(32px, 4vw, 56px);
+        letter-spacing: -0.04em;
+        line-height: 1.08;
+        margin-bottom: 20px;
+      }
+      .service-detail-copy p {
+        max-width: 620px;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.75;
+      }
+      .service-detail-list {
+        display: grid;
+        gap: 10px;
+        margin-top: 24px;
+      }
+      .service-detail-list li {
+        position: relative;
+        padding-left: 16px;
+        color: var(--muted);
+        font-size: 14.5px;
+      }
+      .service-detail-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.72em;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--brand-orange);
+      }
+      .service-detail-media {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: var(--surface-alt);
+        box-shadow: var(--shadow);
+      }
+      .service-detail-media img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
       .service-dialog {
         width: min(680px, calc(100% - 32px));
         max-height: min(80vh, 760px);
@@ -1327,6 +1382,9 @@
         .service-list {
           grid-template-columns: 1fr;
         }
+        .service-detail-grid {
+          grid-template-columns: 1fr;
+        }
         .step-list,
         .testing-grid {
           grid-template-columns: 1fr;
@@ -1446,21 +1504,18 @@
         <div class="nav-item">
           <a class="nav-link" href="#services_test">테스트 서비스 ▾</a>
           <div class="dropdown">
-            <a href="#services_test">성능 테스트</a>
-            <a href="#services_test">AI 성능 테스트</a>
+            <a href="#performance-test-detail">성능 테스트</a>
+            <a href="#ai-performance-test-detail">AI 성능 테스트</a>
           </div>
         </div>
         <div class="nav-item">
           <a class="nav-link" href="#services_consulting">컨설팅 서비스 ▾</a>
           <div class="dropdown">
-            <a href="#services_consulting">성능 진단</a>
-            <a href="#services_consulting">DB 튜닝</a>
-            <a href="#services_consulting">전문 AA/ITO 서비스</a>
+            <a href="#performance-analysis-detail">성능 진단</a>
+            <a href="#db-tuning-detail">DB 튜닝</a>
+            <a href="#aa-ito-detail">전문 AA/ITO 서비스</a>
           </div>
         </div>        
-        <div class="nav-item">
-          <a class="nav-link" href="#framework">진단 프레임워크</a>
-        </div>
         <div class="nav-item">
           <a class="nav-link" href="#contact">문의하기</a>
         </div>
@@ -1490,7 +1545,7 @@
         단순 현상 확인을 넘어 데이터에 기반한 최적의 해안을 제공합니다.
       </p>
       <div class="hero-btns">
-        <a class="btn-primary" href="#services">핵심 서비스 보기 <span>↓</span></a>
+        <a class="btn-primary" href="#services_test">핵심 서비스 보기 <span>↓</span></a>
         <a class="btn-outline" href="#about">회사 소개</a>
       </div>
     </div>
@@ -1556,7 +1611,7 @@
                   </tr>
                   <tr>
                     <th>영문 표기</th>
-                    <td>ENPO Labs (endpointlab.io)</td>
+                    <td>ENPO LABS (endpointlab.io)</td>
                   </tr>
                   <tr>
                     <th>핵심 업종</th>
@@ -1672,10 +1727,10 @@
         <div class="section-head">
           <div>
             <!-- <p class="kicker"><b></b> CORE CAPABILITIES</p> -->
-            <h2>문제를 발견하고, 한계를 검증하고,<br /><span>운영 가능하게 만듭니다.</span></h2>
+            <h2>실제 트래픽을 재현하고,<br /><span>수치에 근거한 한계 지점을 찾아냅니다.</span></h2>
           </div>
           <p>
-            단순 리포트 제출이 아닌 실제 운영 환경에서 즉각 체감할 수 있는 성능 개선과 아키텍처 안정화를 수행합니다.
+            단순 부하 발생을 넘어 실제 업무 흐름과 동시 접속 패턴을 반영해 병목과 한계치를 검증하고, 오픈 후에도 흔들리지 않을 운영 기준선을 제시합니다.
           </p>
         </div>
 
@@ -1716,7 +1771,70 @@
             <li>모델 및 부하 조건별 결과 비교와 개선점 도출</li>
           </ul>
         </template>
-        </template>
+      </section>
+
+      <section id="performance-test-detail" class="service-detail-section section shell">
+        <div class="service-detail-grid">
+          <div class="service-detail-copy">
+            <h2>성능 테스트</h2>
+              <br />
+              <br />
+            <p>실제 사용 패턴을 반영한 시나리오로 목표 부하를 검증하고, 오픈 전 성능 위험을 확인합니다.
+              <br />
+              <br />
+              성능 테스트를 통해 시스템 병목 지점을 찾아내고, 튜닝을 거쳐 궁극적으로 최종 사용자의 만족도를 향상시킵니다.
+              <br />
+              <br />
+              운영 환경에서의 리스크를 최소화하여 시스템 안정성과 유지 비용 절감 효과를 제공합니다.
+              <br />
+              <br />
+            </p>
+            <ul class="service-detail-list">
+              <li>부하·스트레스·스파이크 테스트 시나리오 설계 및 수행</li>
+              <li>응답시간, 처리량, 오류율 및 자원 사용량 분석</li>
+              <li>확장 조건과 개선 우선순위를 포함한 검증 결과 제공</li>
+              <li>AS-IS와 TO-BE 결과를 비교해 용량과 개선 우선순위 제시</li>
+              <li>개선을 통한 사용자 만족도 향상</li>
+              <li>운영 리스크 최소화</li>
+              <li>운영 반영 이후 식별된 이슈로 인한 재개발 비용 절감</li>
+              <br />
+            </ul>
+          </div>
+          <figure class="service-detail-media">
+            <img src="./이미지/perf_test_detail.gif" alt="성능 테스트 설명 이미지" loading="lazy" decoding="async" />
+          </figure>
+        </div>
+      </section>
+
+      <section id="ai-performance-test-detail" class="service-detail-section section shell">
+        <div class="service-detail-grid">
+          <div class="service-detail-copy">
+            <h2>AI 성능 테스트</h2>
+              <br />
+              <br />
+            <p>기존 성능 테스트 방식으로는 토큰 단위 스트리밍 응답을 평가할 수 없습니다.
+              <br />
+              <br />
+              AI 성능 테스트는 기존 성능 테스트와는 달리 응답 본문에 대한 분석이 필수적이며, 추론 엔진 특성에 따라 면밀히 살펴보아야 할 자원 사용량도 다릅니다.
+              <br />
+              <br />
+              엔포랩스는 이러한 AI 서비스의 토큰 스트리밍 특성을 반영해 요청~응답 완료 까지의 전체 성능을 측정합니다.
+              <br />
+              <br />
+              </p>
+            <ul class="service-detail-list">
+              <li>토큰 단위 지연에 대한 분석</li>
+              <li>동시 요청 수, 토큰 처리량 및 오류율 분석</li>
+              <li>프롬프트별 응답 품질/길이 차이 추적</li>
+              <li>스트리밍 응답 분석</li>
+              <li>모델 및 부하 조건별 결과 비교와 개선점 도출</li>
+              <br />
+            </ul>
+          </div>
+          <figure class="service-detail-media">
+            <img src="./이미지/ai_perf_test_detail.gif" alt="AI 성능 테스트 설명 이미지" loading="lazy" decoding="async" />
+          </figure>
+        </div>
       </section>
 
       <!-- 4. CORE SERVICES - 컨설팅 (서비스 상세) -->
@@ -1724,10 +1842,10 @@
         <div class="section-head">
           <div>
             <!-- <p class="kicker"><b></b> CORE CAPABILITIES</p> -->
-            <h2>문제를 발견하고, 한계를 검증하고,<br /><span>운영 가능하게 만듭니다.</span></h2>
+            <h2>측정된 문제에 <br /><span>실행 가능한 해답을 더합니다.</span></h2>
           </div>
           <p>
-            단순 리포트 제출이 아닌 실제 운영 환경에서 즉각 체감할 수 있는 성능 개선과 아키텍처 안정화를 수행합니다.
+            운영 환경에서 성능 이슈는 복합적으로 나타납니다. 이를 데이터 기반으로 분석해 실질적인 튜닝 포인트를 도출하고, 개선 전후 검증을 통해 체감 가능한 안정화를 완성합니다.
           </p>
         </div>
 
@@ -1781,88 +1899,103 @@
           </ul>
         </template>
       </section>
-      
-      <!-- 4. DIAGNOSTIC FRAMEWORK & E2E PIPELINE -->
-      <section id="framework" class="section dark-band">
-        <div class="shell">
-          <div class="section-head">
-            <div>
-              <!-- <p class="kicker"><b></b> DIAGNOSTIC FRAMEWORK</p> -->
-              <h2>현상이 아닌<br /><span>근본 원인을 추적합니다.</span></h2>
-            </div>
+
+      <section id="performance-analysis-detail" class="service-detail-section section shell">
+        <div class="service-detail-grid">
+          <div class="service-detail-copy">
+            <h2>성능 진단</h2>
+              <br />
+              <br />
             <p>
-              성능 문제는 단일 레이어에서 끝나지 않습니다. 사용자 요청이 데이터베이스 응답으로 돌아오기까지 전체 파이프라인을 동일 타임라인에서 입체적으로 분석합니다.
+              시스템 특성과 더불어 시스템 부하량, 자원 사용량 등 성능 지표를 토대로 성능 저하 요소를 식별해냅니다. 
+              <br />
+              <br />
+              재현이 어려운 지연 현상이 있더라도 요청 흐름과 다양한 성능 지표를 함께 살펴 근본 원인을 좁혀갑니다.
+              <br />
+              <br />
+              진단이 종료되면 처방전이 나가듯이, 성능 저하 요소에 대한 개선이 이뤄집니다.
+              <br />
+              <br />
+              전반적인 시스템 안정성과 사용자의 시스템 만족도를 향상시키는데 초점을 둔 활동이 진행됩니다.
+              <br />
+              <br />
             </p>
+            <ul class="service-detail-list">
+              <li>업무 구간별 지연 원인과 병목 지점 분석</li>
+              <li>로그와 성능 데이터 간 시간대별 상관 관계 분석</li>
+              <li>원인별 개선안과 적용 후 검증 방법 제시</li>
+              <br />
+            </ul>
           </div>
+          <figure class="service-detail-media">
+            <img src="./이미지/perf_analysis_detail.gif" alt="성능 진단 설명 이미지" loading="lazy" decoding="async" />
+          </figure>
+        </div>
+      </section>
 
-          <div class="framework-grid">
-            <aside class="framework-aside">
-              <strong>END-TO-END ANALYSIS</strong>
-              <h3>전 구간 타임라인 상관관계 분석</h3>
-              <p>
-                클라이언트 렌더링 지연, 네트워크 구간 병목, 웹/WAS 스레드 경합, DB Lock 및 I/O 대기를 분리 측정하여 추측 없는 명확한 인과관계를 규명합니다.
-              </p>
-            </aside>
-
-            <div class="step-list">
-              <article class="step-card">
-                <span class="s-num">STEP 01</span>
-                <h4>현상과 영향 범위 정의</h4>
-                <p>장애 발생 조건, 동시 사용자 규모, 피크 시간대와 배포·변경 이력을 확인해 분석 범위를 구체화합니다.</p>
-              </article>
-              <article class="step-card">
-                <span class="s-num">STEP 02</span>
-                <h4>데이터 수집과 상관관계 분석</h4>
-                <p>애플리케이션, 시스템 리소스 및 DB 성능 지표를 동일한 타임라인 위에서 다각도로 교차 분석합니다.</p>
-              </article>
-              <article class="step-card">
-                <span class="s-num">STEP 03</span>
-                <h4>병목 개선과 재검증</h4>
-                <p>원인별 튜닝안을 적용하고 동일 부하 조건에서 전후 성능을 비교해 개선 효과와 잔여 위험을 검증합니다.</p>
-              </article>
-              <article class="step-card">
-                <span class="s-num">STEP 04</span>
-                <h4>운영 기준과 가이드 제공</h4>
-                <p>일회성 조치로 끝나지 않도록 임계치, 상시 모니터링 지표와 개발·운영 가이드를 표준 문서화합니다.</p>
-              </article>
-            </div>
+      <section id="db-tuning-detail" class="service-detail-section section shell">
+        <div class="service-detail-grid">
+          <div class="service-detail-copy">
+            <h2>DB 튜닝</h2>
+              <br />
+              <br />
+            <p>
+              서비스가 성장할수록 비효율적인 쿼리, 누락된 인덱스 등 다양한 요인이 얽히며 응답 지연과 장애 위험이 커집니다.
+              <br />
+              <br />
+              무작정 서버나 인스턴스 스펙을 올리는 것은 비용만 증가할 뿐 근본적인 해법이 되기는 어렵습니다.
+              <br />
+              <br />
+              엔포랩스는 실제 운영 환경의 문제를 면밀히 분석해 데이터베이스 부하를 유발하는 SQL과 대기 구간을 찾아 서비스 영향도를 고려해 개선합니다.
+              <br />
+              <br />
+              단기적인 쿼리 수정에 그치지 않고, 안정적인 처리량 확보와 운영 비용 절감까지 이어지는 실질적인 개선안을 제공합니다.
+              <br />
+              <br />
+            </p>
+            <ul class="service-detail-list">
+              <li> SQL Plan, 인덱스 활용, 통계 정보 및 대기 이벤트 분석</li>
+              <li>쿼리 및 인덱스 설계 개선과 DB 설정 점검</li>
+              <li>변경 전/후 실행 성능 비교 및 안정성 확인</li>
+              <br />
+            </ul>
           </div>
+          <figure class="service-detail-media">
+            <img src="./이미지/db_tuning_detail.gif" alt="DB 튜닝 설명 이미지" loading="lazy" decoding="async" />
+          </figure>
+        </div>
+      </section>
 
-          <!-- SVG End-to-End Pipeline Visual -->
-          <div class="pipeline-box">
-            <h4>END-TO-END PERFORMANCE TELEMETRY PIPELINE</h4>
-            <div class="pipeline-svg-wrap">
-              <svg class="pipeline-svg" viewBox="0 0 900 170" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <line x1="90" y1="85" x2="810" y2="85" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="6 6" />
-                <line x1="90" y1="85" x2="810" y2="85" stroke="#ec5a0c" stroke-width="2.5" stroke-dasharray="12 180" />
-                <g transform="translate(90, 85)">
-                  <circle r="38" fill="#181e27" stroke="#ec5a0c" stroke-width="2.5" />
-                  <text y="-4" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">CLIENT</text>
-                  <text y="13" text-anchor="middle" fill="#b6c0ce" font-size="9.5">Web / Mobile</text>
-                </g>
-                <g transform="translate(270, 85)">
-                  <circle r="38" fill="#181e27" stroke="#91aebb" stroke-width="2.5" />
-                  <text y="-4" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">EDGE / GW</text>
-                  <text y="13" text-anchor="middle" fill="#b6c0ce" font-size="9.5">SSL / Proxy</text>
-                </g>
-                <g transform="translate(450, 85)">
-                  <circle r="42" fill="#181e27" stroke="#ec5a0c" stroke-width="3" />
-                  <text y="-4" text-anchor="middle" fill="#ec5a0c" font-size="12" font-weight="800">AP / WAS</text>
-                  <text y="13" text-anchor="middle" fill="#fff" font-size="9.5">JVM / Thread</text>
-                </g>
-                <g transform="translate(630, 85)">
-                  <circle r="38" fill="#181e27" stroke="#a9c2ac" stroke-width="2.5" />
-                  <text y="-4" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">CACHE / MQ</text>
-                  <text y="13" text-anchor="middle" fill="#b6c0ce" font-size="9.5">Async / I/O</text>
-                </g>
-                <g transform="translate(810, 85)">
-                  <circle r="38" fill="#181e27" stroke="#ec5a0c" stroke-width="2.5" />
-                  <text y="-4" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">DATABASE</text>
-                  <text y="13" text-anchor="middle" fill="#b6c0ce" font-size="9.5">SQL / Plan</text>
-                </g>
-              </svg>
-            </div>
+      <section id="aa-ito-detail" class="service-detail-section section shell">
+        <div class="service-detail-grid">
+          <div class="service-detail-copy">
+            <h2>AA/ITO 서비스</h2>
+              <br />
+              <br />
+            <p>
+              시스템의 성능, 확장성 및 유지보수성은 초기 설계 단계에서 결정됩니다.
+              <br />
+              <br />
+              엔포랩스의 전문 AA/ITO 서비스는 현행 시스템의 구조적 한계를 진단하고, 서비스 규모와 트래픽 특성을 반영한 최적의 애플리케이션 아키텍처를 설계합니다.
+              <br />
+              <br />
+              시스템의 설계/변경/운영 전 과정에 참여해 아키텍처 품질과 안정적인 운영을 지원합니다.
+              <br />
+              <br />
+              표준화된 개발 프레임워크 수립부터 레거시 현대화, 성능 확보까지 프로젝트의 기술적 리스크를 최소화하고 완성도를 높입니다.
+              <br />
+              <br />
+            </p>
+            <ul class="service-detail-list">
+              <li>아키텍처 표준과 기술 가이드 수립 및 준수 점검</li>
+              <li>시스템 변경·확장 시 성능과 운영 위험 검토</li>
+              <li>운영 이슈 분석과 지속 가능한 개선 과제 관리</li>
+              <br />
+            </ul>
           </div>
+          <figure class="service-detail-media">
+            <img src="./이미지/AA_ITO.png" alt="AA/ITO 서비스 설명 이미지" loading="lazy" decoding="async" />
+          </figure>
         </div>
       </section>
 
@@ -1935,12 +2068,12 @@
         </a>
       </div>
       <div class="footer-right">
-        <strong>엔포랩스 (Endpoint Labs)</strong><br />
+        <strong>엔포랩스 (ENPO LABS)</strong><br />
         IT 시스템 성능 진단 · 성능 테스트 · AP/DB 튜닝 · 성능/AA ITO · APM 솔루션<br />
         Email: <a href="mailto:contact@endpointlab.io">contact@endpointlab.io</a>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 ENDPOINT LABS. ALL RIGHTS RESERVED.</span>
+        <span>© 2026 ENPO LABS. ALL RIGHTS RESERVED.</span>
         <span>END-TO-END PERFORMANCE ASSURANCE</span>
       </div>
     </footer>
