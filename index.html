@@ -2196,45 +2196,104 @@
         }
 
         // Formsubmit 문의 폼 비동기 전송
-        const form = document.getElementById("contact-form");
-        if (form) {
-          form.onsubmit = async (event) => {
-            event.preventDefault();
-            const button = form.querySelector("button[type='submit']");
-            const status = form.querySelector(".form-status");
-            const data = new FormData(form);
-            data.set(
-              "_subject",
-              "[홈페이지 문의] " + (data.get("category") || "") + " · " + (data.get("name") || "")
-            );
+        // const form = document.getElementById("contact-form");
+        // if (form) {
+        //   form.onsubmit = async (event) => {
+        //     event.preventDefault();
+        //     const button = form.querySelector("button[type='submit']");
+        //     const status = form.querySelector(".form-status");
+        //     const data = new FormData(form);
+        //     data.set(
+        //       "_subject",
+        //       "[홈페이지 문의] " + (data.get("category") || "") + " · " + (data.get("name") || "")
+        //     );
 
-            button.disabled = true;
-            status.hidden = false;
-            status.className = "form-status";
-            status.textContent = "문의를 전송하고 있습니다.";
+        //     button.disabled = true;
+        //     status.hidden = false;
+        //     status.className = "form-status";
+        //     status.textContent = "문의를 전송하고 있습니다.";
 
-            try {
-              const response = await fetch(form.action, {
-                method: "POST",
-                body: data,
-                headers: { Accept: "application/json" },
-              });
-              const result = await response.json().catch(() => ({}));
-              if (!response.ok || result.success === "false" || result.success === false) {
-                throw new Error("전송 실패");
-              }
-              form.reset();
-              status.className = "form-status success";
-              status.textContent = "문의가 접수되었습니다. 확인 후 입력하신 이메일로 연락드리겠습니다.";
-            } catch (error) {
-              status.className = "form-status error";
-              status.textContent =
-                "전송하지 못했습니다. 잠시 후 다시 시도하거나 contact@enpolabs.com로 문의해 주세요.";
-            } finally {
-              button.disabled = false;
-            }
-          };
-        }
+        //     try {
+        //       const response = await fetch(form.action, {
+        //         method: "POST",
+        //         body: data,
+        //         headers: { Accept: "application/json" },
+        //       });
+        //       const result = await response.json().catch(() => ({}));
+        //       if (!response.ok || result.success === "false" || result.success === false) {
+        //         throw new Error("전송 실패");
+        //       }
+        //       form.reset();
+        //       status.className = "form-status success";
+        //       status.textContent = "문의가 접수되었습니다. 확인 후 입력하신 이메일로 연락드리겠습니다.";
+        //     } catch (error) {
+        //       status.className = "form-status error";
+        //       status.textContent =
+        //         "전송하지 못했습니다. 잠시 후 다시 시도하거나 contact@enpolabs.com로 문의해 주세요.";
+        //     } finally {
+        //       button.disabled = false;
+        //     }
+        //   };
+        // }
+// Formsubmit 문의 폼 비동기 전송
+const form = document.getElementById("contact-form");
+if (form) {
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const button = form.querySelector("button[type='submit']");
+    const status = form.querySelector(".form-status");
+    const data = new FormData(form);
+
+    // Payload를 JSON 객체로 변환
+    const payload = Object.fromEntries(data.entries());
+    payload._subject = `[홈페이지 문의] ${payload.category || ""} · ${payload.name || ""}`;
+
+    // 브라우저 자동완성으로 _honey가 채워졌는지 콘솔로 즉시 확인
+    if (payload._honey) {
+      console.warn("[Contact Form] _honey 필드에 값이 들어 있습니다:", payload._honey);
+    }
+
+    button.disabled = true;
+    status.hidden = false;
+    status.className = "form-status";
+    status.textContent = "문의를 전송하고 있습니다.";
+
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json().catch(() => null);
+      console.log("[FormSubmit 응답]", response.status, result);
+
+      const isSuccess =
+        response.ok &&
+        result !== null &&
+        (result.success === "true" || result.success === true);
+
+      if (!isSuccess) {
+        throw new Error(result?.message || `HTTP ${response.status} 전송 실패`);
+      }
+
+      form.reset();
+      status.className = "form-status success";
+      status.textContent = "문의가 접수되었습니다. 확인 후 입력하신 이메일로 연락드리겠습니다.";
+    } catch (error) {
+      console.error("[FormSubmit 오류]", error);
+      status.className = "form-status error";
+      status.textContent =
+        "전송하지 못했습니다. 잠시 후 다시 시도하거나 contact@enpolabs.com로 문의해 주세요.";
+    } finally {
+      button.disabled = false;
+    }
+  });
+}
+
       })();
 
       (() => {
